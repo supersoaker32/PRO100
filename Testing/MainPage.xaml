@@ -29,11 +29,11 @@
         </MenuBar>
         <Grid Grid.Row="1" Grid.Column="0" Background="AliceBlue" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
             <Viewbox HorizontalAlignment="Left" Height="65" Margin="30 10 20 10" VerticalAlignment="Center">
-                <BitmapIcon UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
+                <BitmapIcon Foreground="Black" UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
             </Viewbox>
             
-            <TextBlock Margin="0 5 20 0" FontSize="40" FontFamily="Assets/Fonts/Bridgnorth-Regular.ttf#Bridgnorth-Regular" Text="Name" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
-            <TextBlock FontStyle="Italic" Margin="0 35 20 0" FontSize="30" Text="Title" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+            <TextBlock Foreground="Black"  Margin="0 5 20 0" FontSize="40" FontFamily="Assets/Fonts/Bridgnorth-Regular.ttf#Bridgnorth-Regular" Text="Name" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+            <TextBlock Foreground="Black" FontStyle="Italic" Margin="0 35 20 0" FontSize="30" Text="Title" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
         </Grid>
 
         <Grid x:Name="info" Grid.Row="1" Grid.Column="1" Background="AliceBlue" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
@@ -68,7 +68,7 @@
         <ScrollViewer Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Background="AliceBlue" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
             <StackPanel x:Name="inventory" CornerRadius="22">
                 <Grid BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-                    <TextBlock FontSize="55" Text="test"/>
+                    <TextBlock Foreground="Black" FontSize="55" Text="Test"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>
