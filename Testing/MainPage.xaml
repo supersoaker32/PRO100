@@ -64,12 +64,12 @@
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
           <Grid x:Name="savingThrows" Grid.Row="0" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
-
+                <TextBlock Text="Saving Throws" FontSize ="34" Foreground="Black" HorizontalAlignment="Center"/>
           </Grid>
 
             <Grid x:Name="skills" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
-
-          </Grid>
+                <TextBlock Text="Skills" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+            </Grid>
 
             <Grid x:Name="stats" Grid.RowSpan="3">
                 <Grid.RowDefinitions>
@@ -81,12 +81,24 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <StackPanel x:Name="strength" Grid.Row="0" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3"/>
-                <StackPanel x:Name="dexterity" Grid.Row="1" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3"/>
-                <StackPanel x:Name="constitution" Grid.Row="2" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3"/>
-                <StackPanel x:Name="intelligence" Grid.Row="3" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3"/>
-                <StackPanel x:Name="wisdom" Grid.Row="4" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3"/>
-                <StackPanel x:Name="charisma" Grid.Row="5" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3"/>
+                <StackPanel x:Name="strength" Grid.Row="0" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock Text="Strength" FontSize ="15" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel x:Name="dexterity" Grid.Row="1" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock Text="Dexterity" FontSize ="13" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel x:Name="constitution" Grid.Row="2" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock Text="Constitution" FontSize ="11" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel x:Name="intelligence" Grid.Row="3" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock Text="Intelligence" FontSize ="11" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel x:Name="wisdom" Grid.Row="4" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock Text="Wisdom" FontSize ="15" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel x:Name="charisma" Grid.Row="5" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock Text="Charisma" FontSize ="15" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
             </Grid>
         </Grid>
 
