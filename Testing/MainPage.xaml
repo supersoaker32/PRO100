@@ -52,17 +52,42 @@
             
         </Grid>
 
-        <Grid Grid.Row="2" Grid.RowSpan="3" Background="AliceBlue" Margin="3" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20">
+        <Grid Grid.Row="2" Grid.RowSpan="3"  >
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="66*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="33*"/>
                 <RowDefinition Height="33*"/>
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
+          <Grid x:Name="savingThrows" Grid.Row="0" Grid.Column="1" Background="AliceBlue" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+
+          </Grid>
+
+            <Grid x:Name="skills" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="AliceBlue" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+
+          </Grid>
+
+            <Grid x:Name="stats" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackPanel x:Name="strength" Grid.Row="0" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="AliceBlue" Margin="3"/>
+                <StackPanel x:Name="dexterity" Grid.Row="1" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="AliceBlue" Margin="3"/>
+                <StackPanel x:Name="constitution" Grid.Row="2" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="AliceBlue" Margin="3"/>
+                <StackPanel x:Name="intelligence" Grid.Row="3" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="AliceBlue" Margin="3"/>
+                <StackPanel x:Name="wisdom" Grid.Row="4" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="AliceBlue" Margin="3"/>
+                <StackPanel x:Name="charisma" Grid.Row="5" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="AliceBlue" Margin="3"/>
+            </Grid>
         </Grid>
 
         <ScrollViewer Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Background="AliceBlue" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
