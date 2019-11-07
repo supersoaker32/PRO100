@@ -27,7 +27,7 @@
                 
             </MenuBarItem>
         </MenuBar>
-        <Grid Grid.Row="1" Grid.Column="0" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+        <Grid Grid.Row="1" Grid.Column="0" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
             <Viewbox HorizontalAlignment="Left" Height="65" Margin="30 10 20 10" VerticalAlignment="Center">
                 <BitmapIcon Foreground="Black" UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
             </Viewbox>
@@ -36,19 +36,19 @@
             <TextBlock Foreground="Black" FontStyle="Italic" Margin="0 35 20 0" FontSize="30" Text="Title" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
         </Grid>
 
-        <Grid x:Name="info" Grid.Row="1" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+        <Grid x:Name="info" Grid.Row="1" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
             
         </Grid>
 
-        <Grid x:Name="activeStats" Grid.Row="2" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+        <Grid x:Name="activeStats" Grid.Row="2" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="ActiveStats_Tapped">
             
         </Grid>
 
-        <Grid x:Name="spellsAbilities" Grid.Row="3" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+        <Grid x:Name="spellsAbilities" Grid.Row="3" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Spellbook_Tapped">
             
         </Grid>
 
-        <Grid x:Name="features" Grid.Row="4" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+        <Grid x:Name="features" Grid.Row="4" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Features_Tapped">
             
         </Grid>
 
@@ -63,15 +63,15 @@
                 <RowDefinition Height="33*"/>
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
-          <Grid x:Name="savingThrows" Grid.Row="0" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+            <Grid x:Name="savingThrows" Grid.Row="0" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
                 <TextBlock Text="Saving Throws" FontSize ="34" Foreground="Black" HorizontalAlignment="Center"/>
           </Grid>
 
-            <Grid x:Name="skills" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+            <Grid x:Name="skills" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
                 <TextBlock Text="Skills" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
             </Grid>
 
-            <Grid x:Name="stats" Grid.RowSpan="3">
+            <Grid x:Name="stats" Grid.RowSpan="3" Tapped="CharInfo_Tapped">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -102,10 +102,10 @@
             </Grid>
         </Grid>
 
-        <ScrollViewer Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
+        <ScrollViewer Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22" Tapped="Inventory_Tapped">
             <StackPanel x:Name="inventory" CornerRadius="22">
                 <Grid BorderBrush="DarkGray" BorderThickness="3" CornerRadius="8">
-                    <TextBlock Foreground="Black" FontSize="55" Text="Test"/>
+                    <TextBlock x:Name ="item" Foreground="Black" FontSize="55" Text="Test"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>

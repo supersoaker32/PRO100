@@ -32,5 +32,30 @@ namespace Testing
             //Present the thing
             //Ignore this
         }
+
+        private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }       
+        private void SkillsNProficiencies_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }        
+        private void ActiveStats_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }        
+        private void Spellbook_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }        
+        private void Features_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }        
+        private void Inventory_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
     }
 }
