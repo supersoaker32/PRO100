@@ -37,27 +37,27 @@ namespace Testing
 
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Application.Current.Exit();
+            this.Frame.Navigate(typeof(CharacterInfo));
         }       
         private void SkillsNProficiencies_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Application.Current.Exit();
+            this.Frame.Navigate(typeof(SkillsNProficiencies));
         }        
         private void ActiveStats_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Application.Current.Exit();
+            this.Frame.Navigate(typeof(ActiveStats));
         }        
         private void Spellbook_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Application.Current.Exit();
+            this.Frame.Navigate(typeof(Spellbook));
         }        
         private void Features_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Application.Current.Exit();
+            this.Frame.Navigate(typeof(Features));
         }        
         private void Inventory_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Application.Current.Exit();
+            this.Frame.Navigate(typeof(Inventory));
         }
     }
 }
