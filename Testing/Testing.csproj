@@ -123,6 +123,24 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubMenus\ActiveStats.xaml.cs">
+      <DependentUpon>ActiveStats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubMenus\CharacterInfo.xaml.cs">
+      <DependentUpon>CharacterInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubMenus\Features.xaml.cs">
+      <DependentUpon>Features.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubMenus\Inventory.xaml.cs">
+      <DependentUpon>Inventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubMenus\SkillsNProficiencies.xaml.cs">
+      <DependentUpon>SkillsNProficiencies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubMenus\Spellbook.xaml.cs">
+      <DependentUpon>Spellbook.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -147,6 +165,30 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SubMenus\ActiveStats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubMenus\CharacterInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubMenus\Features.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubMenus\Inventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubMenus\SkillsNProficiencies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubMenus\Spellbook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
