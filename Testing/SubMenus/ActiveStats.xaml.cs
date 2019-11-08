@@ -26,5 +26,10 @@ namespace Testing.SubMenus
         {
             this.InitializeComponent();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
