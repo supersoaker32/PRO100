@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Testing.Models;
 using Testing.SubMenus;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,9 +25,11 @@ namespace Testing
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private List<Spell> spells;
         public MainPage()
         {
             this.InitializeComponent();
+            spells = new List<Spell>();
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             //Make the thing
             //Write code for the thing
@@ -50,7 +53,7 @@ namespace Testing
         }        
         private void Spellbook_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Spellbook));
+            this.Frame.Navigate(typeof(Spellbook), spells);
         }        
         private void Features_Tapped(object sender, TappedRoutedEventArgs e)
         {
