@@ -8,7 +8,474 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid x:Name="mainGridCI" Background="#330A03">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="NameTitleGrid"
+              Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox HorizontalAlignment="Left" Height="65" Margin="30 10 20 10" VerticalAlignment="Center">
+                    <BitmapIcon Foreground="Black" UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
+                </Viewbox>
+
+                <TextBlock x:Name="name" Foreground="Black"  Margin="0 5 20 0" FontSize="40" FontFamily="Assets/Fonts/Bridgnorth-Regular.ttf#Bridgnorth-Regular" Text="Name" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Name="title" Foreground="Black" FontStyle="Italic" Margin="0 35 20 0" FontSize="30" Text="Title" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+
+                <Grid BorderBrush="DarkGray" BorderThickness="5" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock FontSize="40"
+                               Text="Change Name:"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Top"/>
+
+                    <TextBlock FontSize="40"
+                               Text="Change Title:"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"/>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBox x:Name="nameBox"
+                                 AcceptsReturn="False"
+                                 FontSize="40"/>
+                        <TextBox x:Name="titleBox"
+                                 AcceptsReturn="False"
+                                 FontSize="40"
+                                 Grid.Row="1"/>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Button x:Name="nameOk"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Content="OK"
+                                FontSize="24"
+                                BorderBrush="DarkGray"
+                                BorderThickness="3"
+                                Click="nameOk_Click"/>
+                        <Button x:Name="titleOk"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Content="OK"
+                                FontSize="24"
+                                Grid.Row="1"
+                                BorderBrush="DarkGray"
+                                BorderThickness="3"
+                                Click="titleOk_Click"/>
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+            <Grid x:Name="CharInfoGrid"
+              Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="33*"/>
+                </Grid.ColumnDefinitions>
+
+                <Rectangle x:Name="ClassLevel"
+                           Stroke="DarkGray"
+                           StrokeThickness="3"
+                           Grid.RowSpan="2"/>
+                <TextBlock Text="Class: "
+                           FontSize="40"
+                           VerticalAlignment="Top"/>
+                <TextBlock Text="Level: "
+                           FontSize="40"
+                           VerticalAlignment="Bottom"/>
+                <TextBlock x:Name="classBlock"
+                           FontSize="30"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Right"
+                           Text=""
+                           Margin="0 0 15 0"
+                           />
+                <TextBlock x:Name="levelBlock"
+                           FontSize="30"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Right"
+                           Text="1"
+                           Margin="0 0 15 0"
+                />
+                <Grid Grid.Row="1" BorderBrush="DarkGray" BorderThickness="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Change Class:"
+                               FontSize="15"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1"
+                               Text="Change Level:"
+                               FontSize="15"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="classBox" 
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="15"/>
+                    <TextBox x:Name="levelBox" 
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="15"/>
+
+                    <Button x:Name="classOk"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="15"
+                            Grid.Column="2"
+                            BorderBrush="DarkGray"
+                            BorderThickness="3" Click="classOk_Click"
+                            />
+                    <Button x:Name="levelOk"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="15"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            BorderBrush="DarkGray"
+                            BorderThickness="3" Click="levelOk_Click"
+                            />
+
+                </Grid>
+
+                <Rectangle x:Name="Background"
+                           Stroke="DarkGray"
+                           StrokeThickness="3"
+                           Grid.RowSpan="2"
+                           Grid.Column="1"/>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Background: "
+                               FontSize="40"/>
+                    <TextBlock x:Name="bgBlock"
+                               FontSize="30"
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+                <Grid Grid.Row="1" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <TextBlock Text="Change Background:"
+                               TextWrapping="Wrap"
+                               FontSize="10"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="bgBox"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="15"/>
+
+                    <Button x:Name="bgOk"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="15"
+                            Grid.Column="2"
+                            BorderBrush="DarkGray"
+                            BorderThickness="3" Click="bgOk_Click"
+                            />
+
+                </Grid>
+
+                <Rectangle x:Name="PlayerName"
+                           Stroke="DarkGray"
+                           StrokeThickness="3"
+                           Grid.RowSpan="2"
+                           Grid.Column="2"/>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Player Name: "
+                               FontSize="40"/>
+                    <TextBlock x:Name="pnBlock"
+                               FontSize="30"
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+                <Grid Grid.Row="1" Grid.Column="2" BorderBrush="DarkGray" BorderThickness="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <TextBlock Text="Change Player Name:"
+                               TextWrapping="Wrap"
+                               FontSize="10"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="pnBox"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="15"/>
+
+                    <Button x:Name="pnOk"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="15"
+                            Grid.Column="2"
+                            BorderBrush="DarkGray"
+                            BorderThickness="3"
+                            Click="pnOk_Click"/>
+
+                </Grid>
+
+                <Rectangle x:Name="race"
+                           Stroke="DarkGray"
+                           StrokeThickness="3"
+                           Grid.RowSpan="2"
+                           Grid.Row="2"/>
+                <StackPanel Grid.Row="2">
+                  <TextBlock Text="Race: "
+                             FontSize="40"/>
+                  <TextBlock x:Name="raceBlock"
+                             FontSize="30"
+                             HorizontalAlignment="Center"/>
+                </StackPanel>
+                <Grid Grid.Row="3" BorderBrush="DarkGray" BorderThickness="3">
+                  <Grid.RowDefinitions>
+                    <RowDefinition/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="20*"/>
+                  </Grid.ColumnDefinitions>
+
+
+
+                  <TextBlock Text="Change Race:"
+                             TextWrapping="Wrap"
+                             FontSize="10"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+
+                  <TextBox x:Name="raceBox"
+                           Grid.Column="1"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
+                           FontSize="15"/>
+
+                  <Button x:Name="raceOk"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Content="OK"
+                          FontSize="15"
+                          Grid.Column="2"
+                          BorderBrush="DarkGray"
+                          BorderThickness="3"
+                          Click="raceOk_Click"/>
+
+                </Grid>
+
+                <Rectangle x:Name="alignment"
+                           Stroke="DarkGray"
+                           StrokeThickness="3"
+                           Grid.RowSpan="2"
+                           Grid.Row="2"
+                           Grid.Column="1"/>
+                <StackPanel Grid.Row="2"
+                            Grid.Column="1">
+                  <TextBlock Text="Alignment: "
+                             FontSize="40"/>
+                  <TextBlock x:Name="alignmentBlock"
+                             FontSize="30"
+                             HorizontalAlignment="Center"/>
+                </StackPanel>
+                <Grid Grid.Row="3" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="3">
+                  <Grid.RowDefinitions>
+                    <RowDefinition/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="20*"/>
+                  </Grid.ColumnDefinitions>
+
+
+
+                  <TextBlock Text="Change Alignment:"
+                             TextWrapping="Wrap"
+                             FontSize="10"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+
+                  <TextBox x:Name="alignmentBox"
+                           Grid.Column="1"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
+                           FontSize="15"/>
+
+                  <Button x:Name="alignmentOk"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Content="OK"
+                          FontSize="15"
+                          Grid.Column="2"
+                          BorderBrush="DarkGray"
+                          BorderThickness="3"
+                          Click="alignmentOk_Click"/>
+
+                </Grid>
+
+                <Rectangle x:Name="EXPCurrentGoal"
+                           Stroke="DarkGray"
+                           StrokeThickness="3"
+                           Grid.RowSpan="2"
+                           Grid.Row="2"
+                           Grid.Column="2"/>
+                <TextBlock Text="Current EXP: "
+                           FontSize="25"
+                           VerticalAlignment="Top"
+                           Grid.Row="2"
+                           Grid.Column="2"/>
+                <TextBlock Text="Goal EXP: "
+                           FontSize="25"
+                           VerticalAlignment="Bottom"
+                           Grid.Row="2"
+                           Grid.Column="2"/>
+                <TextBlock x:Name="currentBlock"
+                           FontSize="30"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Right"
+                           Text="0"
+                           Margin="0 0 15 0"
+                           Grid.Row="2"
+                           Grid.Column="2"/>
+                <TextBlock x:Name="goalBlock"
+                           FontSize="30"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Right"
+                           Text="350"
+                           Margin="0 0 15 0"
+                           Grid.Row="2"
+                           Grid.Column="2"/>
+                <Grid Grid.Row="3" Grid.Column="2" BorderBrush="DarkGray" BorderThickness="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Change Current EXP:"
+                               FontSize="15"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="1"
+                               Text="Change Goal EXP:"
+                               FontSize="15"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap"/>
+
+                    <TextBox x:Name="currentBox" 
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="15"/>
+                    <TextBox x:Name="goalBox" 
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="15"/>
+
+                    <Button x:Name="currentOk"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="15"
+                            Grid.Column="2"
+                            BorderBrush="DarkGray"
+                            BorderThickness="3" 
+                            Click="currentEXPOk_Click"
+                            />
+                    <Button x:Name="goalOk"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="15"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            BorderBrush="DarkGray"
+                            BorderThickness="3" 
+                            Click="goalEXPOk_Click"
+                            />
+
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+            
+        </Grid>
     </Grid>
 </Page>
