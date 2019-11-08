@@ -8,7 +8,120 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="#330A03">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="12*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition  Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid x:Name="savingThrows"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="33*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="initiative"
+                  BorderBrush="#102E66"
+                  Background="PapayaWhip"
+                  BorderThickness="8" 
+                  Margin="5,5,5,5" 
+                  CornerRadius="20"
+            >
+
+            </Grid>
+
+            <Grid x:Name="speed"
+                  BorderBrush="#102E66"
+                  Background="PapayaWhip"
+                  BorderThickness="8" 
+                  Margin="5,5,5,5" 
+                  CornerRadius="20" Grid.Row="1"
+            />
+
+            <Grid x:Name="deathSaves"
+                  BorderBrush="#102E66"
+                  Background="PapayaWhip"
+                  BorderThickness="8" 
+                  Margin="5,5,5,5" 
+                  CornerRadius="20" 
+                  Grid.Row="2"
+            />
+        </Grid>
+
+        <Grid x:Name="stats">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="33*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="armorClass"
+                  BorderBrush="#102E66"
+                  Background="PapayaWhip"
+                  BorderThickness="8" 
+                  Margin="5,5,5,5" 
+                  CornerRadius="20"
+            >
+                <TextBlock x:Name="armorClassText" Text="Armor Class" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,277"/>
+            </Grid>
+
+            <Grid x:Name="maxHP"
+                  BorderBrush="#102E66"
+                  Background="PapayaWhip"
+                  BorderThickness="8" 
+                  Margin="5,5,5,5" 
+                  CornerRadius="20"
+                  Grid.Column="1"
+            >
+                <TextBlock x:Name="maxHPText" Text="Max HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,282"/>
+            </Grid>
+
+            <Grid x:Name="tempHP"
+                  BorderBrush="#102E66"
+                  Background="PapayaWhip"
+                  BorderThickness="8" 
+                  Margin="5,5,5,5" 
+                  CornerRadius="20"
+                  Grid.Column="2"
+            >
+                <TextBlock x:Name="tempHPText" Text="Temp HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,284"/>
+            </Grid>
+
+            <Grid x:Name="currentHP"
+                  BorderBrush="#102E66"
+                  Background="PapayaWhip"
+                  BorderThickness="8" 
+                  Margin="5,5,5,5" 
+                  CornerRadius="20"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="3"
+            >
+                <TextBlock x:Name="currentHPText" Text="Current HP" TextAlignment="Center" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,16,0,414" Width="384"/>
+            </Grid>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Button x:Name="BackButton" 
+                    Content="Back" 
+                    FontSize="38" 
+                    Background="White" 
+                    CornerRadius="15"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="20 25"
+            />
+        </StackPanel>
 
     </Grid>
 </Page>
