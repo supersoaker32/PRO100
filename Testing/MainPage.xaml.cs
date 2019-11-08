@@ -27,6 +27,7 @@ namespace Testing
         public MainPage()
         {
             this.InitializeComponent();
+
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             //Make the thing
             //Write code for the thing
