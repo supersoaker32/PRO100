@@ -9,8 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="#330A03">
-        <ScrollViewer>
-            <StackPanel x:Name="Spells"/>
+        <ScrollViewer Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
+            <StackPanel x:Name="Spells" Tapped="Spells_Tapped" Background="Transparent"/>
         </ScrollViewer>
     </Grid>
 </Page>

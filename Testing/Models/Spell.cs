@@ -12,37 +12,32 @@ namespace Testing.Models
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private String spellName;
-        private String description;
+        private String spellName = "SpellName";
 
         public String SpellName
         {
             get { return spellName; }
-            set 
-            { 
+            set
+            {
                 spellName = value;
                 FieldChanged();
             }
         }
 
-        public String Description
+        private String spellDescription = "SpellDescription";
+
+        public String SpellDescription
         {
-            get { return description; }
+            get { return spellDescription; }
             set
             {
-                description = value;
+                spellDescription = value;
                 FieldChanged();
             }
         }
-
-
         protected void FieldChanged([CallerMemberName] string field = null)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(field));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
-
     }
 }
