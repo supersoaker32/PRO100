@@ -27,9 +27,11 @@ namespace Testing
     public sealed partial class MainPage : Page
     {
         public static InventoryData inventoryElements = new InventoryData();
+        private List<Spell> spells;
         public MainPage()
         {
             this.InitializeComponent();
+            spells = new List<Spell>();
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
         }
 
@@ -47,8 +49,8 @@ namespace Testing
         }
         private void Spellbook_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Spellbook));
-        }
+            this.Frame.Navigate(typeof(Spellbook), spells);
+        }        
         private void Features_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Features));
