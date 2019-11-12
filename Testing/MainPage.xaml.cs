@@ -26,13 +26,18 @@ namespace Testing
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public static InventoryData inventoryElements = new InventoryData();
-        private List<Spell> spells;
         public MainPage()
         {
             this.InitializeComponent();
-            spells = new List<Spell>();
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
+            if ((App.Current as App).SpellsList == null)
+            {
+                (App.Current as App).SpellsList = new List<Spell>();
+            }
+            if ((App.Current as App).Inventory == null)
+            {
+                (App.Current as App).Inventory = new InventoryData();
+            }
         }
 
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
@@ -49,61 +54,88 @@ namespace Testing
         }
         private void Spellbook_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Spellbook), spells);
-        }        
+            this.Frame.Navigate(typeof(Spellbook));
+        }
         private void Features_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Features));
         }
         private void Inventory_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Inventory), inventoryElements);
+            this.Frame.Navigate(typeof(Inventory));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            #region SetAndDisplayInventory
-            if (e.Parameter as InventoryData != null)
+            #region DisplaySpells
+            Spells.Children.Clear();
+            foreach (Spell spell in (App.Current as App).SpellsList)
             {
-                InventoryData par = e.Parameter as InventoryData;
-                if (par.Items != null)
+                Grid grid = new Grid();
+                grid.RowDefinitions.Add(new RowDefinition());
+                grid.RowDefinitions.Add(new RowDefinition());
+
+                SolidColorBrush color = new SolidColorBrush();
+                color.Color = Colors.Black;
+
+                TextBlock spellName = new TextBlock();
+                spellName.Foreground = color;
+                spellName.FontSize = 32;
+                spellName.Text = spell.SpellName;
+                Grid.SetRow(spellName, 0);
+                grid.Children.Add(spellName);
+
+                TextBlock spellDescription = new TextBlock();
+                spellDescription.Foreground = color;
+                spellDescription.FontSize = 32;
+                spellDescription.Text = spell.SpellDescription;
+                Grid.SetRow(spellDescription, 1);
+                grid.Children.Add(spellDescription);
+
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Colors.DarkGray;
+                grid.BorderBrush = brush;
+                grid.BorderThickness = new Thickness(3);
+                grid.CornerRadius = new CornerRadius(8);
+
+                Spells.Children.Add(grid);
+            }
+            #endregion
+
+            #region DisplayInventory
+            inventory.Children.Clear();
+            if ((App.Current as App).Inventory.Items != null)
+            {
+                foreach (Item itemObject in (App.Current as App).Inventory.Items)
                 {
-                    inventory.Children.Clear();
-                    inventoryElements.Items.Clear();
-                    foreach (Item itemObject in par.Items)
-                    {
-                        //Create new shape and brush
-                        TextBlock item = new TextBlock();
-                        SolidColorBrush color = new SolidColorBrush();
+                    
+                    Create new shape and brush
+                    TextBlock item = new TextBlock();
+                    SolidColorBrush color = new SolidColorBrush();
 
-                        //Set color
-                        color.Color = Colors.Black;
-                        item.Foreground = color;
-                        item.FontSize = 55;
-                        Grid grid = new Grid();
-                        SolidColorBrush brush = new SolidColorBrush();
-                        brush.Color = Colors.DarkGray;
-                        grid.BorderBrush = brush;
-                        grid.BorderThickness = new Thickness(3);
-                        grid.CornerRadius = new CornerRadius(8);
-                        item.Text = itemObject.Name;
-                        grid.Children.Add(item);
-                        inventory.Children.Add(grid);
-                        inventoryElements.Items.Add(itemObject);
-
-                    }
+                    //Set color
+                    color.Color = Colors.Black;
+                    item.Foreground = color;
+                    item.FontSize = 55;
+                    Grid grid = new Grid();
+                    SolidColorBrush brush = new SolidColorBrush();
+                    brush.Color = Colors.DarkGray;
+                    grid.BorderBrush = brush;
+                    grid.BorderThickness = new Thickness(3);
+                    grid.CornerRadius = new CornerRadius(8);
+                    item.Text = itemObject.Name;
+                    grid.Children.Add(item);
+                    inventory.Children.Add(grid);
                 }
-                if (par.Money != null)
+            }
+            if ((App.Current as App).Inventory.Money != null)
+            {
+                int sum = 0;
+                foreach (int money in (App.Current as App).Inventory.Money)
                 {
-                    int sum = 0;
-                    foreach (int money in par.Money)
-                    {
-                        sum += money;
-                    }
-                    moneyVal.Text = sum.ToString();
-                    inventoryElements.Money[0] = sum;
+                    sum += money;
                 }
-
+                moneyVal.Text = sum.ToString();
             }
             #endregion
 

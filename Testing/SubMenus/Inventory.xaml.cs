@@ -25,11 +25,9 @@ namespace Testing.SubMenus
     /// </summary>
     public sealed partial class Inventory : Page
     {
-        public static InventoryData inventoryItems = new InventoryData();
         public Inventory()
         {
             this.InitializeComponent();
-
         }
 
         private void inputEntered_Click(object sender, RoutedEventArgs e)
@@ -53,60 +51,55 @@ namespace Testing.SubMenus
                 item.Text = input.Text;
                 grid.Children.Add(item);
                 inventory.Children.Add(grid);
-                inventoryItems.Items.Add(new Item(input.Text));
+                (App.Current as App).Inventory.Items.Add(new Item(input.Text));
                 input.Text = "";
             }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.Parameter as InventoryData != null)
+            if ((App.Current as App).Inventory.Items != null)
             {
-                InventoryData par = e.Parameter as InventoryData;
-                if (par.Items != null)
+                inventory.Children.Clear();
+                foreach (Item itemObject in (App.Current as App).Inventory.Items)
                 {
-                    inventory.Children.Clear();
-                    inventoryItems.Items.Clear();
-                    foreach (Item itemObject in par.Items)
-                    {
-                        //Create new shape and brush
-                        TextBlock item = new TextBlock();
-                        SolidColorBrush color = new SolidColorBrush();
+                    //Create new shape and brush
+                    TextBlock item = new TextBlock();
+                    SolidColorBrush color = new SolidColorBrush();
 
-                        //Set color
-                        color.Color = Colors.Black;
-                        item.Foreground = color;
-                        item.FontSize = 55;
-                        Grid grid = new Grid();
-                        SolidColorBrush brush = new SolidColorBrush();
-                        brush.Color = Colors.DarkGray;
-                        grid.BorderBrush = brush;
-                        grid.BorderThickness = new Thickness(3);
-                        grid.CornerRadius = new CornerRadius(8);
-                        item.Text = itemObject.Name;
-                        grid.Children.Add(item);
-                        inventory.Children.Add(grid);
-                        inventoryItems.Items.Add(itemObject);
+                    //Set color
+                    color.Color = Colors.Black;
+                    item.Foreground = color;
+                    item.FontSize = 55;
+                    Grid grid = new Grid();
+                    SolidColorBrush brush = new SolidColorBrush();
+                    brush.Color = Colors.DarkGray;
+                    grid.BorderBrush = brush;
+                    grid.BorderThickness = new Thickness(3);
+                    grid.CornerRadius = new CornerRadius(8);
+                    item.Text = itemObject.Name;
+                    grid.Children.Add(item);
+                    inventory.Children.Add(grid);
 
-                    }
-                }
-                if (par.Money != null)
-                {
-                    int sum = 0;
-                    foreach (int money in par.Money)
-                    {
-                        sum += money;
-                    }
-                    moneyDisplay.Text = sum.ToString();
                 }
             }
+            if ((App.Current as App).Inventory.Money != null)
+            {
+                int sum = 0;
+                foreach (int money in (App.Current as App).Inventory.Money)
+                {
+                    sum += money;
+                }
+                moneyDisplay.Text = sum.ToString();
+            }
+
 
 
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage), inventoryItems);
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         private void moneyEntered_Click(object sender, RoutedEventArgs e)
@@ -134,7 +127,7 @@ namespace Testing.SubMenus
             int.TryParse(sb.ToString(), out val);
             initialVal += val;
             moneyDisplay.Text = initialVal.ToString();
-            inventoryItems.Money[0] = initialVal;
+            (App.Current as App).Inventory.Money[0] = initialVal;
             moneyInput.Text = "";
         }
     }
