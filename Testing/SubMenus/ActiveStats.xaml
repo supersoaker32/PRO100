@@ -120,6 +120,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Margin="20 25"
+                    Click="BackButton_Click"
             />
         </StackPanel>
 
