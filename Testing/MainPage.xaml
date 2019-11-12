@@ -45,7 +45,14 @@
         </Grid>
 
         <Grid x:Name="spellsAbilities" Grid.Row="3" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Spellbook_Tapped">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
             <TextBlock Text="Spells and Abilities" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+            <ScrollViewer Background="PapayaWhip" Grid.Row="1">
+                <StackPanel x:Name="Spells" Background="Transparent"/>
+            </ScrollViewer>
         </Grid>
 
         <Grid x:Name="features" Grid.Row="4" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Features_Tapped">
