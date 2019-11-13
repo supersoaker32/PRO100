@@ -30,13 +30,13 @@ namespace Testing
         {
             this.InitializeComponent();
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
-            if ((App.Current as App).SpellsList == null)
+            if ((App.Current as App).Character.Spellbook == null)
             {
-                (App.Current as App).SpellsList = new List<Spell>();
+                (App.Current as App).Character.Spellbook = new List<Spell>();
             }
-            if ((App.Current as App).Inventory == null)
+            if ((App.Current as App).Character.Inventory == null)
             {
-                (App.Current as App).Inventory = new InventoryData();
+                (App.Current as App).Character.Inventory = new InventoryData();
             }
         }
 
@@ -69,7 +69,7 @@ namespace Testing
         {
             #region DisplaySpells
             Spells.Children.Clear();
-            foreach (Spell spell in (App.Current as App).SpellsList)
+            foreach (Spell spell in (App.Current as App).Character.Spellbook)
             {
                 Grid grid = new Grid();
                 grid.RowDefinitions.Add(new RowDefinition());
@@ -104,12 +104,12 @@ namespace Testing
 
             #region DisplayInventory
             inventory.Children.Clear();
-            if ((App.Current as App).Inventory.Items != null)
+            if ((App.Current as App).Character.Inventory.Items != null)
             {
-                foreach (Item itemObject in (App.Current as App).Inventory.Items)
+                foreach (Item itemObject in (App.Current as App).Character.Inventory.Items)
                 {
                     
-                    Create new shape and brush
+                    //Create new shape and brush
                     TextBlock item = new TextBlock();
                     SolidColorBrush color = new SolidColorBrush();
 
@@ -128,10 +128,10 @@ namespace Testing
                     inventory.Children.Add(grid);
                 }
             }
-            if ((App.Current as App).Inventory.Money != null)
+            if ((App.Current as App).Character.Inventory.Money != null)
             {
                 int sum = 0;
-                foreach (int money in (App.Current as App).Inventory.Money)
+                foreach (int money in (App.Current as App).Character.Inventory.Money)
                 {
                     sum += money;
                 }
