@@ -29,19 +29,19 @@
         </MenuBar>
         <Grid Grid.Row="1" Grid.Column="0" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
             <Viewbox HorizontalAlignment="Left" Height="65" Margin="30 10 20 10" VerticalAlignment="Center">
-                <BitmapIcon Foreground="Black" UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
+                <BitmapIcon  UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
             </Viewbox>
             
-            <TextBlock Foreground="Black"  Margin="0 5 20 0" FontSize="40" FontFamily="Assets/Fonts/Bridgnorth-Regular.ttf#Bridgnorth-Regular" Text="Name" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
-            <TextBlock Foreground="Black" FontStyle="Italic" Margin="0 35 20 0" FontSize="30" Text="Title" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+            <TextBlock Margin="0 5 20 0" FontSize="40" FontFamily="Assets/Fonts/Bridgnorth-Regular.ttf#Bridgnorth-Regular" Text="Name" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+            <TextBlock FontStyle="Italic" Margin="0 35 20 0" FontSize="30" Text="Title" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
         </Grid>
 
         <Grid x:Name="info" Grid.Row="1" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
-            <TextBlock Text="Information" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+            <TextBlock Text="Information" FontSize ="48" HorizontalAlignment="Center"/>
         </Grid>
 
         <Grid x:Name="activeStats" Grid.Row="2" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="ActiveStats_Tapped">
-            <TextBlock Text="Active Stats" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+            <TextBlock Text="Active Stats" FontSize ="48" HorizontalAlignment="Center"/>
         </Grid>
 
         <Grid x:Name="spellsAbilities" Grid.Row="3" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Spellbook_Tapped">
@@ -49,14 +49,14 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="7*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Spells and Abilities" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+            <TextBlock Text="Spells and Abilities" FontSize ="48" HorizontalAlignment="Center"/>
             <ScrollViewer Background="PapayaWhip" Grid.Row="1">
                 <StackPanel x:Name="Spells" Background="Transparent"/>
             </ScrollViewer>
         </Grid>
 
         <Grid x:Name="features" Grid.Row="4" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Features_Tapped">
-            <TextBlock Text="Features" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+            <TextBlock Text="Features" FontSize ="48" HorizontalAlignment="Center"/>
         </Grid>
 
         <Grid Grid.Row="2" Grid.RowSpan="3"  >
@@ -71,11 +71,11 @@
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
             <Grid x:Name="savingThrows" Grid.Row="0" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
-                <TextBlock Text="Saving Throws" FontSize ="34" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBlock Text="Saving Throws" FontSize ="34" HorizontalAlignment="Center"/>
           </Grid>
 
             <Grid x:Name="skills" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
-                <TextBlock Text="Skills" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBlock Text="Skills" FontSize ="48" HorizontalAlignment="Center"/>
             </Grid>
 
             <Grid x:Name="stats" Grid.RowSpan="3" Tapped="CharInfo_Tapped">
@@ -89,33 +89,33 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel x:Name="strength" Grid.Row="0" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Strength" FontSize ="15" Foreground="Black" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Strength" FontSize ="15" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel x:Name="dexterity" Grid.Row="1" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Dexterity" FontSize ="13" Foreground="Black" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Dexterity" FontSize ="13" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel x:Name="constitution" Grid.Row="2" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Constitution" FontSize ="11" Foreground="Black" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Constitution" FontSize ="11" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel x:Name="intelligence" Grid.Row="3" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Intelligence" FontSize ="11" Foreground="Black" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Intelligence" FontSize ="11" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel x:Name="wisdom" Grid.Row="4" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Wisdom" FontSize ="15" Foreground="Black" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Wisdom" FontSize ="15" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel x:Name="charisma" Grid.Row="5" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Charisma" FontSize ="15" Foreground="Black" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Charisma" FontSize ="15" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Grid>
         </Grid>
         <Grid x:Name="proficiencies" Grid.Row="1" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
-            <TextBlock Text="Proficiencies" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+            <TextBlock Text="Proficiencies" FontSize ="48" HorizontalAlignment="Center"/>
         </Grid>
 
         <Grid x:Name="money" Grid.Row="2" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Inventory_Tapped">
             <StackPanel>
-                <TextBlock Text="Money" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="moneyVal" Text="0" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBlock Text="Money" FontSize ="48"  HorizontalAlignment="Center"/>
+                <TextBlock x:Name="moneyVal" Text="0" FontSize ="48" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
 

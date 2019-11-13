@@ -36,12 +36,11 @@
 
             <TextBox x:Name="input"
                  Background="PapayaWhip"
-                 Foreground="Black"
+                 
                  FontSize="50"
                  Margin="10"
                  Header="Name of item: "
                  PlaceholderText="Item Name"
-                 PlaceholderForeground="Black"
                  />
         </Border>
         <Button x:Name="inputEntered"
@@ -49,7 +48,7 @@
                 FontSize="40"
                 Background="BlanchedAlmond"
                 Content="Add Item"
-                Foreground="Black"
+                
                 HorizontalAlignment="Center"
                 Click="inputEntered_Click"
                 BorderBrush="#102E66"
@@ -65,17 +64,13 @@
 
             <Border>
                 <TextBlock Text="Money: "
-                           FontSize="50"
-                           Foreground="Black"
-                           />
+                           FontSize="50"/>
             </Border>
             <TextBox x:Name="moneyInput"
                      Background="PapayaWhip"
-                     Foreground="Black"
                      FontSize="50"
                      Margin="10"
                      PlaceholderText="Amount"
-                     PlaceholderForeground="Black"
                      Grid.Column="1"
                      Grid.Row="1"
                      BorderBrush="#102E66"
@@ -88,7 +83,7 @@
                 FontSize="40"
                 Background="BlanchedAlmond"
                 Content="Add Money"
-                Foreground="Black"
+                
                 HorizontalAlignment="Center"
                 Click="moneyEntered_Click"
                 BorderBrush="#102E66"
@@ -98,12 +93,11 @@
                        Grid.Column ="1"
                        FontSize="40"
                        Text="0"
-                       Foreground="Black"
+                       
                        HorizontalAlignment="Center"/>
             <Button x:Name="backButton"
                     HorizontalAlignment="Center" 
-                    VerticalAlignment="Bottom" 
-                    Foreground="Black" 
+                    VerticalAlignment="Bottom"
                     Content="Back" 
                     FontSize="50" 
                     Click="backButton_Click"/>
