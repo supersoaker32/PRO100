@@ -102,6 +102,41 @@ namespace Testing
             }
             #endregion
 
+            #region DisplayFeatures
+            Features.Children.Clear();
+            foreach (Feature feature in (App.Current as App).Character.FeatureList)
+            {
+                Grid grid = new Grid();
+                grid.RowDefinitions.Add(new RowDefinition());
+                grid.RowDefinitions.Add(new RowDefinition());
+
+                SolidColorBrush color = new SolidColorBrush();
+                color.Color = Colors.Black;
+
+                TextBlock featureName = new TextBlock();
+                featureName.Foreground = color;
+                featureName.FontSize = 32;
+                featureName.Text = feature.FeatureName;
+                Grid.SetRow(featureName, 0);
+                grid.Children.Add(featureName);
+
+                TextBlock featureDescription = new TextBlock();
+                featureDescription.Foreground = color;
+                featureDescription.FontSize = 32;
+                featureDescription.Text = feature.FeatureDescription;
+                Grid.SetRow(featureDescription, 1);
+                grid.Children.Add(featureDescription);
+
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Colors.DarkGray;
+                grid.BorderBrush = brush;
+                grid.BorderThickness = new Thickness(3);
+                grid.CornerRadius = new CornerRadius(8);
+
+                Features.Children.Add(grid);
+            }
+            #endregion
+
             #region DisplayInventory
             inventory.Children.Clear();
             if ((App.Current as App).Character.Inventory.Items != null)

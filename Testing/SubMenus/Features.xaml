@@ -8,7 +8,44 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="#330A03">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
+            <StackPanel x:Name="FeaturesList" Background="Transparent"/>
+        </ScrollViewer>
+        <Grid Grid.Row="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2">
+                <TextBlock Text="Feature Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+            </Border>
+            <TextBox x:Name="featureName" Grid.Column="1"/>
 
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="1">
+                <TextBlock Text="Feature Description" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+            </Border>
+            <TextBox x:Name="featureDescription" Grid.Column="1" Grid.Row="1"/>
+
+            <Button x:Name="addFeatureButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="addFeatureButton_Click">
+                <TextBlock Text="Add Feature" FontSize="30" TextWrapping="Wrap"/>
+            </Button>
+            <Button x:Name="replaceFeatureButton" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="replaceFeatureButton_Click">
+                <TextBlock Text="Replace Feature" FontSize="30" TextWrapping="Wrap"/>
+            </Button>
+            <Button x:Name="backButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="backButton_Click">
+                <TextBlock Text="Back" FontSize="30" TextWrapping="Wrap"/>
+            </Button>
+        </Grid>
     </Grid>
 </Page>
