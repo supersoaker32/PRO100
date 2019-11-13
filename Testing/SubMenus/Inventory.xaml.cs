@@ -51,17 +51,17 @@ namespace Testing.SubMenus
                 item.Text = input.Text;
                 grid.Children.Add(item);
                 inventory.Children.Add(grid);
-                (App.Current as App).Inventory.Items.Add(new Item(input.Text));
+                (App.Current as App).Character.Inventory.Items.Add(new Item(input.Text));
                 input.Text = "";
             }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if ((App.Current as App).Inventory.Items != null)
+            if ((App.Current as App).Character.Inventory.Items != null)
             {
                 inventory.Children.Clear();
-                foreach (Item itemObject in (App.Current as App).Inventory.Items)
+                foreach (Item itemObject in (App.Current as App).Character.Inventory.Items)
                 {
                     //Create new shape and brush
                     TextBlock item = new TextBlock();
@@ -83,10 +83,10 @@ namespace Testing.SubMenus
 
                 }
             }
-            if ((App.Current as App).Inventory.Money != null)
+            if ((App.Current as App).Character.Inventory.Money != null)
             {
                 int sum = 0;
-                foreach (int money in (App.Current as App).Inventory.Money)
+                foreach (int money in (App.Current as App).Character.Inventory.Money)
                 {
                     sum += money;
                 }
@@ -127,7 +127,7 @@ namespace Testing.SubMenus
             int.TryParse(sb.ToString(), out val);
             initialVal += val;
             moneyDisplay.Text = initialVal.ToString();
-            (App.Current as App).Inventory.Money[0] = initialVal;
+            (App.Current as App).Character.Inventory.Money[0] = initialVal;
             moneyInput.Text = "";
         }
     }

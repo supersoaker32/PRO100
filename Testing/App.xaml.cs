@@ -28,14 +28,13 @@ namespace Testing
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         /// 
-        public List<Spell> SpellsList { get; set; }
-        public InventoryData Inventory { get; set; }
+        public Character Character { get; set; }
 
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
+            Character = new Character();
         }
 
         /// <summary>

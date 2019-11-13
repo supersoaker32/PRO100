@@ -34,7 +34,7 @@ namespace Testing.SubMenus
         {
             if (replaceSpellButton.Visibility == Visibility.Collapsed)
             {
-                (App.Current as App).SpellsList.Remove(((sender as Button).Parent as Grid).DataContext as Spell);
+                (App.Current as App).Character.Spellbook.Remove(((sender as Button).Parent as Grid).DataContext as Spell);
                 Spells.Children.Remove((sender as Button).Parent as Grid);
             }
         }
@@ -63,7 +63,7 @@ namespace Testing.SubMenus
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            foreach (Spell spell in (App.Current as App).SpellsList)
+            foreach (Spell spell in (App.Current as App).Character.Spellbook)
             {
                 Grid newGrid = new Grid();
                 newGrid.DataContext = spell;
@@ -260,7 +260,7 @@ namespace Testing.SubMenus
             newGrid.Children.Add(editButton);
 
             Spells.Children.Add(newGrid);
-            (App.Current as App).SpellsList.Add(newSpell);
+            (App.Current as App).Character.Spellbook.Add(newSpell);
 
             spellName.Text = "";
             spellDescription.Text = "";
@@ -269,7 +269,9 @@ namespace Testing.SubMenus
         private void replaceSpellButton_Click(object sender, RoutedEventArgs e)
         {
             Grid newGrid = null;
-            Spell replacedSpell = new Spell();
+            Spell newSpell = new Spell();
+            Spell replacedSpell = editedGrid.DataContext as Spell;
+
             foreach (object spellsChild in Spells.Children)
             {
                 foreach (object sendersChild in ((sender as Button).Parent as Grid).Children)
@@ -278,11 +280,11 @@ namespace Testing.SubMenus
                     {
                         if ((sendersChild as TextBox).Name == "spellName")
                         {
-                            replacedSpell.SpellName = (sendersChild as TextBox).Text;
+                            newSpell.SpellName = (sendersChild as TextBox).Text;
                         }
                         else if ((sendersChild as TextBox).Name == "spellDescription")
                         {
-                            replacedSpell.SpellDescription = (sendersChild as TextBox).Text;
+                            newSpell.SpellDescription = (sendersChild as TextBox).Text;
                         }
                     }
                 }
@@ -290,7 +292,7 @@ namespace Testing.SubMenus
                 if (newGrid == null && Spells.Children.IndexOf((spellsChild as Grid)) == Spells.Children.IndexOf(editedGrid))
                 {
                     newGrid = new Grid();
-                    newGrid.DataContext = replacedSpell;
+                    newGrid.DataContext = newSpell;
 
                     RowDefinition row1 = new RowDefinition();
                     RowDefinition row2 = new RowDefinition();
@@ -328,7 +330,7 @@ namespace Testing.SubMenus
 
                     row1TextBlock.Margin = new Thickness(5);
 
-                    row1TextBlock.Text = replacedSpell.SpellName;
+                    row1TextBlock.Text = newSpell.SpellName;
                     textBlock1Border.Child = row1TextBlock;
                     newGrid.Children.Add(textBlock1Border);
 
@@ -350,7 +352,7 @@ namespace Testing.SubMenus
 
                     row2TextBlock.Margin = new Thickness(5);
 
-                    row2TextBlock.Text = replacedSpell.SpellDescription;
+                    row2TextBlock.Text = newSpell.SpellDescription;
                     textBlock2Border.Child = row2TextBlock;
                     newGrid.Children.Add(textBlock2Border);
 
@@ -394,6 +396,9 @@ namespace Testing.SubMenus
 
             spellName.Text = "";
             spellDescription.Text = "";
+
+            (App.Current as App).Character.Spellbook.Insert((App.Current as App).Character.Spellbook.IndexOf(replacedSpell), newSpell);
+            (App.Current as App).Character.Spellbook.RemoveAt((App.Current as App).Character.Spellbook.IndexOf(replacedSpell));
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
