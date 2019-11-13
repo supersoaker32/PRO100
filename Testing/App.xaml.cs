@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Testing.Models;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -26,10 +27,14 @@ namespace Testing
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        /// 
+        public Character Character { get; set; }
+
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            Character = new Character();
         }
 
         /// <summary>
