@@ -8,44 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#330A03">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="8.5*"/>
-            <RowDefinition Height="1.5*"/>
-        </Grid.RowDefinitions>
-        <ScrollViewer Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
-            <StackPanel x:Name="Spells" Background="Transparent"/>
-        </ScrollViewer>
-        <Grid Grid.Row="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="7.5*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Border BorderBrush="Black" BorderThickness="2">
-                <TextBlock Text="Spell Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-            </Border>
-            <TextBox x:Name="spellName" Grid.Column="1"/>
+    <Grid>
 
-            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="1">
-                <TextBlock Text="Spell Description" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-            </Border>
-            <TextBox x:Name="spellDescription" Grid.Column="1" Grid.Row="1"/>
-
-            <Button x:Name="addSpellButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="addSpellButton_Click">
-                <TextBlock Text="Add Spell" FontSize="30" TextWrapping="Wrap"/>
-            </Button>
-            <Button x:Name="replaceSpellButton" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="replaceSpellButton_Click">
-                <TextBlock Text="Replace Spell" FontSize="30" TextWrapping="Wrap"/>
-            </Button>
-            <Button x:Name="backButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="backButton_Click">
-                <TextBlock Text="Back" FontSize="30" TextWrapping="Wrap"/>
-            </Button>
-        </Grid>
     </Grid>
 </Page>
