@@ -108,7 +108,7 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <Grid x:Name="proficiencies" Grid.Row="1" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
+        <Grid x:Name="proficiencies" Grid.Row="1" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
             <TextBlock Text="Proficiencies" FontSize ="48" HorizontalAlignment="Center"/>
         </Grid>
 

@@ -26,5 +26,10 @@ namespace Testing.SubMenus
         {
             this.InitializeComponent();
         }
+
+        private void back_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }

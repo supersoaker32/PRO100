@@ -9,6 +9,155 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" Margin="20, 10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="10, 0" Content="Acrobatics" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="acrobatics" PlaceholderText="" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Animal Handling" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="animalHandling" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Arcana" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="arcana" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Athletics" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="athletics" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Deception" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="deception" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="History" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="history" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Insight" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="insight" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Intimidation" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="intimidation" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Investigation" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="investigation" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Medicine" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="medicine" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Nature" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="nature" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Perception" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="perception" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Performance" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="performance" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Persuassion" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="persuassion" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Religion" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="religion" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Sleight Of Hand" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="sleightOfHand" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Margin="2" Content="Stealth" FontSize="23"/>
+                <TextBox Margin ="2" x:Name="stealth" Text="___" FontSize="23" Grid.Column="1"/>
+            </Grid>
+        </StackPanel>
+        <Button x:Name="back" 
+                Content="Back" 
+                FontSize="48"
+                Tapped="back_Tapped"
+                Grid.Column="1" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" 
+                Margin="40"/>
     </Grid>
 </Page>
