@@ -12,6 +12,7 @@ namespace Testing.Models
         {
             CharactersInfo = new CharInfo();
             Spellbook = new List<Spell>();
+            FeatureList = new List<Feature>();
             Inventory = new InventoryData();
         }
         private CharInfo charactersInfo;
@@ -26,6 +27,13 @@ namespace Testing.Models
         {
             get { return  spellbook; }
             set {  spellbook = value; }
+        }
+
+        private List<Feature> featureList;
+        public List<Feature> FeatureList
+        {
+            get { return featureList; }
+            set { featureList = value; }
         }
 
         private InventoryData inventory;
