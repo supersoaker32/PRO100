@@ -49,7 +49,18 @@
         </Grid>
 
         <Grid x:Name="features" Grid.Row="4" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Features_Tapped">
+<<<<<<< HEAD
             <TextBlock Text="Features" FontSize ="48" Foreground="Black" HorizontalAlignment="Center"/>
+=======
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Features" FontSize ="48" HorizontalAlignment="Center"/>
+            <ScrollViewer Background="PapayaWhip" Grid.Row="1">
+                <StackPanel x:Name="Features" Background="Transparent"/>
+            </ScrollViewer>
+>>>>>>> master
         </Grid>
 
         <Grid Grid.Row="2" Grid.RowSpan="3"  >
