@@ -34,5 +34,14 @@ namespace Testing.Models
             get { return inventory; }
             set { inventory = value; }
         }
+        private SkillsAndProficienciesData snpData;
+
+        public SkillsAndProficienciesData SnPData
+        {
+            get { return snpData; }
+            set { snpData = value; }
+        }
+
+
     }
 }
