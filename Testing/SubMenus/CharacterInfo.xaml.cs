@@ -197,5 +197,286 @@ namespace Testing.SubMenus
                 goalBox.Text = "";
             }
         }
+
+        private void strengthOk_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (strengthBox.Text.Trim().Length > 0)
+            {
+                char[] goalAsChar = strengthBox.Text.Trim().ToCharArray();
+                for (int i = 0; i < goalAsChar.Length; i++)
+                {
+                    if (goalAsChar[i] >= 48 && goalAsChar[i] <= 57)
+                    {
+                        sb.Append(goalAsChar[i]);
+                    }
+                }
+
+                StrBlock.Text = sb.ToString();
+                strengthBox.Text = "";
+
+                int mod = 0;
+                int statnum = 0;
+                string stat = sb.ToString();
+
+                Int32.TryParse(stat, out statnum);
+                statnum -= 10;
+                mod = statnum / 2;
+                if(mod >= 0)
+                {
+                    strModBlock.Text =  "+" + mod.ToString();
+                }
+                else if (mod < 0 && sb.ToString().Length > 0)
+                {
+                    strModBlock.Text = mod.ToString();
+                }
+
+
+            }
+            else
+            {
+                strengthBox.Text = "";
+                strModBlock.Text = "";
+            }
+        }
+
+        private void dexOk_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (dexBox.Text.Trim().Length > 0)
+            {
+                char[] goalAsChar = dexBox.Text.Trim().ToCharArray();
+                for (int i = 0; i < goalAsChar.Length; i++)
+                {
+                    if (goalAsChar[i] >= 48 && goalAsChar[i] <= 57)
+                    {
+                        sb.Append(goalAsChar[i]);
+                    }
+                }
+
+                dexBlock.Text = sb.ToString();
+                dexBox.Text = "";
+
+                int mod = 0;
+                int statnum = 0;
+                string stat = sb.ToString();
+
+                Int32.TryParse(stat, out statnum);
+                statnum -= 10;
+                mod = statnum / 2;
+                if (mod >= 0)
+                {
+                    dexModBlock.Text = "+" + mod.ToString();
+                }
+                else if (mod < 0 && sb.ToString().Length > 0)
+                {
+                    dexModBlock.Text = mod.ToString();
+                }
+
+
+            }
+            else
+            {
+                dexBox.Text = "";
+                dexModBlock.Text = "";
+            }
+        }
+
+        private void conOk_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (conBox.Text.Trim().Length > 0)
+            {
+                char[] goalAsChar = conBox.Text.Trim().ToCharArray();
+                for (int i = 0; i < goalAsChar.Length; i++)
+                {
+                    if (goalAsChar[i] >= 48 && goalAsChar[i] <= 57)
+                    {
+                        sb.Append(goalAsChar[i]);
+                    }
+                }
+
+                conBlock.Text = sb.ToString();
+                conBox.Text = "";
+
+                int mod = 0;
+                int statnum = 0;
+                string stat = sb.ToString();
+
+                Int32.TryParse(stat, out statnum);
+                statnum -= 10;
+                mod = statnum / 2;
+                if (mod >= 0)
+                {
+                    conModBlock.Text = "+" + mod.ToString();
+                }
+                else if (mod < 0 && sb.ToString().Length > 0)
+                {
+                    conModBlock.Text = mod.ToString();
+                }
+
+
+            }
+            else
+            {
+                conBox.Text = "";
+                conModBlock.Text = "";
+            }
+        }
+
+        private void intOk_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (intBox.Text.Trim().Length > 0)
+            {
+                char[] goalAsChar = intBox.Text.Trim().ToCharArray();
+                for (int i = 0; i < goalAsChar.Length; i++)
+                {
+                    if (goalAsChar[i] >= 48 && goalAsChar[i] <= 57)
+                    {
+                        sb.Append(goalAsChar[i]);
+                    }
+                }
+
+                intBlock.Text = sb.ToString();
+                intBox.Text = "";
+
+                int mod = 0;
+                int statnum = 0;
+                string stat = sb.ToString();
+
+                Int32.TryParse(stat, out statnum);
+                statnum -= 10;
+                mod = statnum / 2;
+                if (mod >= 0)
+                {
+                    intModBlock.Text = "+" + mod.ToString();
+                }
+                else if (mod < 0 && sb.ToString().Length > 0)
+                {
+                    intModBlock.Text = mod.ToString();
+                }
+
+
+            }
+            else
+            {
+                intBox.Text = "";
+                intModBlock.Text = "";
+            }
+        }
+
+        private void wisOk_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (wisBox.Text.Trim().Length > 0)
+            {
+                char[] goalAsChar = wisBox.Text.Trim().ToCharArray();
+                for (int i = 0; i < goalAsChar.Length; i++)
+                {
+                    if (goalAsChar[i] >= 48 && goalAsChar[i] <= 57)
+                    {
+                        sb.Append(goalAsChar[i]);
+                    }
+                }
+
+                wisBlock.Text = sb.ToString();
+                wisBox.Text = "";
+
+                int mod = 0;
+                int statnum = 0;
+                string stat = sb.ToString();
+
+                Int32.TryParse(stat, out statnum);
+                statnum -= 10;
+                mod = statnum / 2;
+                if (mod >= 0)
+                {
+                    wisModBlock.Text = "+" + mod.ToString();
+                }
+                else if (mod < 0 && sb.ToString().Length > 0)
+                {
+                    wisModBlock.Text = mod.ToString();
+                }
+
+
+            }
+            else
+            {
+                wisBox.Text = "";
+                wisModBlock.Text = "";
+            }
+        }
+
+        private void chaOk_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (chaBox.Text.Trim().Length > 0)
+            {
+                char[] goalAsChar = chaBox.Text.Trim().ToCharArray();
+                for (int i = 0; i < goalAsChar.Length; i++)
+                {
+                    if (goalAsChar[i] >= 48 && goalAsChar[i] <= 57)
+                    {
+                        sb.Append(goalAsChar[i]);
+                    }
+                }
+
+                chaBlock.Text = sb.ToString();
+                chaBox.Text = "";
+
+                int mod = 0;
+                int statnum = 0;
+                string stat = sb.ToString();
+
+                Int32.TryParse(stat, out statnum);
+                statnum -= 10;
+                mod = statnum / 2;
+                if (mod >= 0)
+                {
+                    chaModBlock.Text = "+" + mod.ToString();
+                }
+                else if (mod < 0 && sb.ToString().Length > 0)
+                {
+                    chaModBlock.Text = mod.ToString();
+                }
+
+
+            }
+            else
+            {
+                chaBox.Text = "";
+                chaModBlock.Text = "";
+            }
+        }
+
+        private void flawOk_Click(object sender, RoutedEventArgs e)
+        {
+            flawBlock.Text = flawBox.Text;
+            flawBox.Text = "";
+        }
+
+        private void bondOk_Click(object sender, RoutedEventArgs e)
+        {
+            bondBlock.Text = bondBox.Text;
+            bondBox.Text = "";
+        }
+
+        private void idealOk_Click(object sender, RoutedEventArgs e)
+        {
+            idealBlock.Text = idealBox.Text;
+            idealBox.Text = "";
+        }
+
+        private void personalityOk_Click(object sender, RoutedEventArgs e)
+        {
+            personalityBlock.Text = personalityBox.Text;
+            personalityBox.Text = "";
+        }
+
+        private void CIBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }
