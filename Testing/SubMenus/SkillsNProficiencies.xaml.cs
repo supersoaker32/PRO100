@@ -44,6 +44,13 @@ namespace Testing.SubMenus
             religion.DataContext = "Religion";
             sleightOfHand.DataContext = "Sleight Of Hand";
             stealth.DataContext = "Stealth";
+
+            strengthSaveMod.DataContext = "Strength";
+            dexteritySaveMod.DataContext = "Dexterity";
+            constitutionSaveMod.DataContext = "Constitution";
+            intelligenceSaveMod.DataContext = "Intelligence";
+            wisdomSaveMod.DataContext = "Wisdom";
+            charismaSaveMod.DataContext = "Charisma";
         }
 
         private void back_Tapped(object sender, TappedRoutedEventArgs e)
@@ -135,6 +142,7 @@ namespace Testing.SubMenus
                     (mod as SkillsDisplay).Text = modData[i++].ToString();
                 }
             }
+
         }
     }
 }

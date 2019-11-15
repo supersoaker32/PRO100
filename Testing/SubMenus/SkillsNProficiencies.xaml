@@ -11,14 +11,14 @@
 
     <Grid Background="PapayaWhip">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="savingThrows" Grid.Column="1" Margin="20">
+        <Grid x:Name="savingThrows" Margin="15 5">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -28,39 +28,45 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <uc:SkillsDisplay x:Name="strength"/>
-            <uc:SkillsDisplay x:Name="dexterity" Grid.Row="1"/>
-            <uc:SkillsDisplay x:Name="constitution" Grid.Column="1"/>
-            <uc:SkillsDisplay x:Name="intelligence" Grid.Row="1" Grid.Column="1"/>
-            <uc:SkillsDisplay x:Name="wisdom" Grid.Row="1" Grid.Column="2"/>
-            <uc:SkillsDisplay x:Name="charisma" Grid.Column="2"/>
+            <uc:SkillsDisplay x:Name="strengthSaveMod"/>
+            <uc:SkillsDisplay x:Name="dexteritySaveMod" Grid.Row="1"/>
+            <uc:SkillsDisplay x:Name="constitutionSaveMod" Grid.Column="1"/>
+            <uc:SkillsDisplay x:Name="intelligenceSaveMod" Grid.Row="1" Grid.Column="1"/>
+            <uc:SkillsDisplay x:Name="wisdomSaveMod" Grid.Row="1" Grid.Column="2"/>
+            <uc:SkillsDisplay x:Name="charismaSaveMod" Grid.Column="2"/>
         </Grid>
-        <StackPanel x:Name="modPanel" VerticalAlignment="Center" Margin="20, 10" Grid.Row="1">
-            <uc:SkillsDisplay x:Name="acrobatics"/>
-            <uc:SkillsDisplay x:Name="animalHandling"/>
-            <uc:SkillsDisplay x:Name="arcana"/>
-            <uc:SkillsDisplay x:Name="athletics"/>
-            <uc:SkillsDisplay x:Name="deception"/>
-            <uc:SkillsDisplay x:Name="history"/>
-            <uc:SkillsDisplay x:Name="insight"/>
-            <uc:SkillsDisplay x:Name="intimidation"/>
-            <uc:SkillsDisplay x:Name="investigation"/>
-            <uc:SkillsDisplay x:Name="medicine"/>
-            <uc:SkillsDisplay x:Name="nature"/>
-            <uc:SkillsDisplay x:Name="perception"/>
-            <uc:SkillsDisplay x:Name="performance"/>
-            <uc:SkillsDisplay x:Name="persuassion"/>
-            <uc:SkillsDisplay x:Name="religion"/>
-            <uc:SkillsDisplay x:Name="sleightOfHand"/>
-            <uc:SkillsDisplay x:Name="stealth"/>
-        </StackPanel>
+        <ScrollViewer  Grid.Row="1">
+            <StackPanel x:Name="modPanel" VerticalAlignment="Center" Margin="20, 10">
+                <uc:SkillsDisplay x:Name="acrobatics"/>
+                <uc:SkillsDisplay x:Name="animalHandling"/>
+                <uc:SkillsDisplay x:Name="arcana"/>
+                <uc:SkillsDisplay x:Name="athletics"/>
+                <uc:SkillsDisplay x:Name="deception"/>
+                <uc:SkillsDisplay x:Name="history"/>
+                <uc:SkillsDisplay x:Name="insight"/>
+                <uc:SkillsDisplay x:Name="intimidation"/>
+                <uc:SkillsDisplay x:Name="investigation"/>
+                <uc:SkillsDisplay x:Name="medicine"/>
+                <uc:SkillsDisplay x:Name="nature"/>
+                <uc:SkillsDisplay x:Name="perception"/>
+                <uc:SkillsDisplay x:Name="performance"/>
+                <uc:SkillsDisplay x:Name="persuassion"/>
+                <uc:SkillsDisplay x:Name="religion"/>
+                <uc:SkillsDisplay x:Name="sleightOfHand"/>
+                <uc:SkillsDisplay x:Name="stealth"/>
+            </StackPanel>
+        </ScrollViewer>
         <Button x:Name="back" 
                 Content="Back" 
                 FontSize="48"
                 Tapped="back_Tapped" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Bottom" 
-                Margin="20"/>
+                Margin="20"
+                BorderBrush="#102E66"
+                BorderThickness="8"
+                CornerRadius="22"
+                Grid.Column="1"/>
         <StackPanel Grid.Column="1"
                     Grid.Row="1"
                     BorderBrush="#102E66" 
@@ -69,21 +75,21 @@
                     CornerRadius="22">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="4*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="proficiencyInput" 
                          PlaceholderText="Proficiency Name"
-                         Background="PapayaWhip"/>
+                         Background="White"/>
                 <Button x:Name="addProficiency"
                         Grid.Column ="1"
                         FontSize="40"
                         Background="BlanchedAlmond"
-                        Content="Add Item"
+                        Content="Add"
                         HorizontalAlignment="Center"
                         BorderBrush="#102E66"
-                        BorderThickness="8"
-                        CornerRadius="22"
+                        BorderThickness="4"
+                        CornerRadius="10"
                         Tapped="addProficiency_Tapped"/>
             </Grid>
 

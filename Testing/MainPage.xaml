@@ -139,8 +139,22 @@
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
             <Grid x:Name="savingThrows" Grid.Row="0" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
                 <TextBlock Text="Saving Throws" FontSize ="34" HorizontalAlignment="Center"/>
-          </Grid>
+                <ScrollViewer Grid.Row="1">
+                    <StackPanel x:Name="savingThrowMods">
+                        <uc:SkillsDisplay x:Name="strengthSaveMod"/>
+                        <uc:SkillsDisplay x:Name="dexteritySaveMod"/>
+                        <uc:SkillsDisplay x:Name="constitutionSaveMod"/>
+                        <uc:SkillsDisplay x:Name="intelligenceSaveMod"/>
+                        <uc:SkillsDisplay x:Name="wisdomSaveMod"/>
+                        <uc:SkillsDisplay x:Name="charismaSaveMod"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
 
             <Grid x:Name="skills" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
                 <Grid.RowDefinitions>
