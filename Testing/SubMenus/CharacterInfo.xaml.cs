@@ -26,6 +26,84 @@ namespace Testing.SubMenus
         public CharacterInfo()
         {
             this.InitializeComponent();
+
+            name.Text = (App.Current as App).Character.CharactersInfo.CharacterName;
+            title.Text = (App.Current as App).Character.CharactersInfo.Title;
+
+            classBlock.Text = (App.Current as App).Character.CharactersInfo.CharacterClass;
+            levelBlock.Text = (App.Current as App).Character.CharactersInfo.Level.ToString();
+            pnBlock.Text = (App.Current as App).Character.CharactersInfo.PlayerName;
+            raceBlock.Text = (App.Current as App).Character.CharactersInfo.Race;
+            alignmentBlock.Text = (App.Current as App).Character.CharactersInfo.Allignment;
+            currentBlock.Text = (App.Current as App).Character.CharactersInfo.CurrentEXP.ToString();
+            goalBlock.Text = (App.Current as App).Character.CharactersInfo.GoalEXP.ToString();
+
+            bgBlock.Text = (App.Current as App).Character.CharactersInfo.Background[0];
+            personalityBlock.Text = (App.Current as App).Character.CharactersInfo.Background[1];
+            idealBlock.Text = (App.Current as App).Character.CharactersInfo.Background[2];
+            bondBlock.Text = (App.Current as App).Character.CharactersInfo.Background[3];
+            flawBlock.Text = (App.Current as App).Character.CharactersInfo.Background[4];
+
+            StrBlock.Text = (App.Current as App).Character.CharactersInfo.Stats[0].ToString();
+            dexBlock.Text = (App.Current as App).Character.CharactersInfo.Stats[1].ToString();
+            conBlock.Text = (App.Current as App).Character.CharactersInfo.Stats[2].ToString();
+            intBlock.Text = (App.Current as App).Character.CharactersInfo.Stats[3].ToString();
+            wisBlock.Text = (App.Current as App).Character.CharactersInfo.Stats[4].ToString();
+            chaBlock.Text = (App.Current as App).Character.CharactersInfo.Stats[5].ToString();
+
+            if((App.Current as App).Character.CharactersInfo.StatMods[0] < 0)
+            {
+                strModBlock.Text = (App.Current as App).Character.CharactersInfo.StatMods[0].ToString();
+            }
+            else
+            {
+                strModBlock.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[0].ToString();
+            }
+
+            if ((App.Current as App).Character.CharactersInfo.StatMods[1] < 0)
+            {
+                dexModBlock.Text = (App.Current as App).Character.CharactersInfo.StatMods[1].ToString();
+            }
+            else
+            {
+                dexModBlock.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[1].ToString();
+            }
+
+            if ((App.Current as App).Character.CharactersInfo.StatMods[2] < 0)
+            {
+                conModBlock.Text = (App.Current as App).Character.CharactersInfo.StatMods[2].ToString();
+            }
+            else
+            {
+                conModBlock.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[2].ToString();
+            }
+
+            if ((App.Current as App).Character.CharactersInfo.StatMods[3] < 0)
+            {
+                intModBlock.Text = (App.Current as App).Character.CharactersInfo.StatMods[3].ToString();
+            }
+            else
+            {
+                intModBlock.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[3].ToString();
+            }
+
+            if ((App.Current as App).Character.CharactersInfo.StatMods[4] < 0)
+            {
+                wisModBlock.Text = (App.Current as App).Character.CharactersInfo.StatMods[4].ToString();
+            }
+            else
+            {
+                wisModBlock.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[4].ToString();
+            }
+
+            if ((App.Current as App).Character.CharactersInfo.StatMods[5] < 0)
+            {
+                chaModBlock.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
+            }
+            else
+            {
+                chaModBlock.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
+            }
         }
 
         private void nameOk_Click(object sender, RoutedEventArgs e)
@@ -33,6 +111,7 @@ namespace Testing.SubMenus
             if(nameBox.Text.Trim().Length > 0)
             {
                 name.Text = nameBox.Text;
+                (App.Current as App).Character.CharactersInfo.CharacterName = nameBox.Text;
                 nameBox.Text = "";
             }
             else
@@ -45,6 +124,7 @@ namespace Testing.SubMenus
         private void titleOk_Click(object sender, RoutedEventArgs e)
         {
             title.Text = titleBox.Text;
+            (App.Current as App).Character.CharactersInfo.Title = titleBox.Text;
             titleBox.Text = "";
         }
 
@@ -53,6 +133,7 @@ namespace Testing.SubMenus
             if (classBox.Text.Trim().Length > 0)
             {
                 classBlock.Text = classBox.Text;
+                (App.Current as App).Character.CharactersInfo.CharacterClass = classBox.Text;
                 classBox.Text = "";
             }
             else
@@ -82,6 +163,7 @@ namespace Testing.SubMenus
                 if(x > 0 && x <= 20)
                 {
                     levelBlock.Text = text;
+                    (App.Current as App).Character.CharactersInfo.Level = x;
                     levelBox.Text = "";
                 }
                 else
@@ -101,6 +183,7 @@ namespace Testing.SubMenus
             if (bgBox.Text.Trim().Length > 0)
             {
                 bgBlock.Text = bgBox.Text;
+                (App.Current as App).Character.CharactersInfo.Background[0] = bgBox.Text;
                 bgBox.Text = "";
             }
             else
@@ -114,6 +197,7 @@ namespace Testing.SubMenus
             if (pnBox.Text.Trim().Length > 0)
             {
                 pnBlock.Text = pnBox.Text;
+                (App.Current as App).Character.CharactersInfo.PlayerName = pnBox.Text;
                 pnBox.Text = "";
             }
             else
@@ -127,6 +211,7 @@ namespace Testing.SubMenus
             if (raceBox.Text.Trim().Length > 0)
             {
                 raceBlock.Text = raceBox.Text;
+                (App.Current as App).Character.CharactersInfo.Race = raceBox.Text;
                 raceBox.Text = "";
             }
             else
@@ -140,6 +225,7 @@ namespace Testing.SubMenus
             if (alignmentBox.Text.Trim().Length > 0)
             {
                 alignmentBlock.Text = alignmentBox.Text;
+                (App.Current as App).Character.CharactersInfo.Allignment = alignmentBox.Text;
                 alignmentBox.Text = "";
             }
             else
@@ -162,7 +248,13 @@ namespace Testing.SubMenus
                     }
                 }
 
+                int x = 0;
+                string s = sb.ToString();
+
+                Int32.TryParse(s, out x);
+
                 currentBlock.Text = sb.ToString();
+                (App.Current as App).Character.CharactersInfo.CurrentEXP = x;
                 currentBox.Text = "";
 
 
@@ -187,7 +279,12 @@ namespace Testing.SubMenus
                     }
                 }
 
+                int x = 0;
+                string s = sb.ToString();
+                Int32.TryParse(s, out x);
+
                 goalBlock.Text = sb.ToString();
+                (App.Current as App).Character.CharactersInfo.GoalEXP = x;
                 goalBox.Text = "";
                 
 
@@ -220,9 +317,13 @@ namespace Testing.SubMenus
                 string stat = sb.ToString();
 
                 Int32.TryParse(stat, out statnum);
+                (App.Current as App).Character.CharactersInfo.Stats[0] = statnum;
                 statnum -= 10;
                 mod = statnum / 2;
-                if(mod >= 0)
+
+                (App.Current as App).Character.CharactersInfo.StatMods[0] = mod;
+
+                if (mod >= 0)
                 {
                     strModBlock.Text =  "+" + mod.ToString();
                 }
@@ -262,8 +363,12 @@ namespace Testing.SubMenus
                 string stat = sb.ToString();
 
                 Int32.TryParse(stat, out statnum);
+                (App.Current as App).Character.CharactersInfo.Stats[1] = statnum;
                 statnum -= 10;
                 mod = statnum / 2;
+
+                (App.Current as App).Character.CharactersInfo.StatMods[1] = mod;
+
                 if (mod >= 0)
                 {
                     dexModBlock.Text = "+" + mod.ToString();
@@ -304,8 +409,12 @@ namespace Testing.SubMenus
                 string stat = sb.ToString();
 
                 Int32.TryParse(stat, out statnum);
+                (App.Current as App).Character.CharactersInfo.Stats[2] = statnum;
                 statnum -= 10;
                 mod = statnum / 2;
+
+                (App.Current as App).Character.CharactersInfo.StatMods[2] = mod;
+
                 if (mod >= 0)
                 {
                     conModBlock.Text = "+" + mod.ToString();
@@ -346,8 +455,12 @@ namespace Testing.SubMenus
                 string stat = sb.ToString();
 
                 Int32.TryParse(stat, out statnum);
+                (App.Current as App).Character.CharactersInfo.Stats[3] = statnum;
                 statnum -= 10;
                 mod = statnum / 2;
+
+                (App.Current as App).Character.CharactersInfo.StatMods[3] = mod;
+
                 if (mod >= 0)
                 {
                     intModBlock.Text = "+" + mod.ToString();
@@ -388,8 +501,12 @@ namespace Testing.SubMenus
                 string stat = sb.ToString();
 
                 Int32.TryParse(stat, out statnum);
+                (App.Current as App).Character.CharactersInfo.Stats[4] = statnum;
                 statnum -= 10;
                 mod = statnum / 2;
+
+                (App.Current as App).Character.CharactersInfo.StatMods[4] = mod;
+
                 if (mod >= 0)
                 {
                     wisModBlock.Text = "+" + mod.ToString();
@@ -430,8 +547,12 @@ namespace Testing.SubMenus
                 string stat = sb.ToString();
 
                 Int32.TryParse(stat, out statnum);
+                (App.Current as App).Character.CharactersInfo.Stats[5] = statnum;
                 statnum -= 10;
                 mod = statnum / 2;
+
+                (App.Current as App).Character.CharactersInfo.StatMods[5] = mod;
+
                 if (mod >= 0)
                 {
                     chaModBlock.Text = "+" + mod.ToString();
@@ -453,24 +574,28 @@ namespace Testing.SubMenus
         private void flawOk_Click(object sender, RoutedEventArgs e)
         {
             flawBlock.Text = flawBox.Text;
+            (App.Current as App).Character.CharactersInfo.Background[4] = flawBox.Text;
             flawBox.Text = "";
         }
 
         private void bondOk_Click(object sender, RoutedEventArgs e)
         {
             bondBlock.Text = bondBox.Text;
+            (App.Current as App).Character.CharactersInfo.Background[3] = bondBox.Text;
             bondBox.Text = "";
         }
 
         private void idealOk_Click(object sender, RoutedEventArgs e)
         {
             idealBlock.Text = idealBox.Text;
+            (App.Current as App).Character.CharactersInfo.Background[2] = idealBox.Text;
             idealBox.Text = "";
         }
 
         private void personalityOk_Click(object sender, RoutedEventArgs e)
         {
             personalityBlock.Text = personalityBox.Text;
+            (App.Current as App).Character.CharactersInfo.Background[1] = personalityBox.Text;
             personalityBox.Text = "";
         }
 
