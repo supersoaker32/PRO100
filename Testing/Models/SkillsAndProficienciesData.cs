@@ -9,7 +9,6 @@ namespace Testing.Models
     public class SkillsAndProficienciesData
     {
         private List<String> proficiencies = new List<string>();
-
         public List<String> Proficiencies
         {
             get { return proficiencies; }
@@ -17,11 +16,17 @@ namespace Testing.Models
         }
 
         private int[] skillModifiers = new int[17];
-
         public int[] SkillModifiers
         {
             get { return skillModifiers; }
             set { skillModifiers = value; }
+        }
+
+        private int[] savingThrows = new int[6];
+        public int[] SavingThrows
+        {
+            get { return savingThrows; }
+            set { savingThrows = value; }
         }
     }
 }

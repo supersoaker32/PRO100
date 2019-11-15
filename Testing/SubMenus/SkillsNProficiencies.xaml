@@ -14,7 +14,28 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="modPanel" VerticalAlignment="Center" Margin="20, 10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="savingThrows" Grid.Column="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <uc:SkillsDisplay x:Name="strength"/>
+            <uc:SkillsDisplay x:Name="dexterity" Grid.Row="1"/>
+            <uc:SkillsDisplay x:Name="constitution" Grid.Column="1"/>
+            <uc:SkillsDisplay x:Name="intelligence" Grid.Row="1" Grid.Column="1"/>
+            <uc:SkillsDisplay x:Name="wisdom" Grid.Row="1" Grid.Column="2"/>
+            <uc:SkillsDisplay x:Name="charisma" Grid.Column="2"/>
+        </Grid>
+        <StackPanel x:Name="modPanel" VerticalAlignment="Center" Margin="20, 10" Grid.Row="1">
             <uc:SkillsDisplay x:Name="acrobatics"/>
             <uc:SkillsDisplay x:Name="animalHandling"/>
             <uc:SkillsDisplay x:Name="arcana"/>
@@ -36,12 +57,12 @@
         <Button x:Name="back" 
                 Content="Back" 
                 FontSize="48"
-                Tapped="back_Tapped"
-                Grid.Column="1" 
+                Tapped="back_Tapped" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Bottom" 
-                Margin="40"/>
-        <StackPanel Grid.Column="1"                          
+                Margin="20"/>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
                     BorderBrush="#102E66" 
                     BorderThickness="8" 
                     Margin="3"  

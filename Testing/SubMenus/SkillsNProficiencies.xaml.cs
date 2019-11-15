@@ -55,6 +55,13 @@ namespace Testing.SubMenus
                 int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
             }
 
+            modData = (App.Current as App).Character.SnPData.SavingThrows;
+            i = 0;
+            foreach (var mod in savingThrows.Children)
+            {
+                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+            }
+
             this.Frame.Navigate(typeof(MainPage));
         }
 
@@ -115,6 +122,15 @@ namespace Testing.SubMenus
                 int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
                 int i = 0;
                 foreach (var mod in modPanel.Children)
+                {
+                    (mod as SkillsDisplay).Text = modData[i++].ToString();
+                }
+            }
+            if ((App.Current as App).Character.SnPData.SavingThrows != null)
+            {
+                int[] modData = (App.Current as App).Character.SnPData.SavingThrows;
+                int i = 0;
+                foreach (var mod in savingThrows.Children)
                 {
                     (mod as SkillsDisplay).Text = modData[i++].ToString();
                 }
