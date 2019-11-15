@@ -8,6 +8,8 @@ namespace Testing.Models
 {
     class ActStats
     {
+
+
         private byte success_SavingThrows;
 
         public byte Success_SavingThrows
@@ -40,14 +42,48 @@ namespace Testing.Models
             set { speed = value; }
         }
 
-        private int myVar;
+        private int armorClass;
 
-        public int MyProperty
+        public int ArmorClass
         {
-            get { return myVar; }
-            set { myVar = value; }
+            get { return armorClass; }
+            set { armorClass = value; }
         }
 
+        private int maxHP;
 
+        public int MaxHP
+        {
+            get { return maxHP; }
+            set { maxHP = value; }
+        }
+
+        private int tempHP;
+
+        public int TempHP
+        {
+            get { return tempHP; }
+            set { tempHP = value; }
+        }
+
+        private int currentHP;
+
+        public ActStats(byte success_SavingThrows = 0, byte failure_SavingThrows = 0, int initiative = 0, int speed = 0, int armorClass = 0, int maxHP = 0, int tempHP = 0, int currentHP = 0)
+        {
+            Success_SavingThrows = success_SavingThrows;
+            Failure_SavingThrows = failure_SavingThrows;
+            Initiative = initiative;
+            Speed = speed;
+            ArmorClass = armorClass;
+            MaxHP = maxHP;
+            TempHP = tempHP;
+            CurrentHP = currentHP;
+        }
+
+        public int CurrentHP
+        {
+            get { return currentHP; }
+            set { currentHP = value; }
+        }
     }
 }

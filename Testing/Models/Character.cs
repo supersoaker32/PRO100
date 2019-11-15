@@ -8,13 +8,15 @@ namespace Testing.Models
 {
     public class Character
     {
-        public Character()
+        public Character(CharInfo charactersInfo = null, List<Spell> spellbook = null, List<Feature> featureList = null, InventoryData inventory = null, SkillsAndProficienciesData snPData = null)
         {
-            CharactersInfo = new CharInfo();
-            Spellbook = new List<Spell>();
-            FeatureList = new List<Feature>();
-            Inventory = new InventoryData();
+            CharactersInfo = (charactersInfo != null) ? charactersInfo : new CharInfo();
+            Spellbook = (spellbook != null) ? spellbook : new List<Spell>();
+            FeatureList = (featureList != null) ? featureList : new List<Feature>();
+            Inventory = (inventory != null) ? inventory : new InventoryData();
+            SnPData = (snPData != null) ? snPData : new SkillsAndProficienciesData();
         }
+
         private CharInfo charactersInfo;
         public CharInfo CharactersInfo
         {
