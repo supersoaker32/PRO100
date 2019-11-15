@@ -10,6 +10,7 @@ namespace Testing.Models
 {
     public class Feature : INotifyPropertyChanged
     {
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private String featureName = "FeatureName";
@@ -25,6 +26,12 @@ namespace Testing.Models
         }
 
         private String featureDescription = "FeatureDescription";
+
+        public Feature(string featureName = "", string featureDescription = "")
+        {
+            FeatureName = featureName;
+            FeatureDescription = featureDescription;
+        }
 
         public String FeatureDescription
         {
