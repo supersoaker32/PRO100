@@ -9,6 +9,7 @@ using Testing.UserControls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Core.Preview;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -43,8 +44,9 @@ namespace Testing
             {
                 (App.Current as App).Character.SnPData = new SkillsAndProficienciesData();
             }
-        }
 
+            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += OnCloseRequest;
+        }
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(CharacterInfo));
@@ -75,7 +77,6 @@ namespace Testing
         {
             this.Frame.Navigate(typeof(Inventory));
         }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             #region DisplaySpells
@@ -291,8 +292,15 @@ namespace Testing
             {
                 charChaMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
             }
-
             #endregion
+        }
+
+        private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        {
+            while (true)
+            {
+
+            }
         }
     }
 }
