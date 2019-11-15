@@ -44,6 +44,13 @@ namespace Testing.SubMenus
             religion.DataContext = "Religion";
             sleightOfHand.DataContext = "Sleight Of Hand";
             stealth.DataContext = "Stealth";
+
+            strengthSaveMod.DataContext = "Strength";
+            dexteritySaveMod.DataContext = "Dexterity";
+            constitutionSaveMod.DataContext = "Constitution";
+            intelligenceSaveMod.DataContext = "Intelligence";
+            wisdomSaveMod.DataContext = "Wisdom";
+            charismaSaveMod.DataContext = "Charisma";
         }
 
         private void back_Tapped(object sender, TappedRoutedEventArgs e)
@@ -51,6 +58,13 @@ namespace Testing.SubMenus
             int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
             int i = 0;
             foreach(var mod in modPanel.Children)
+            {
+                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+            }
+
+            modData = (App.Current as App).Character.SnPData.SavingThrows;
+            i = 0;
+            foreach (var mod in savingThrows.Children)
             {
                 int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
             }
@@ -119,6 +133,16 @@ namespace Testing.SubMenus
                     (mod as SkillsDisplay).Text = modData[i++].ToString();
                 }
             }
+            if ((App.Current as App).Character.SnPData.SavingThrows != null)
+            {
+                int[] modData = (App.Current as App).Character.SnPData.SavingThrows;
+                int i = 0;
+                foreach (var mod in savingThrows.Children)
+                {
+                    (mod as SkillsDisplay).Text = modData[i++].ToString();
+                }
+            }
+
         }
     }
 }
