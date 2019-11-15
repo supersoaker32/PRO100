@@ -11,7 +11,8 @@
     <Grid x:Name="mainGridCI" Background="#330A03">
         <Grid.RowDefinitions>
             <RowDefinition Height="45*"/>
-            <RowDefinition Height="55*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 
         <Grid>
@@ -290,37 +291,37 @@
                            Grid.RowSpan="2"
                            Grid.Row="2"/>
                 <StackPanel Grid.Row="2">
-                  <TextBlock Text="Race: "
+                    <TextBlock Text="Race: "
                              FontSize="40"/>
-                  <TextBlock x:Name="raceBlock"
+                    <TextBlock x:Name="raceBlock"
                              FontSize="30"
                              HorizontalAlignment="Center"/>
                 </StackPanel>
                 <Grid Grid.Row="3" BorderBrush="DarkGray" BorderThickness="3">
-                  <Grid.RowDefinitions>
-                    <RowDefinition/>
-                  </Grid.RowDefinitions>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="30*"/>
-                    <ColumnDefinition Width="50*"/>
-                    <ColumnDefinition Width="20*"/>
-                  </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
 
 
 
-                  <TextBlock Text="Change Race:"
+                    <TextBlock Text="Change Race:"
                              TextWrapping="Wrap"
                              FontSize="10"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"/>
 
-                  <TextBox x:Name="raceBox"
+                    <TextBox x:Name="raceBox"
                            Grid.Column="1"
                            VerticalAlignment="Stretch"
                            HorizontalAlignment="Stretch"
                            FontSize="15"/>
 
-                  <Button x:Name="raceOk"
+                    <Button x:Name="raceOk"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch"
                           Content="OK"
@@ -340,37 +341,37 @@
                            Grid.Column="1"/>
                 <StackPanel Grid.Row="2"
                             Grid.Column="1">
-                  <TextBlock Text="Alignment: "
+                    <TextBlock Text="Alignment: "
                              FontSize="40"/>
-                  <TextBlock x:Name="alignmentBlock"
+                    <TextBlock x:Name="alignmentBlock"
                              FontSize="30"
                              HorizontalAlignment="Center"/>
                 </StackPanel>
                 <Grid Grid.Row="3" Grid.Column="1" BorderBrush="DarkGray" BorderThickness="3">
-                  <Grid.RowDefinitions>
-                    <RowDefinition/>
-                  </Grid.RowDefinitions>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="30*"/>
-                    <ColumnDefinition Width="50*"/>
-                    <ColumnDefinition Width="20*"/>
-                  </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
 
 
 
-                  <TextBlock Text="Change Alignment:"
+                    <TextBlock Text="Change Alignment:"
                              TextWrapping="Wrap"
                              FontSize="10"
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center"/>
 
-                  <TextBox x:Name="alignmentBox"
+                    <TextBox x:Name="alignmentBox"
                            Grid.Column="1"
                            VerticalAlignment="Stretch"
                            HorizontalAlignment="Stretch"
                            FontSize="15"/>
 
-                  <Button x:Name="alignmentOk"
+                    <Button x:Name="alignmentOk"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch"
                           Content="OK"
@@ -474,7 +475,651 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Row="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="Strength" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13*"/>
+                            <RowDefinition Height="62*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock Text="Strength"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="18" />
+                        </Border>
+
+                        <Grid Grid.Row="1" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="80*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="StrBlock"
+                                           Grid.Row="1"
+                                           FontSize="65"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                           Text=""/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                    <TextBlock x:Name="strModBlock"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text=""/>
+                                </Border>
+                            </Grid>
+
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+
+                            
+                                <TextBlock FontSize="18"
+                                          Text="Change Strength"
+                                          TextWrapping="Wrap"/>
+
+                                <TextBox x:Name="strengthBox"
+                                         Grid.Column="1"
+                                         VerticalAlignment="Stretch"
+                                         HorizontalAlignment="Stretch"
+                                         FontSize="28"
+                                         Text=""/>
+
+                            <Button x:Name="strengthOk"
+                                    Grid.Column="2"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Content="Ok"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="3"
+                                    FontSize="18" Click="strengthOk_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Dexterity" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13*"/>
+                            <RowDefinition Height="62*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock Text="Dexterity"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="18" />
+                        </Border>
+
+                        <Grid Grid.Row="1" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="80*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="dexBlock"
+                                           Grid.Row="1"
+                                           FontSize="65"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                           Text=""/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                    <TextBlock x:Name="dexModBlock"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text=""/>
+                                </Border>
+                            </Grid>
+
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+
+                            
+                                <TextBlock FontSize="18"
+                                          Text="Change Dexterity"
+                                          TextWrapping="Wrap"/>
+                            
+
+                            <TextBox x:Name="dexBox"
+                                         Grid.Column="1"
+                                         VerticalAlignment="Stretch"
+                                         HorizontalAlignment="Stretch"
+                                         FontSize="28"
+                                         Text=""/>
+
+                            <Button x:Name="dexOk"
+                                    Grid.Column="2"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Content="Ok"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="3"
+                                    FontSize="18" Click="dexOk_Click" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Constitution" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13*"/>
+                            <RowDefinition Height="62*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock Text="Constitution"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="18" />
+                        </Border>
+
+                        <Grid Grid.Row="1" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="80*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="conBlock"
+                                           Grid.Row="1"
+                                           FontSize="65"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                           Text=""/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                    <TextBlock x:Name="conModBlock"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text=""/>
+                                </Border>
+                            </Grid>
+
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+
+                            
+                                <TextBlock FontSize="14"
+                                          Text="Change Constitution"
+                                          TextWrapping="Wrap"/>
+
+                                <TextBox x:Name="conBox"
+                                         Grid.Column="1"
+                                         VerticalAlignment="Stretch"
+                                         HorizontalAlignment="Stretch"
+                                         FontSize="28"
+                                         Text=""/>
+
+                            <Button x:Name="conOk"
+                                    Grid.Column="2"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Content="Ok"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="3"
+                                    FontSize="18" Click="conOk_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Intelligence" Grid.Row="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13*"/>
+                            <RowDefinition Height="62*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock Text="Intelligence"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="18" />
+                        </Border>
+
+                        <Grid Grid.Row="1" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="80*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="intBlock"
+                                           Grid.Row="1"
+                                           FontSize="65"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                           Text=""/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                    <TextBlock x:Name="intModBlock"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text=""/>
+                                </Border>
+                            </Grid>
+
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+
+                            
+                                <TextBlock FontSize="14"
+                                          Text="Change Intelligence"
+                                          TextWrapping="Wrap"/>
+
+                                <TextBox x:Name="intBox"
+                                         Grid.Column="1"
+                                         VerticalAlignment="Stretch"
+                                         HorizontalAlignment="Stretch"
+                                         FontSize="28"
+                                         Text=""/>
+
+                            <Button x:Name="intOk"
+                                    Grid.Column="2"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Content="Ok"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="3"
+                                    FontSize="18" Click="intOk_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Wisdom" Grid.Row="1" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13*"/>
+                            <RowDefinition Height="62*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock Text="Wisdom"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="18" />
+                        </Border>
+
+                        <Grid Grid.Row="1" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="80*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="wisBlock"
+                                           Grid.Row="1"
+                                           FontSize="65"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                           Text=""/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                    <TextBlock x:Name="wisModBlock"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text=""/>
+                                </Border>
+                            </Grid>
+
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+
+                            
+                                <TextBlock FontSize="18"
+                                          Text="Change Wisdom"
+                                          TextWrapping="Wrap"/>
+
+                                <TextBox x:Name="wisBox"
+                                         Grid.Column="1"
+                                         VerticalAlignment="Stretch"
+                                         HorizontalAlignment="Stretch"
+                                         FontSize="28"
+                                         Text=""/>
+
+                            <Button x:Name="wisOk"
+                                    Grid.Column="2"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Content="Ok"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="3"
+                                    FontSize="18" Click="wisOk_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Charisma" Grid.Row="1" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13*"/>
+                            <RowDefinition Height="62*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock Text="Charisma"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="18" />
+                        </Border>
+
+                        <Grid Grid.Row="1" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="80*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock x:Name="chaBlock"
+                                           Grid.Row="1"
+                                           FontSize="65"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Center"
+                                           Text=""/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                    <TextBlock x:Name="chaModBlock"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text=""/>
+                                </Border>
+                            </Grid>
+
+                        </Grid>
+                        <Grid Grid.Row="2" BorderBrush="#102E66" BorderThickness="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+
+                            
+                                <TextBlock FontSize="18"
+                                          Text="Change Charisma"
+                                          TextWrapping="Wrap"/>
+
+                                <TextBox x:Name="chaBox"
+                                         Grid.Column="1"
+                                         VerticalAlignment="Stretch"
+                                         HorizontalAlignment="Stretch"
+                                         FontSize="28"
+                                         Text=""/>
+
+                            <Button x:Name="chaOk"
+                                    Grid.Column="2"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Content="Ok"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="3"
+                                    FontSize="18" Click="chaOk_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="personality" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="30*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border BorderBrush="#102E66" BorderThickness="2">
+                        <TextBlock Text="Personality Traits:" FontSize="24" Margin="5,0,0,0"/>
+                    </Border>
+
+                    <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
+                        <TextBlock x:Name="personalityBlock"
+                                   FontSize="24"/>
+                    </Border>
+
+                    <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Change Personality Traits"
+                                   TextWrapping="Wrap"
+                                   FontSize="18"/>
+
+                        <TextBox x:Name="personalityBox"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 Grid.Column="1"/>
+
+                        <Button x:Name="personalityOk"
+                                Content="Ok"
+                                VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                Grid.Column="2"
+                                FontSize="20" Click="personalityOk_Click"/>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="ideal" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Grid.Column="1">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="30*"/>
+                  </Grid.RowDefinitions>
+
+                  <Border BorderBrush="#102E66" BorderThickness="2">
+                    <TextBlock Text="Ideals:" FontSize="24" Margin="5,0,0,0"/>
+                  </Border>
+
+                  <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
+                    <TextBlock x:Name="idealBlock"
+                               FontSize="24"/>
+                  </Border>
+
+                  <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="40*"/>
+                      <ColumnDefinition Width="40*"/>
+                      <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Change Ideals"
+                               TextWrapping="Wrap"
+                               FontSize="18"/>
+
+                    <TextBox x:Name="idealBox"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             Grid.Column="1"/>
+
+                    <Button x:Name="idealOk"
+                            Content="Ok"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Grid.Column="2"
+                            FontSize="20" Click="idealOk_Click"/>
+                  </Grid>
+                </Grid>
+                <Grid x:Name="bond" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Grid.Row="1" >
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="30*"/>
+                  </Grid.RowDefinitions>
+
+                  <Border BorderBrush="#102E66" BorderThickness="2">
+                    <TextBlock Text="Bonds:" FontSize="24" Margin="5,0,0,0"/>
+                  </Border>
+
+                  <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
+                    <TextBlock x:Name="bondBlock"
+                               FontSize="24"/>
+                  </Border>
+
+                  <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="40*"/>
+                      <ColumnDefinition Width="40*"/>
+                      <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Change Bonds"
+                               TextWrapping="Wrap"
+                               FontSize="18"/>
+
+                    <TextBox x:Name="bondBox"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             Grid.Column="1"/>
+
+                    <Button x:Name="bondOk"
+                            Content="Ok"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Grid.Column="2"
+                            FontSize="20" Click="bondOk_Click"/>
+                  </Grid>
+                </Grid>
+                <Grid x:Name="flaw" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Grid.Row="1" Grid.Column="1">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="30*"/>
+                  </Grid.RowDefinitions>
+
+                  <Border BorderBrush="#102E66" BorderThickness="2">
+                    <TextBlock Text="Flaws:" FontSize="24" Margin="5,0,0,0"/>
+                  </Border>
+
+                  <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
+                    <TextBlock x:Name="flawBlock"
+                               FontSize="24"/>
+                  </Border>
+
+                  <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="35*"/>
+                      <ColumnDefinition Width="40*"/>
+                      <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Change Flaws"
+                               TextWrapping="Wrap"
+                               FontSize="18"/>
+
+                    <TextBox x:Name="flawBox"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             Grid.Column="1"/>
+
+                    <Button x:Name="flawOk"
+                            Content="Ok"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Grid.Column="2"
+                            FontSize="20" Click="flawOk_Click"/>
+                  </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="4" Margin="3" CornerRadius="8">
+              <Button x:Name="CIBack"
+                      Grid.Column="1"
+                      Content="Back"
+                      HorizontalAlignment="Stretch"
+                      FontSize="12"
+                      VerticalAlignment="Stretch" Click="CIBack_Click"
+              />
+            </Grid>
             
         </Grid>
     </Grid>
