@@ -70,7 +70,6 @@ namespace Testing
             wisdomSaveMod.DataContext = "Wisdom";
             charismaSaveMod.DataContext = "Charisma";
             #endregion
-        }
 
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += OnCloseRequest;
         }
