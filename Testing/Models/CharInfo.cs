@@ -101,7 +101,7 @@ namespace Testing.Models
         {
             PlayerImageURI = playerImageURI;
             Level = level;
-            Background = (background != null) ? background : new string[5];
+            Background = (background != null) ? background : new string[5] { "","","","",""};
             Allignment = allignment;
             CurrentEXP = currentEXP;
             GoalEXP = goalEXP;
