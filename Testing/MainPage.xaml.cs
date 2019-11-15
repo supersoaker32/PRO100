@@ -174,6 +174,80 @@ namespace Testing
             }
             #endregion
 
+            #region DisplayCharacterInfo
+            charName.Text = (App.Current as App).Character.CharactersInfo.CharacterName;
+            charTitle.Text = (App.Current as App).Character.CharactersInfo.Title;
+
+            charClass.Text = (App.Current as App).Character.CharactersInfo.CharacterClass;
+            charLevel.Text = (App.Current as App).Character.CharactersInfo.Level.ToString();
+            charBG.Text = (App.Current as App).Character.CharactersInfo.Background[0];
+            charPN.Text = (App.Current as App).Character.CharactersInfo.PlayerName;
+            charRace.Text = (App.Current as App).Character.CharactersInfo.Race;
+            charAlign.Text = (App.Current as App).Character.CharactersInfo.Allignment;
+            charCurrent.Text = (App.Current as App).Character.CharactersInfo.CurrentEXP.ToString();
+            charGoal.Text = (App.Current as App).Character.CharactersInfo.GoalEXP.ToString();
+
+            charStr.Text = (App.Current as App).Character.CharactersInfo.Stats[0].ToString();
+            if((App.Current as App).Character.CharactersInfo.StatMods[0] >= 0)
+            {
+                charStrMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[0].ToString();
+            }
+            else
+            {
+                charStrMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[0].ToString();
+            }
+
+            charDex.Text = (App.Current as App).Character.CharactersInfo.Stats[1].ToString();
+            if ((App.Current as App).Character.CharactersInfo.StatMods[1] >= 0)
+            {
+                charDexMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[1].ToString();
+            }
+            else
+            {
+                charDexMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[1].ToString();
+            }
+
+            charCon.Text = (App.Current as App).Character.CharactersInfo.Stats[2].ToString();
+            if ((App.Current as App).Character.CharactersInfo.StatMods[2] >= 0)
+            {
+                charConMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[2].ToString();
+            }
+            else
+            {
+                charConMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[2].ToString();
+            }
+
+            charInt.Text = (App.Current as App).Character.CharactersInfo.Stats[3].ToString();
+            if ((App.Current as App).Character.CharactersInfo.StatMods[3] >= 0)
+            {
+                charIntMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[3].ToString();
+            }
+            else
+            {
+                charIntMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[3].ToString();
+            }
+
+            charWis.Text = (App.Current as App).Character.CharactersInfo.Stats[4].ToString();
+            if ((App.Current as App).Character.CharactersInfo.StatMods[4] >= 0)
+            {
+                charWisMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[4].ToString();
+            }
+            else
+            {
+                charWisMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[4].ToString();
+            }
+
+            charCha.Text = (App.Current as App).Character.CharactersInfo.Stats[5].ToString();
+            if ((App.Current as App).Character.CharactersInfo.StatMods[5] >= 0)
+            {
+                charChaMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
+            }
+            else
+            {
+                charChaMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
+            }
+
+            #endregion
         }
     }
 }

@@ -11,15 +11,15 @@ namespace Testing.Models
         public CharInfo()
         {
             PlayerImageURI = "";
-            Level = 0;
-            Background = new String[5];
+            Level = 1;
+            Background = new String[5] { "", "", "", "", "" };
             Allignment = "";
             CurrentEXP = 0;
-            GoalEXP = 0;
-            Stats = new int[6];
-            StatMods = new int[6];
+            GoalEXP = 350;
+            Stats = new int[6] { 0, 0, 0, 0, 0, 0 };
+            StatMods = new int[6] { 0, 0, 0, 0, 0, 0 };
             PlayerName = "";
-            CharacterName = "";
+            CharacterClass = "";
             Title = "";
             Race = "";
             CharacterName = "";
