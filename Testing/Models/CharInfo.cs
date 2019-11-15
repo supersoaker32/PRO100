@@ -8,22 +8,7 @@ namespace Testing.Models
 {
     public class CharInfo
     {
-        public CharInfo()
-        {
-            PlayerImageURI = "";
-            Level = 1;
-            Background = new String[5] { "", "", "", "", "" };
-            Allignment = "";
-            CurrentEXP = 0;
-            GoalEXP = 350;
-            Stats = new int[6] { 0, 0, 0, 0, 0, 0 };
-            StatMods = new int[6] { 0, 0, 0, 0, 0, 0 };
-            PlayerName = "";
-            CharacterClass = "";
-            Title = "";
-            Race = "";
-            CharacterName = "";
-        }
+
 
         private String playerImageURI;
         public String PlayerImageURI
@@ -111,6 +96,24 @@ namespace Testing.Models
         }
 
         private String characterClass;
+
+        public CharInfo(string playerImageURI = "", int level = 1, string[] background = null, string allignment = "", int currentEXP = 0, int goalEXP = 350, int[] stats = null, int[] statMods = null, string playerName = "", string characterName = "", string title = "", string race = "", string characterClass = "")
+        {
+            PlayerImageURI = playerImageURI;
+            Level = level;
+            Background = (background != null) ? background : new string[5];
+            Allignment = allignment;
+            CurrentEXP = currentEXP;
+            GoalEXP = goalEXP;
+            Stats = (stats != null) ? stats : new int[6];
+            StatMods = (statMods != null) ? statMods : new int[6];
+            PlayerName = playerName;
+            CharacterName = characterName;
+            Title = title;
+            Race = race;
+            CharacterClass = characterClass;
+        }
+
         public String CharacterClass
         {
             get { return characterClass; }

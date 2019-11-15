@@ -8,15 +8,13 @@ namespace Testing.Models
 {
     public class InventoryData
     {
-
-
         private List<Item> items;
         private int[] money;
 
-        public InventoryData()
+        public InventoryData(int[] money = null, List<Item> items = null)
         {
-            items = new List<Item>();
-            money = new int[4];
+            Money = (money != null) ? money : new int[5];
+            Items = (items != null) ? items : new List<Item>();
         }
 
         public int[] Money

@@ -10,6 +10,7 @@ namespace Testing.Models
 {
     public class Spell : INotifyPropertyChanged
     {
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private String spellName = "SpellName";
@@ -25,6 +26,12 @@ namespace Testing.Models
         }
 
         private String spellDescription = "SpellDescription";
+
+        public Spell(string spellName = "", string spellDescription = "")
+        {
+            SpellName = spellName;
+            SpellDescription = spellDescription;
+        }
 
         public String SpellDescription
         {
