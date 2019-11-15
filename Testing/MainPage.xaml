@@ -147,7 +147,7 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="12*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Skills" FontSize ="36" HorizontalAlignment="Center"/>
+                <TextBlock Text="Skills" FontSize ="30" HorizontalAlignment="Center"/>
                 <ScrollViewer Grid.Row="1">
                     <StackPanel x:Name="skillMods">
                         <uc:SkillsDisplay x:Name="acrobatics"/>
@@ -303,15 +303,13 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="2" Background="PapayaWhip">
+        <Grid Grid.Row="2" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" CornerRadius="22">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <Border BorderBrush="#102E66" BorderThickness="8" CornerRadius="22">
-                <TextBlock Text="Skills and Proficiencies" FontSize="48"/>
-            </Border>
-            <ScrollViewer x:Name="proficienciesScroll" Grid.Row="2" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
+            <TextBlock Text="Proficiencies" FontSize="48" HorizontalAlignment="Center"/>
+                <ScrollViewer x:Name="proficienciesScroll" Grid.Row="2" Grid.Column="2"  Margin="0,0,0,3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
             <StackPanel x:Name="proficiencies" CornerRadius="22">
 
             </StackPanel>
