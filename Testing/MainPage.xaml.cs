@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Testing.Models;
 using Testing.SubMenus;
+using Testing.UserControls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -38,6 +39,10 @@ namespace Testing
             {
                 (App.Current as App).Character.Inventory = new InventoryData();
             }
+            if ((App.Current as App).Character.SnPData == null)
+            {
+                (App.Current as App).Character.SnPData = new SkillsAndProficienciesData();
+            }
         }
 
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
@@ -46,6 +51,12 @@ namespace Testing
         }
         private void SkillsNProficiencies_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
+            int i = 0;
+            foreach (var mod in skillMods.Children)
+            {
+                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+            }
             this.Frame.Navigate(typeof(SkillsNProficiencies));
         }
         private void ActiveStats_Tapped(object sender, TappedRoutedEventArgs e)
@@ -171,6 +182,40 @@ namespace Testing
                     sum += money;
                 }
                 moneyVal.Text = sum.ToString();
+            }
+            #endregion
+
+            #region DisplayProficienciesAndSkills
+            if ((App.Current as App).Character.SnPData.Proficiencies != null)
+            {
+                foreach (string proficiency in (App.Current as App).Character.SnPData.Proficiencies)
+                {
+                    TextBlock item = new TextBlock();
+                    SolidColorBrush color = new SolidColorBrush();
+
+                    //Set color
+                    color.Color = Colors.Black;
+                    item.Foreground = color;
+                    item.FontSize = 44;
+                    Grid grid = new Grid();
+                    SolidColorBrush brush = new SolidColorBrush();
+                    brush.Color = Colors.DarkGray;
+                    grid.BorderBrush = brush;
+                    grid.BorderThickness = new Thickness(3);
+                    grid.CornerRadius = new CornerRadius(8);
+                    item.Text = proficiency;
+                    grid.Children.Add(item);
+                    proficiencies.Children.Add(grid);
+                }
+            }
+            if ((App.Current as App).Character.SnPData.SkillModifiers != null)
+            {
+                int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
+                int i = 0;
+                foreach (var mod in skillMods.Children)
+                {
+                    (mod as SkillsDisplay).Text = modData[i++].ToString();
+                }
             }
             #endregion
 

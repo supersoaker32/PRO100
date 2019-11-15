@@ -5,10 +5,73 @@
     xmlns:local="using:Testing.SubMenus"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:Testing.UserControls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="PapayaWhip">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="modPanel" VerticalAlignment="Center" Margin="20, 10">
+            <uc:SkillsDisplay x:Name="acrobatics"/>
+            <uc:SkillsDisplay x:Name="animalHandling"/>
+            <uc:SkillsDisplay x:Name="arcana"/>
+            <uc:SkillsDisplay x:Name="athletics"/>
+            <uc:SkillsDisplay x:Name="deception"/>
+            <uc:SkillsDisplay x:Name="history"/>
+            <uc:SkillsDisplay x:Name="insight"/>
+            <uc:SkillsDisplay x:Name="intimidation"/>
+            <uc:SkillsDisplay x:Name="investigation"/>
+            <uc:SkillsDisplay x:Name="medicine"/>
+            <uc:SkillsDisplay x:Name="nature"/>
+            <uc:SkillsDisplay x:Name="perception"/>
+            <uc:SkillsDisplay x:Name="performance"/>
+            <uc:SkillsDisplay x:Name="persuassion"/>
+            <uc:SkillsDisplay x:Name="religion"/>
+            <uc:SkillsDisplay x:Name="sleightOfHand"/>
+            <uc:SkillsDisplay x:Name="stealth"/>
+        </StackPanel>
+        <Button x:Name="back" 
+                Content="Back" 
+                FontSize="48"
+                Tapped="back_Tapped"
+                Grid.Column="1" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" 
+                Margin="40"/>
+        <StackPanel Grid.Column="1"                          
+                    BorderBrush="#102E66" 
+                    BorderThickness="8" 
+                    Margin="3"  
+                    CornerRadius="22">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="proficiencyInput" 
+                         PlaceholderText="Proficiency Name"
+                         Background="PapayaWhip"/>
+                <Button x:Name="addProficiency"
+                        Grid.Column ="1"
+                        FontSize="40"
+                        Background="BlanchedAlmond"
+                        Content="Add Item"
+                        HorizontalAlignment="Center"
+                        BorderBrush="#102E66"
+                        BorderThickness="8"
+                        CornerRadius="22"
+                        Tapped="addProficiency_Tapped"/>
+            </Grid>
+
+            <ScrollViewer x:Name="proficiencyScroll"
+                          Background="PapayaWhip" 
+                          Grid.Column="1">
+                <StackPanel x:Name="proficiency"/>
+            </ScrollViewer>
+        </StackPanel>
 
     </Grid>
 </Page>
