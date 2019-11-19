@@ -8,16 +8,16 @@ namespace Testing.Models
 {
     public class SkillsAndProficienciesData
     {
-        public SkillsAndProficienciesData(List<string> proficiencies = null, int[] skillModifiers = null)
+        public SkillsAndProficienciesData(List<string> proficiencies = null, Skill[] skillModifiers = null)
         {
             Proficiencies = (proficiencies != null) ? proficiencies : new List<string>();
-            SkillModifiers = (skillModifiers != null) ? skillModifiers : new int[17];
+            SkillModifiers = (skillModifiers != null) ? skillModifiers : new Skill[17];
         }
 
         public SkillsAndProficienciesData()
         {
             Proficiencies = new List<string>();
-            SkillModifiers = new int[17];
+            SkillModifiers = new Skill[17];
         }
         private List<String> proficiencies = new List<string>();
         public List<String> Proficiencies
@@ -26,9 +26,9 @@ namespace Testing.Models
             set { proficiencies = value; }
         }
 
-        private int[] skillModifiers = new int[17];
+        private Skill[] skillModifiers = new Skill[17];
 
-        public int[] SkillModifiers
+        public Skill[] SkillModifiers
         {
             get { return skillModifiers; }
             set { skillModifiers = value; }
@@ -40,15 +40,15 @@ namespace Testing.Models
             {
                 toString = toString + $"{proficiency}\n";
             }
-            foreach(int skillModifier in SkillModifiers)
+            foreach(Skill skillModifier in SkillModifiers)
             {
                 toString = toString + $"{skillModifier.ToString()}";
             }
 
             return toString;
         }
-        private int[] savingThrows = new int[6];
-        public int[] SavingThrows
+        private Skill[] savingThrows = new Skill[6];
+        public Skill[] SavingThrows
         {
             get { return savingThrows; }
             set { savingThrows = value; }

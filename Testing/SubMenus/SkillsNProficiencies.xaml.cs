@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Testing.UserControls;
+using Testing.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -55,18 +56,22 @@ namespace Testing.SubMenus
 
         private void back_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
+            Skill[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
             int i = 0;
             foreach(var mod in modPanel.Children)
             {
-                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+                int tmpVal;
+                int.TryParse((mod as SkillsDisplay).Text, out tmpVal);
+                modData[i++].Modifier = tmpVal;
             }
 
             modData = (App.Current as App).Character.SnPData.SavingThrows;
             i = 0;
             foreach (var mod in savingThrows.Children)
             {
-                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+                int tmpVal;
+                int.TryParse((mod as SkillsDisplay).Text, out tmpVal);
+                modData[i++].Modifier = tmpVal;
             }
 
             this.Frame.Navigate(typeof(MainPage));
@@ -126,7 +131,7 @@ namespace Testing.SubMenus
             }
             if((App.Current as App).Character.SnPData.SkillModifiers != null)
             {
-                int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
+                Skill[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
                 int i = 0;
                 foreach (var mod in modPanel.Children)
                 {
@@ -135,7 +140,7 @@ namespace Testing.SubMenus
             }
             if ((App.Current as App).Character.SnPData.SavingThrows != null)
             {
-                int[] modData = (App.Current as App).Character.SnPData.SavingThrows;
+                Skill[] modData = (App.Current as App).Character.SnPData.SavingThrows;
                 int i = 0;
                 foreach (var mod in savingThrows.Children)
                 {

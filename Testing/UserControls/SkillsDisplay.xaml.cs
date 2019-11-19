@@ -30,5 +30,11 @@ namespace Testing.UserControls
             set { mod.Text = value; }
         }
 
+        public bool? CheckBox
+        {
+            get { return proficiency.IsChecked; }
+            set { proficiency.IsChecked = value; }
+        }
+
     }
 }
