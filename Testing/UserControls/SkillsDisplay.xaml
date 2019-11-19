@@ -13,7 +13,7 @@
           Margin=".5"  
           CornerRadius="22">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <CheckBox Margin="5 0" Content="{Binding}" FontSize="18"/>
