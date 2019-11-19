@@ -14,10 +14,16 @@ namespace Testing.Models
         private string name;
         private string description = "";
 
-        public Item(string name, string description = "")
+        public Item(string name = "", string description = "")
         {
             Name = name;
             Description = description;
+        }
+
+        public Item()
+        {
+            Name = "";
+            Description = "";
         }
 
         public string Description
