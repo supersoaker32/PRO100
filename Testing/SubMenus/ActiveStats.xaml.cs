@@ -29,7 +29,56 @@ namespace Testing.SubMenus
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Frame.Navigate(typeof(MainPage));
+        }
 
+        private void maxHPButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (maxHPBox.Text.Trim().Length > 0 && int.TryParse(maxHPBox.Text, out result))
+            {
+                if (result > 0)
+                {
+                    maxHPBlock.Text = result.ToString();
+                    maxHPBox.Text = "";
+
+                }
+                else
+                {
+                    maxHPBlock.Text = "";
+                    maxHPBox.Text = "";
+                }
+            }
+            else
+            {
+                classBox.Text = "";
+            }
+        }
+
+        private void tempHPButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (nameBox.Text.Trim().Length > 0)
+            {
+                name.Text = nameBox.Text;
+                nameBox.Text = "";
+            }
+            else
+            {
+                nameBox.Text = "";
+            }
+        }
+
+        private void armorClassButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (nameBox.Text.Trim().Length > 0)
+            {
+                name.Text = nameBox.Text;
+                nameBox.Text = "";
+            }
+            else
+            {
+                nameBox.Text = "";
+            }
         }
     }
 }

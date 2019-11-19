@@ -133,7 +133,43 @@
                   Margin="5,5,5,5" 
                   CornerRadius="20"
             >
-                <TextBlock x:Name="armorClassText" Text="Armor Class" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,277"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="282*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="armorClassText" Text="Armor Class" Foreground="Black" FontSize="27" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Margin="49,0,0,0"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="75*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="29*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="ArmorClassBlock"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="armorClassBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="1"
+                             TextAlignment="Center"/>
+
+                    <Button x:Name="armorClassButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="armorClassButton_Click"/>
+                </Grid>
             </Grid>
 
             <Grid x:Name="maxHP"
@@ -144,7 +180,43 @@
                   CornerRadius="20"
                   Grid.Column="1"
             >
-                <TextBlock x:Name="maxHPText" Text="Max HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,282"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="282*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="maxHPText" Text="Max HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Grid.Row="0" Width="150" Grid.RowSpan="2"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="75*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="29*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="maxHPBlock"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="maxHPBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="1"
+                             TextAlignment="Center" TextChanged="maxHPBox_TextChanged"/>
+
+                    <Button x:Name="maxHPButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="maxHPButton_Click"/>
+                </Grid>
             </Grid>
 
             <Grid x:Name="tempHP"
@@ -155,7 +227,45 @@
                   CornerRadius="20"
                   Grid.Column="2"
             >
-                <TextBlock x:Name="tempHPText" Text="Temp HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,284"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="282*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="tempHPText" Text="Temp HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Grid.Row="0" Width="150" Grid.RowSpan="2"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="75*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="29*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="hpBlock"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="hpBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="1"
+                             TextAlignment="Center"/>
+
+
+                    <Button x:Name="tempHPButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="tempHPButton_Click"/>
+
+                </Grid>
             </Grid>
 
             <Grid x:Name="currentHP"
