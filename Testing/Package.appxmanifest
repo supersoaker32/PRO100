@@ -30,8 +30,8 @@
 
   <Applications>
     <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="Testing.App">
+                 Executable="$targetnametoken$.exe"
+                 EntryPoint="Testing.App">
       <uap:VisualElements
         DisplayName="Testing"
         Square150x150Logo="Assets\Square150x150Logo.png"
@@ -46,6 +46,5 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
-      <rescap:Capability Name="confirmAppClose"/>
   </Capabilities>
 </Package>

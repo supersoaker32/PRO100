@@ -73,7 +73,6 @@ namespace Testing
             charismaSaveMod.DataContext = "Charisma";
             #endregion
         }
-        
 
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
         {
