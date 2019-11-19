@@ -45,7 +45,7 @@ namespace Testing.SubMenus
             {
                 if ((child as Border) != null)
                 {
-                    if(((child as Border).Child as TextBlock).Name == "spellsName")
+                    if (((child as Border).Child as TextBlock).Name == "spellsName")
                     {
                         spellName.Text = ((child as Border).Child as TextBlock).Text;
                     }

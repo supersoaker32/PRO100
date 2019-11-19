@@ -5,6 +5,7 @@
     xmlns:local="using:Testing"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:Testing.UserControls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -21,23 +22,125 @@
             <ColumnDefinition Width="33*"/>
             <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
-
+        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="failurePopup">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="500" Height="200">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="saveloadText" Text="Failure to Save Character" FontSize="24.667" HorizontalAlignment="Center"/>
+                    <Button Content="Close" Click="ClosePopupClicked" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Popup>
+        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="confirmationPopup">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="500" Height="200">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="confirmationText" Text="Are you sure you would like to clear the current character?" FontSize="24.667" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                    <Button Content="Yes" Click="YesClicked" HorizontalAlignment="Center" Margin="20 0 20 0"/>
+                    <Button Content="No" Click="NoClicked" HorizontalAlignment="Center" Margin="20 0 20 0"/>
+                </StackPanel>
+            </Border>
+        </Popup>
         <MenuBar Height="30" Grid.Row="0" Grid.ColumnSpan="3" Background="PapayaWhip" VerticalAlignment="Top">
             <MenuBarItem Height="20" Title="File">
-                
+                <MenuFlyoutItem Text="Save"
+                                Icon="Save"
+                                Click="Save_Click">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="S"
+                                             Modifiers="Control"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Load"
+                                Click="Load_Click">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="O"
+                                             Modifiers="Control"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Clear"
+                                Click="Clear_Clicked">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="C"
+                                             Modifiers="Control"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
             </MenuBarItem>
         </MenuBar>
+        
         <Grid Grid.Row="1" Grid.Column="0" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
             <Viewbox HorizontalAlignment="Left" Height="65" Margin="30 10 20 10" VerticalAlignment="Center">
-                <BitmapIcon  UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
+                <BitmapIcon x:Name="charIcon" UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
             </Viewbox>
-            
-            <TextBlock Margin="0 5 20 0" FontSize="40" FontFamily="Assets/Fonts/Bridgnorth-Regular.ttf#Bridgnorth-Regular" Text="Name" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
-            <TextBlock FontStyle="Italic" Margin="0 35 20 0" FontSize="30" Text="Title" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+
+            <TextBlock x:Name="charName" Margin="0 5 20 0" FontSize="40" FontFamily="Assets/Fonts/Bridgnorth-Regular.ttf#Bridgnorth-Regular" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:Name="charTitle" FontStyle="Italic" Margin="0 35 20 0" FontSize="30" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Width="350" TextWrapping="WrapWholeWords"/>
         </Grid>
 
         <Grid x:Name="info" Grid.Row="1" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
-            <TextBlock Text="Information" FontSize ="48" HorizontalAlignment="Center"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid BorderBrush="#102E66" BorderThickness="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75*"/>
+                    <ColumnDefinition Width="25*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="charClass"
+                           FontSize="20"/>
+                <TextBlock x:Name="charLevel"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Grid.Column="1"
+                           FontSize="20"/>
+            </Grid>
+            <Border BorderBrush="#102E66" BorderThickness="2" Grid.Column="1">
+                <TextBlock x:Name="charBG"
+                           FontSize="20"/>
+            </Border>
+            <Border BorderBrush="#102E66" BorderThickness="2" Grid.Column="2">
+                <TextBlock x:Name="charPN"
+                           FontSize="20"/>
+            </Border>
+            <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
+                <TextBlock x:Name="charRace"
+                           FontSize="20"/>
+            </Border>
+            <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1" Grid.Column="1">
+                <TextBlock x:Name="charAlign"
+                           FontSize="20"/>
+            </Border>
+            <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="1" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="45*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="charCurrent"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="20"/>
+                <TextBlock Grid.Column="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="35"
+                       Padding="4"
+                       Text="/"/>
+                <TextBlock x:Name="charGoal"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="20"/>
+            </Grid>
+
         </Grid>
 
         <Grid x:Name="activeStats" Grid.Row="2" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="ActiveStats_Tapped">
@@ -67,7 +170,7 @@
         </Grid>
 
         <Grid Grid.Row="2" Grid.RowSpan="3"  >
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="25*"/>
                 <ColumnDefinition Width="66*"/>
@@ -78,11 +181,50 @@
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
             <Grid x:Name="savingThrows" Grid.Row="0" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
                 <TextBlock Text="Saving Throws" FontSize ="34" HorizontalAlignment="Center"/>
-          </Grid>
+                <ScrollViewer Grid.Row="1">
+                    <StackPanel x:Name="savingThrowMods">
+                        <uc:SkillsDisplay x:Name="strengthSaveMod"/>
+                        <uc:SkillsDisplay x:Name="dexteritySaveMod"/>
+                        <uc:SkillsDisplay x:Name="constitutionSaveMod"/>
+                        <uc:SkillsDisplay x:Name="intelligenceSaveMod"/>
+                        <uc:SkillsDisplay x:Name="wisdomSaveMod"/>
+                        <uc:SkillsDisplay x:Name="charismaSaveMod"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
 
             <Grid x:Name="skills" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
-                <TextBlock Text="Skills" FontSize ="48" HorizontalAlignment="Center"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="12*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Skills" FontSize ="30" HorizontalAlignment="Center"/>
+                <ScrollViewer Grid.Row="1">
+                    <StackPanel x:Name="skillMods">
+                        <uc:SkillsDisplay x:Name="acrobatics"/>
+                        <uc:SkillsDisplay x:Name="animalHandling"/>
+                        <uc:SkillsDisplay x:Name="arcana"/>
+                        <uc:SkillsDisplay x:Name="athletics"/>
+                        <uc:SkillsDisplay x:Name="deception"/>
+                        <uc:SkillsDisplay x:Name="history"/>
+                        <uc:SkillsDisplay x:Name="insight"/>
+                        <uc:SkillsDisplay x:Name="intimidation"/>
+                        <uc:SkillsDisplay x:Name="investigation"/>
+                        <uc:SkillsDisplay x:Name="medicine"/>
+                        <uc:SkillsDisplay x:Name="nature"/>
+                        <uc:SkillsDisplay x:Name="perception"/>
+                        <uc:SkillsDisplay x:Name="performance"/>
+                        <uc:SkillsDisplay x:Name="persuassion"/>
+                        <uc:SkillsDisplay x:Name="religion"/>
+                        <uc:SkillsDisplay x:Name="sleightOfHand"/>
+                        <uc:SkillsDisplay x:Name="stealth"/>
+                    </StackPanel>
+                </ScrollViewer>
             </Grid>
 
             <Grid x:Name="stats" Grid.RowSpan="3" Tapped="CharInfo_Tapped">
@@ -95,40 +237,151 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <StackPanel x:Name="strength" Grid.Row="0" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                <Grid x:Name="strength" Grid.Row="0" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
                     <TextBlock Text="Strength" FontSize ="15" HorizontalAlignment="Center"/>
-                </StackPanel>
-                <StackPanel x:Name="dexterity" Grid.Row="1" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Dexterity" FontSize ="13" HorizontalAlignment="Center"/>
-                </StackPanel>
-                <StackPanel x:Name="constitution" Grid.Row="2" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Constitution" FontSize ="11" HorizontalAlignment="Center"/>
-                </StackPanel>
-                <StackPanel x:Name="intelligence" Grid.Row="3" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
-                    <TextBlock Text="Intelligence" FontSize ="11" HorizontalAlignment="Center"/>
-                </StackPanel>
-                <StackPanel x:Name="wisdom" Grid.Row="4" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock x:Name="charStr" FontSize="35" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock x:Name="charStrMod" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="dexterity" Grid.Row="1" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Dexterity" FontSize ="15" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="charDex" FontSize="35" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock x:Name="charDexMod" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="constitution" Grid.Row="2" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Constitution" FontSize ="15" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="charCon" FontSize="35" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock x:Name="charConMod" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="intelligence" Grid.Row="3" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Intelligence" FontSize ="15" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="charInt" FontSize="35" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock x:Name="charIntMod" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="wisdom" Grid.Row="4" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
                     <TextBlock Text="Wisdom" FontSize ="15" HorizontalAlignment="Center"/>
-                </StackPanel>
-                <StackPanel x:Name="charisma" Grid.Row="5" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <TextBlock x:Name="charWis" FontSize="35" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock x:Name="charWisMod" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="charisma" Grid.Row="5" BorderBrush="#102E66" BorderThickness="8" CornerRadius="20" Background="PapayaWhip" Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
                     <TextBlock Text="Charisma" FontSize ="15" HorizontalAlignment="Center"/>
-                </StackPanel>
+                    <TextBlock x:Name="charChar" FontSize="35" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                            <TextBlock x:Name="charCharMod" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="proficiencies" Grid.Row="1" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
-            <TextBlock Text="Proficiencies" FontSize ="48" HorizontalAlignment="Center"/>
+        <Grid Grid.Row="2" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" CornerRadius="22">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Proficiencies" FontSize="48" HorizontalAlignment="Center"/>
+            <ScrollViewer x:Name="proficienciesScroll" Grid.Row="2" Grid.Column="2"  Margin="0,0,0,3" CornerRadius="20" Tapped="SkillsNProficiencies_Tapped">
+                <StackPanel x:Name="proficiencies" CornerRadius="22">
+
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
 
-        <Grid x:Name="money" Grid.Row="2" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Inventory_Tapped">
+        <Grid x:Name="money" Grid.Row="1" Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Inventory_Tapped">
             <StackPanel>
-                <TextBlock Text="Money" FontSize ="48"  HorizontalAlignment="Center"/>
-                <TextBlock x:Name="moneyVal" Text="0" FontSize ="48" HorizontalAlignment="Center"/>
+                <TextBlock Text="Money" FontSize ="36"  HorizontalAlignment="Center"/>
+                <TextBlock x:Name="moneyVal" Text="0" FontSize ="36" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
 
         <ScrollViewer x:Name="inventoryScroll" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22" Tapped="Inventory_Tapped">
             <StackPanel x:Name="inventory" CornerRadius="22">
-                
+
             </StackPanel>
         </ScrollViewer>
 

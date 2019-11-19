@@ -127,6 +127,7 @@
     <Compile Include="Models\CharInfo.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\SkillsAndProficienciesData.cs" />
     <Compile Include="Models\Feature.cs" />
     <Compile Include="Models\Spell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +148,9 @@
     </Compile>
     <Compile Include="SubMenus\Spellbook.xaml.cs">
       <DependentUpon>Spellbook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SkillsDisplay.xaml.cs">
+      <DependentUpon>SkillsDisplay.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SubMenus\Spellbook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SkillsDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -92,9 +92,6 @@ namespace Testing.SubMenus
                 }
                 moneyDisplay.Text = sum.ToString();
             }
-
-
-
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)

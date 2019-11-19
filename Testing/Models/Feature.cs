@@ -10,6 +10,17 @@ namespace Testing.Models
 {
     public class Feature : INotifyPropertyChanged
     {
+        public Feature(string featureName = "", string featureDescription = "")
+        {
+            FeatureName = featureName;
+            FeatureDescription = featureDescription;
+        }
+
+        public Feature()
+        {
+            FeatureName = "";
+            FeatureDescription = "";
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         private String featureName = "FeatureName";
@@ -38,6 +49,12 @@ namespace Testing.Models
         protected void FieldChanged([CallerMemberName] string field = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+        }
+
+        public override string ToString()
+        {
+            return $"FeatureName:{FeatureName}\n" +
+                $"FeatureDescription:{FeatureDescription}\n";
         }
     }
 }

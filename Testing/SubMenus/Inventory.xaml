@@ -36,7 +36,6 @@
 
             <TextBox x:Name="input"
                  Background="PapayaWhip"
-                 
                  FontSize="50"
                  Margin="10"
                  Header="Name of item: "
@@ -48,7 +47,6 @@
                 FontSize="40"
                 Background="BlanchedAlmond"
                 Content="Add Item"
-                
                 HorizontalAlignment="Center"
                 Click="inputEntered_Click"
                 BorderBrush="#102E66"
