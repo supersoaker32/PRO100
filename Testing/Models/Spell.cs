@@ -10,6 +10,17 @@ namespace Testing.Models
 {
     public class Spell : INotifyPropertyChanged
     {
+        public Spell(string spellName = "", string spellDescription = "")
+        {
+            SpellName = spellName;
+            SpellDescription = spellDescription;
+        }
+
+        public Spell()
+        {
+            SpellName = "";
+            SpellDescription = "";
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -27,12 +38,6 @@ namespace Testing.Models
 
         private String spellDescription = "SpellDescription";
 
-        public Spell(string spellName = "", string spellDescription = "")
-        {
-            SpellName = spellName;
-            SpellDescription = spellDescription;
-        }
-
         public String SpellDescription
         {
             get { return spellDescription; }
@@ -45,6 +50,11 @@ namespace Testing.Models
         protected void FieldChanged([CallerMemberName] string field = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+        }
+        public override string ToString()
+        {
+            return $"SpellName:{SpellName}\n" +
+                $"SpellDescription:{SpellDescription}\n";
         }
     }
 }

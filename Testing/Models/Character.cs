@@ -8,13 +8,24 @@ namespace Testing.Models
 {
     public class Character
     {
-        public Character(CharInfo charactersInfo = null, List<Spell> spellbook = null, List<Feature> featureList = null, InventoryData inventory = null, SkillsAndProficienciesData snPData = null)
+        public Character(CharInfo charactersInfo = null,  ActStats activeStats = null,List<Spell> spellbook = null, List<Feature> featureList = null, InventoryData inventory = null, SkillsAndProficienciesData snPData = null)
         {
             CharactersInfo = (charactersInfo != null) ? charactersInfo : new CharInfo();
+            ActiveStats = (activeStats != null) ? activeStats : new ActStats();
             Spellbook = (spellbook != null) ? spellbook : new List<Spell>();
             FeatureList = (featureList != null) ? featureList : new List<Feature>();
             Inventory = (inventory != null) ? inventory : new InventoryData();
             SnPData = (snPData != null) ? snPData : new SkillsAndProficienciesData();
+        }
+
+        public Character()
+        {
+            CharactersInfo = new CharInfo();
+            ActiveStats = new ActStats();
+            Spellbook = new List<Spell>();
+            FeatureList = new List<Feature>();
+            Inventory = new InventoryData();
+            SnPData = new SkillsAndProficienciesData();
         }
 
         private CharInfo charactersInfo;
@@ -23,6 +34,15 @@ namespace Testing.Models
             get { return charactersInfo; }
             set { charactersInfo = value; }
         }
+
+        private ActStats activeStats;
+
+        public ActStats ActiveStats
+        {
+            get { return activeStats; }
+            set { activeStats = value; }
+        }
+
 
         private List<Spell> spellbook;
         public List<Spell> Spellbook
@@ -52,6 +72,19 @@ namespace Testing.Models
             set { snpData = value; }
         }
 
-
+        public override string ToString()
+        {
+            string toString = $"{CharactersInfo.ToString()}|{Spellbook.ToString()}|";
+            foreach (Spell spell in Spellbook)
+            {
+                toString = toString + $"{spell}|";
+            }
+            foreach (Feature feature in FeatureList)
+            {
+                toString = toString + $"{feature}|";
+            }
+            toString = toString + $"{Inventory}|{SnPData}";
+            return toString;
+        }
     }
 }

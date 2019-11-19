@@ -17,6 +17,12 @@ namespace Testing.Models
             Items = (items != null) ? items : new List<Item>();
         }
 
+        public InventoryData()
+        {
+            Money = new int[5];
+            Items = new List<Item>();
+        }
+
         public int[] Money
         {
             get { return money; }

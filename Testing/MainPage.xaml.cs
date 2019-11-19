@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Serialization;
 using Testing.Models;
 using Testing.SubMenus;
 using Testing.UserControls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Core.Preview;
 using Windows.UI.ViewManagement;
@@ -44,13 +46,13 @@ namespace Testing
             {
                 (App.Current as App).Character.SnPData = new SkillsAndProficienciesData();
             }
-
-            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += OnCloseRequest;
         }
+
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(CharacterInfo));
         }
+
         private void SkillsNProficiencies_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
@@ -61,22 +63,27 @@ namespace Testing
             }
             this.Frame.Navigate(typeof(SkillsNProficiencies));
         }
+
         private void ActiveStats_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(ActiveStats));
         }
+
         private void Spellbook_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Spellbook));
         }
+
         private void Features_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Features));
         }
+
         private void Inventory_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Inventory));
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             #region DisplaySpells
@@ -155,7 +162,7 @@ namespace Testing
             {
                 foreach (Item itemObject in (App.Current as App).Character.Inventory.Items)
                 {
-                    
+
                     //Create new shape and brush
                     TextBlock item = new TextBlock();
                     SolidColorBrush color = new SolidColorBrush();
@@ -234,7 +241,7 @@ namespace Testing
             charGoal.Text = (App.Current as App).Character.CharactersInfo.GoalEXP.ToString();
 
             charStr.Text = (App.Current as App).Character.CharactersInfo.Stats[0].ToString();
-            if((App.Current as App).Character.CharactersInfo.StatMods[0] >= 0)
+            if ((App.Current as App).Character.CharactersInfo.StatMods[0] >= 0)
             {
                 charStrMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[0].ToString();
             }
@@ -283,24 +290,284 @@ namespace Testing
                 charWisMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[4].ToString();
             }
 
-            charCha.Text = (App.Current as App).Character.CharactersInfo.Stats[5].ToString();
+            charChar.Text = (App.Current as App).Character.CharactersInfo.Stats[5].ToString();
             if ((App.Current as App).Character.CharactersInfo.StatMods[5] >= 0)
             {
-                charChaMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
+                charCharMod.Text = "+" + (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
             }
             else
             {
-                charChaMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
+                charCharMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
             }
             #endregion
         }
 
-        private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
-            while (true)
-            {
+            SaveCharacter();
+        }
 
+        private async void SaveCharacter()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Character));
+            Windows.Storage.Pickers.FileSavePicker picker = new Windows.Storage.Pickers.FileSavePicker();
+            picker.FileTypeChoices.Add("Character File", new List<string> { ".char" });
+            var file = await picker.PickSaveFileAsync();
+            if (file != null)
+            {
+                Stream stream = await file.OpenStreamForWriteAsync();
+                serializer.Serialize(stream, (App.Current as App).Character);
             }
+            else
+            {
+                saveloadText.Text = "Failure to save character.";
+                failurePopup.IsOpen = true;
+            }
+        }
+
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            LoadCharacter();
+        }
+
+        private async void LoadCharacter()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Character));
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.FileTypeFilter.Add(".char");
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                Stream stream = await file.OpenStreamForReadAsync();
+                (App.Current as App).Character = (serializer.Deserialize(stream) as Character);
+                displayCharacter();
+            }
+            else
+            {
+                saveloadText.Text = "Failure to load character.";
+                failurePopup.IsOpen = true;
+            }
+        }
+
+        private void displayCharacter()
+        {
+            charIcon.UriSource = (((App.Current as App).Character.CharactersInfo.PlayerImageURI.Equals("")) ? (new Uri("ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png")) : (new Uri((App.Current as App).Character.CharactersInfo.PlayerImageURI)));
+            charName.Text = (App.Current as App).Character.CharactersInfo.CharacterName;
+            charTitle.Text = (App.Current as App).Character.CharactersInfo.Title;
+            charClass.Text = (App.Current as App).Character.CharactersInfo.CharacterClass;
+            charLevel.Text = (App.Current as App).Character.CharactersInfo.Level.ToString();
+            charBG.Text = (App.Current as App).Character.CharactersInfo.Background[0];
+            charPN.Text = (App.Current as App).Character.CharactersInfo.PlayerName;
+            charRace.Text = (App.Current as App).Character.CharactersInfo.Race;
+            charAlign.Text = (App.Current as App).Character.CharactersInfo.Allignment;
+            charCurrent.Text = (App.Current as App).Character.CharactersInfo.CurrentEXP.ToString();
+            charGoal.Text = (App.Current as App).Character.CharactersInfo.GoalEXP.ToString();
+
+            acrobatics.Text = (App.Current as App).Character.SnPData.SkillModifiers[0].ToString();
+            animalHandling.Text = (App.Current as App).Character.SnPData.SkillModifiers[1].ToString();
+            arcana.Text = (App.Current as App).Character.SnPData.SkillModifiers[2].ToString();
+            athletics.Text = (App.Current as App).Character.SnPData.SkillModifiers[3].ToString();
+            deception.Text = (App.Current as App).Character.SnPData.SkillModifiers[4].ToString();
+            history.Text = (App.Current as App).Character.SnPData.SkillModifiers[5].ToString();
+            insight.Text = (App.Current as App).Character.SnPData.SkillModifiers[6].ToString();
+            intimidation.Text = (App.Current as App).Character.SnPData.SkillModifiers[7].ToString();
+            investigation.Text = (App.Current as App).Character.SnPData.SkillModifiers[8].ToString();
+            medicine.Text = (App.Current as App).Character.SnPData.SkillModifiers[9].ToString();
+            nature.Text = (App.Current as App).Character.SnPData.SkillModifiers[10].ToString();
+            perception.Text = (App.Current as App).Character.SnPData.SkillModifiers[11].ToString();
+            performance.Text = (App.Current as App).Character.SnPData.SkillModifiers[12].ToString();
+            persuassion.Text = (App.Current as App).Character.SnPData.SkillModifiers[13].ToString();
+            religion.Text = (App.Current as App).Character.SnPData.SkillModifiers[14].ToString();
+            sleightOfHand.Text = (App.Current as App).Character.SnPData.SkillModifiers[15].ToString();
+            stealth.Text = (App.Current as App).Character.SnPData.SkillModifiers[16].ToString();
+
+            foreach (string proficiency in (App.Current as App).Character.SnPData.Proficiencies)
+            {
+                TextBlock item = new TextBlock();
+                SolidColorBrush color = new SolidColorBrush();
+
+                //Set color
+                color.Color = Colors.Black;
+                item.Foreground = color;
+                item.FontSize = 44;
+                Grid grid = new Grid();
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Colors.DarkGray;
+                grid.BorderBrush = brush;
+                grid.BorderThickness = new Thickness(3);
+                grid.CornerRadius = new CornerRadius(8);
+                item.Text = proficiency;
+                grid.Children.Add(item);
+                proficiencies.Children.Add(grid);
+            }
+
+            charStr.Text = (App.Current as App).Character.CharactersInfo.Stats[0].ToString();
+            charDex.Text = (App.Current as App).Character.CharactersInfo.Stats[1].ToString();
+            charCon.Text = (App.Current as App).Character.CharactersInfo.Stats[2].ToString();
+            charInt.Text = (App.Current as App).Character.CharactersInfo.Stats[3].ToString();
+            charWis.Text = (App.Current as App).Character.CharactersInfo.Stats[4].ToString();
+            charChar.Text = (App.Current as App).Character.CharactersInfo.Stats[5].ToString();
+
+            charStrMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[0].ToString();
+            charDexMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[1].ToString();
+            charConMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[2].ToString();
+            charIntMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[3].ToString();
+            charWisMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[4].ToString();
+            charCharMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
+
+            foreach (Spell spell in (App.Current as App).Character.Spellbook)
+            {
+                Grid grid = new Grid();
+                grid.RowDefinitions.Add(new RowDefinition());
+                grid.RowDefinitions.Add(new RowDefinition());
+
+                SolidColorBrush color = new SolidColorBrush();
+                color.Color = Colors.Black;
+
+                TextBlock spellName = new TextBlock();
+                spellName.Foreground = color;
+                spellName.FontSize = 32;
+                spellName.Text = spell.SpellName;
+                Grid.SetRow(spellName, 0);
+                grid.Children.Add(spellName);
+
+                TextBlock spellDescription = new TextBlock();
+                spellDescription.Foreground = color;
+                spellDescription.FontSize = 32;
+                spellDescription.Text = spell.SpellDescription;
+                Grid.SetRow(spellDescription, 1);
+                grid.Children.Add(spellDescription);
+
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Colors.DarkGray;
+                grid.BorderBrush = brush;
+                grid.BorderThickness = new Thickness(3);
+                grid.CornerRadius = new CornerRadius(8);
+
+                Spells.Children.Add(grid);
+            }
+
+            foreach (Feature feature in (App.Current as App).Character.FeatureList)
+            {
+                Grid grid = new Grid();
+                grid.RowDefinitions.Add(new RowDefinition());
+                grid.RowDefinitions.Add(new RowDefinition());
+
+                SolidColorBrush color = new SolidColorBrush();
+                color.Color = Colors.Black;
+
+                TextBlock featureName = new TextBlock();
+                featureName.Foreground = color;
+                featureName.FontSize = 32;
+                featureName.Text = feature.FeatureName;
+                Grid.SetRow(featureName, 0);
+                grid.Children.Add(featureName);
+
+                TextBlock featureDescription = new TextBlock();
+                featureDescription.Foreground = color;
+                featureDescription.FontSize = 32;
+                featureDescription.Text = feature.FeatureDescription;
+                Grid.SetRow(featureDescription, 1);
+                grid.Children.Add(featureDescription);
+
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Colors.DarkGray;
+                grid.BorderBrush = brush;
+                grid.BorderThickness = new Thickness(3);
+                grid.CornerRadius = new CornerRadius(8);
+
+                Features.Children.Add(grid);
+            }
+
+            moneyVal.Text = (App.Current as App).Character.Inventory.Money.Sum().ToString();
+
+            foreach (Item itemObject in (App.Current as App).Character.Inventory.Items)
+            {
+                //Create new shape and brush
+                TextBlock item = new TextBlock();
+                SolidColorBrush color = new SolidColorBrush();
+
+                //Set color
+                color.Color = Colors.Black;
+                item.Foreground = color;
+                item.FontSize = 55;
+                Grid grid = new Grid();
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Colors.DarkGray;
+                grid.BorderBrush = brush;
+                grid.BorderThickness = new Thickness(3);
+                grid.CornerRadius = new CornerRadius(8);
+                item.Text = itemObject.Name;
+                grid.Children.Add(item);
+                inventory.Children.Add(grid);
+            }
+        }
+
+        private void ClosePopupClicked(object sender, RoutedEventArgs e)
+        {
+            failurePopup.IsOpen = false;
+        }
+
+        private void Clear_Clicked(object sender, RoutedEventArgs e)
+        {
+            confirmationPopup.IsOpen = true;
+        }
+
+        private void YesClicked(object sender, RoutedEventArgs e)
+        {
+            confirmationPopup.IsOpen = false;
+
+            charIcon.UriSource = new Uri("ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png");
+            charName.Text = "";
+            charTitle.Text = "";
+            charClass.Text = "";
+            charLevel.Text = (1).ToString();
+            charBG.Text = "";
+            charPN.Text = "";
+            charRace.Text = "";
+            charAlign.Text = "";
+            charCurrent.Text = (0).ToString();
+            charGoal.Text = (350).ToString();
+
+            acrobatics.Text = (0).ToString();
+            animalHandling.Text = (0).ToString();
+            arcana.Text = (0).ToString();
+            athletics.Text = (0).ToString();
+            deception.Text = (0).ToString();
+            history.Text = (0).ToString();
+            insight.Text = (0).ToString();
+            intimidation.Text = (0).ToString();
+            investigation.Text = (0).ToString();
+            medicine.Text = (0).ToString();
+            nature.Text = (0).ToString();
+            perception.Text = (0).ToString();
+            performance.Text = (0).ToString();
+            persuassion.Text = (0).ToString();
+            religion.Text = (0).ToString();
+            sleightOfHand.Text = (0).ToString();
+            stealth.Text = (0).ToString();
+            proficiencies.Children.Clear();
+            charStr.Text = "0";
+            charDex.Text = "0";
+            charCon.Text = "0";
+            charInt.Text = "0";
+            charWis.Text = "0";
+            charChar.Text = "0";
+            charStrMod.Text = "+0";
+            charDexMod.Text = "+0";
+            charConMod.Text = "+0";
+            charIntMod.Text = "+0";
+            charWisMod.Text = "+0";
+            charCharMod.Text = "+0";
+            Spells.Children.Clear();
+            Features.Children.Clear();
+            moneyVal.Text = (0).ToString();
+            inventory.Children.Clear();
+        }
+
+        private void NoClicked(object sender, RoutedEventArgs e)
+        {
+            confirmationPopup.IsOpen = false;
         }
     }
 }

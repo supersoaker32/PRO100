@@ -6,10 +6,30 @@ using System.Threading.Tasks;
 
 namespace Testing.Models
 {
-    class ActStats
+    public class ActStats
     {
-
-
+        public ActStats(byte success_SavingThrows = 0, byte failure_SavingThrows = 0, int initiative = 0, int speed = 0, int armorClass = 0, int maxHP = 0, int tempHP = 0, int currentHP = 0)
+        {
+            Success_SavingThrows = success_SavingThrows;
+            Failure_SavingThrows = failure_SavingThrows;
+            Initiative = initiative;
+            Speed = speed;
+            ArmorClass = armorClass;
+            MaxHP = maxHP;
+            TempHP = tempHP;
+            CurrentHP = currentHP;
+        }
+        public ActStats()
+        {
+            Success_SavingThrows = 0;
+            Failure_SavingThrows = 0;
+            Initiative = 0;
+            Speed = 0;
+            ArmorClass = 0;
+            MaxHP = 0;
+            TempHP = 0;
+            CurrentHP = 0;
+        }
         private byte success_SavingThrows;
 
         public byte Success_SavingThrows
@@ -67,18 +87,6 @@ namespace Testing.Models
         }
 
         private int currentHP;
-
-        public ActStats(byte success_SavingThrows = 0, byte failure_SavingThrows = 0, int initiative = 0, int speed = 0, int armorClass = 0, int maxHP = 0, int tempHP = 0, int currentHP = 0)
-        {
-            Success_SavingThrows = success_SavingThrows;
-            Failure_SavingThrows = failure_SavingThrows;
-            Initiative = initiative;
-            Speed = speed;
-            ArmorClass = armorClass;
-            MaxHP = maxHP;
-            TempHP = tempHP;
-            CurrentHP = currentHP;
-        }
 
         public int CurrentHP
         {

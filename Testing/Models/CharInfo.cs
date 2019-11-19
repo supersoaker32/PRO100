@@ -96,6 +96,11 @@ namespace Testing.Models
         }
 
         private String characterClass;
+        public String CharacterClass
+        {
+            get { return characterClass; }
+            set { characterClass = value; }
+        }
 
         public CharInfo(string playerImageURI = "", int level = 1, string[] background = null, string allignment = "", int currentEXP = 0, int goalEXP = 350, int[] stats = null, int[] statMods = null, string playerName = "", string characterName = "", string title = "", string race = "", string characterClass = "")
         {
@@ -114,10 +119,22 @@ namespace Testing.Models
             CharacterClass = characterClass;
         }
 
-        public String CharacterClass
+        public CharInfo()
         {
-            get { return characterClass; }
-            set { characterClass = value; }
+            PlayerImageURI = "";
+            Level = 1;
+            Background = new string[5] { "", "", "", "", "" };
+            Allignment = "";
+            CurrentEXP = 0;
+            GoalEXP = 350;
+            Stats = new int[6];
+            StatMods = new int[6];
+            PlayerName = "";
+            CharacterName = "";
+            Title = "";
+            Race = "";
+            CharacterClass = "";
         }
+
     }
 }
