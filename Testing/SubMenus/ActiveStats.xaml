@@ -35,6 +35,42 @@
                   CornerRadius="20"
             >
                 <TextBlock x:Name="initiativeText" Text="Intiative" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="156*"/>
+                        <ColumnDefinition Width="383*"/>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="77*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="63*"/>
+                        <RowDefinition Height="131*"/>
+                        <RowDefinition Height="74*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="initiativeBlock"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="0"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="initiativeBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             TextAlignment="Center"/>
+
+                    <Button x:Name="initiativeButton"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="initiativeButton_Click"/>
+                </Grid>
             </Grid>
 
             <Grid x:Name="speed"
@@ -45,7 +81,42 @@
                   CornerRadius="20" Grid.Row="1"
             >
                 <TextBlock x:Name="speedText" Text="Speed" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="156*"/>
+                        <ColumnDefinition Width="383*"/>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="77*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="63*"/>
+                        <RowDefinition Height="131*"/>
+                        <RowDefinition Height="74*"/>
+                    </Grid.RowDefinitions>
 
+                    <TextBlock x:Name="speedBlock"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="0"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="speedBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             TextAlignment="Center"/>
+
+                    <Button x:Name="speedButton"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="speedButton_Click"/>
+                </Grid>
             </Grid>
 
             <Grid x:Name="deathSaves"
@@ -150,9 +221,10 @@
                         <RowDefinition Height="29*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock x:Name="ArmorClassBlock"
+                    <TextBlock x:Name="armorClassBlock"
                                Grid.ColumnSpan="2"
                                HorizontalAlignment="Center"
+                               Text="0"
                                VerticalAlignment="Center"
                                FontSize="70"/>
 
@@ -201,13 +273,14 @@
                                Grid.ColumnSpan="2"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
+                               Text="0"
                                FontSize="70"/>
 
                     <TextBox x:Name="maxHPBox"
                              AcceptsReturn="False"
                              FontSize="40"
                              Grid.Row="1"
-                             TextAlignment="Center" TextChanged="maxHPBox_TextChanged"/>
+                             TextAlignment="Center"/>
 
                     <Button x:Name="maxHPButton"
                             Grid.Row="1"
@@ -244,13 +317,14 @@
                         <RowDefinition Height="29*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock x:Name="hpBlock"
+                    <TextBlock x:Name="tempHPBlock"
                                Grid.ColumnSpan="2"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
+                               Text="0"
                                FontSize="70"/>
 
-                    <TextBox x:Name="hpBox"
+                    <TextBox x:Name="tempHPBox"
                              AcceptsReturn="False"
                              FontSize="40"
                              Grid.Row="1"

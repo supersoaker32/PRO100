@@ -37,7 +37,7 @@ namespace Testing.SubMenus
             int result;
             if (maxHPBox.Text.Trim().Length > 0 && int.TryParse(maxHPBox.Text, out result))
             {
-                if (result > 0)
+                if (result >= 0)
                 {
                     maxHPBlock.Text = result.ToString();
                     maxHPBox.Text = "";
@@ -45,39 +45,94 @@ namespace Testing.SubMenus
                 }
                 else
                 {
-                    maxHPBlock.Text = "";
+                    maxHPBlock.Text = "0";
                     maxHPBox.Text = "";
                 }
             }
             else
             {
-                classBox.Text = "";
+                maxHPBox.Text = "";
             }
         }
 
         private void tempHPButton_Click(object sender, RoutedEventArgs e)
         {
-            if (nameBox.Text.Trim().Length > 0)
+            int result;
+            if (tempHPBox.Text.Trim().Length > 0 && int.TryParse(tempHPBox.Text, out result))
             {
-                name.Text = nameBox.Text;
-                nameBox.Text = "";
+                if (result >= 0)
+                {
+                    tempHPBlock.Text = result.ToString();
+                    tempHPBox.Text = "";
+                }
+                else
+                {
+                    tempHPBox.Text = "";
+                    tempHPBlock.Text = "0";
+                }
             }
             else
             {
-                nameBox.Text = "";
+                tempHPBox.Text = "";
             }
         }
 
         private void armorClassButton_Click(object sender, RoutedEventArgs e)
         {
-            if (nameBox.Text.Trim().Length > 0)
+            int result;
+            if (armorClassBox.Text.Trim().Length > 0 && int.TryParse(armorClassBox.Text, out result))
             {
-                name.Text = nameBox.Text;
-                nameBox.Text = "";
+                if (result >= 0)
+                {
+                    armorClassBlock.Text = result.ToString();
+                    armorClassBox.Text = "";
+                }
+                else
+                {
+                    armorClassBox.Text = "";
+                    armorClassBlock.Text = "0";
+                }
             }
             else
             {
-                nameBox.Text = "";
+                armorClassBox.Text = "";
+            }
+        }
+
+        private void initiativeButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (initiativeBox.Text.Trim().Length > 0 && int.TryParse(initiativeBox.Text, out result))
+            {
+                initiativeBlock.Text = result.ToString();
+                initiativeBox.Text = "";
+            }
+            else
+            {
+                initiativeBox.Text = "";
+                initiativeBlock.Text = "0";
+            }
+        }
+
+        private void speedButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (speedBox.Text.Trim().Length > 0 && int.TryParse(speedBox.Text, out result))
+            {
+                if (result >= 0)
+                {
+                    speedBlock.Text = result.ToString();
+                    speedBox.Text = "";
+                }
+                else
+                {
+                    speedBox.Text = "";
+                    speedBlock.Text = "0";
+                }
+            }
+            else
+            {
+                speedBox.Text = "";
             }
         }
     }
