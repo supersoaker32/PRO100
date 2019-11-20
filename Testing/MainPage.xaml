@@ -162,7 +162,13 @@
                   Grid.Column="0"
                   Margin="3,3,3,3" 
                   CornerRadius="20">
-
+                <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Armor Class"/>
+                <TextBlock x:Name="miniACBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
             </Grid>
 
             <Grid x:Name="miniInit" 
@@ -172,7 +178,13 @@
                   Grid.Column="1"
                   Margin="3,3,3,3" 
                   CornerRadius="20">
-
+                <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Initiative"/>
+                <TextBlock x:Name="miniInitBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
             </Grid>
 
             <Grid x:Name="miniSpd" 
@@ -182,7 +194,13 @@
                   Grid.Column="2"
                   Margin="3,3,3,3" 
                   CornerRadius="20">
-
+                <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Speed"/>
+                <TextBlock x:Name="miniSpeedBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
             </Grid>
 
             <Grid x:Name="miniHealths"
@@ -199,7 +217,13 @@
                       BorderThickness="8"
                       Margin="3,3,3,3" 
                       CornerRadius="20">
-                    
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Max Health"/>
+                    <TextBlock x:Name="miniMaxHPBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
                 </Grid>
 
                 <Grid x:Name="miniCurrentHP"
@@ -209,7 +233,13 @@
                       BorderThickness="8"
                       Margin="3,3,3,3" 
                       CornerRadius="20">
-                    
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Current Health"/>
+                    <TextBlock x:Name="miniCurrentHPBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
                 </Grid>
             </Grid>
 
@@ -229,7 +259,13 @@
                   BorderThickness="8"
                   Margin="3" 
                   CornerRadius="20">
-
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Temp Health"/>
+                    <TextBlock x:Name="miniTempHPBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
                 </Grid>
 
                 <Grid x:Name="miniSavingThrow"
@@ -240,7 +276,68 @@
                   BorderThickness="8"
                   Margin="3" 
                   CornerRadius="20">
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                               Padding="0"
+                               Margin="0 0 0 8"
+                           Text="Saving Throws"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="60*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="41*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Text="Successes"
+                                       Margin="10 0 0 0"/>
+                            <TextBlock Text="Failures"
+                                       Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1"
+                              Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
 
+                            <CheckBox x:Name="success1"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"/>
+                            <CheckBox x:Name="success2"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Column="1"/>
+                            <CheckBox x:Name="success3"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Column="2"/>
+                            
+                            <CheckBox x:Name="fail1"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Row="1"/>
+                            <CheckBox x:Name="fail2"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Row="1"
+                                      Grid.Column="1"/>
+                            <CheckBox x:Name="fail3"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Row="1"
+                                      Grid.Column="2"/>
+
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
 

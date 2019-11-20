@@ -150,18 +150,21 @@
                                Grid.Row="1"
                                Margin="15"/>
 
-                    <CheckBox Grid.Column="1"
+                    <CheckBox x:Name="succ1" Grid.Column="1"
                               Grid.Row="1"
                               VerticalAlignment="Center"
-                              HorizontalAlignment="Stretch"/>
-                    <CheckBox Grid.Column="2"
+                              HorizontalAlignment="Stretch"
+                              Click="succ1_Click"/>
+                    <CheckBox x:Name="succ2" Grid.Column="2"
                               Grid.Row="1"
                               VerticalAlignment="Center"
-                              HorizontalAlignment="Stretch"/>
-                    <CheckBox Grid.Column="3"
+                              HorizontalAlignment="Stretch"
+                              Click="succ2_Click"/>
+                    <CheckBox x:Name="succ3" Grid.Column="3"
                               Grid.Row="1"
                               VerticalAlignment="Center"
-                              HorizontalAlignment="Stretch"/>
+                              HorizontalAlignment="Stretch"
+                              Click="succ3_Click"/>
 
                     <TextBlock Text="Failures" 
                                FontSize="30"
@@ -169,18 +172,21 @@
                                VerticalAlignment="Center"
                                Grid.Row="2"
                                Margin="15"/>
-                    <CheckBox Grid.Column="1"
+                    <CheckBox x:Name="fail1" Grid.Column="1"
                               Grid.Row="2"
                               VerticalAlignment="Center"
-                              HorizontalAlignment="Stretch"/>
-                    <CheckBox Grid.Column="2"
+                              HorizontalAlignment="Stretch"
+                              Click="fail1_Click"/>
+                    <CheckBox x:Name="fail2" Grid.Column="2"
                               Grid.Row="2"
                               VerticalAlignment="Center"
-                              HorizontalAlignment="Stretch"/>
-                    <CheckBox Grid.Column="3"
+                              HorizontalAlignment="Stretch"
+                              Click="fail2_Click"/>
+                    <CheckBox x:Name="fail3" Grid.Column="3"
                               Grid.Row="2"
                               VerticalAlignment="Center"
-                              HorizontalAlignment="Stretch"/>
+                              HorizontalAlignment="Stretch"
+                              Click="fail3_Click"/>
 
                 </Grid>
             </Grid>
@@ -352,7 +358,7 @@
                   Grid.ColumnSpan="3"
             >
                 <TextBlock x:Name="currentHPText" Text="Current HP" TextAlignment="Center" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,16,0,414" Width="384"/>
-                <TextBox Margin="266,112,266,284" FontSize="50" TextAlignment="Center"/>
+                <TextBox x:Name="currentHPBox" Margin="266,112,266,284" FontSize="50" TextAlignment="Center"/>
             </Grid>
         </Grid>
 

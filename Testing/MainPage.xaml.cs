@@ -341,6 +341,49 @@ namespace Testing
                 charCharMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
             }
             #endregion
+
+            #region ActiveStats
+            miniACBlock.Text = (App.Current as App).Character.ActiveStats.ArmorClass.ToString();
+            miniSpeedBlock.Text = (App.Current as App).Character.ActiveStats.Speed.ToString();
+            miniInitBlock.Text = (App.Current as App).Character.ActiveStats.Initiative.ToString();
+
+            miniMaxHPBlock.Text = (App.Current as App).Character.ActiveStats.MaxHP.ToString();
+            miniCurrentHPBlock.Text = (App.Current as App).Character.ActiveStats.CurrentHP.ToString();
+            miniTempHPBlock.Text = (App.Current as App).Character.ActiveStats.TempHP.ToString();
+
+            if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 3)
+            {
+                success1.IsChecked = true;
+                success2.IsChecked = true;
+                success3.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 2)
+            {
+                success1.IsChecked = true;
+                success2.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
+            {
+                success1.IsChecked = true;
+            }
+
+
+            if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 3)
+            {
+                fail1.IsChecked = true;
+                fail2.IsChecked = true;
+                fail3.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 2)
+            {
+                fail1.IsChecked = true;
+                fail2.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 1)
+            {
+                fail1.IsChecked = true;
+            }
+            #endregion
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
