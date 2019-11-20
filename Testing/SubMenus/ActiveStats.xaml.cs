@@ -189,78 +189,134 @@ namespace Testing.SubMenus
 
         private void succ1_Click(object sender, RoutedEventArgs e)
         {
-            if (succ1.IsChecked == false)
+            if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 0)
             {
-                succ1.IsChecked = true;
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+            }
+            else if((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
+            {
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
             }
             else
             {
-                succ1.IsChecked = false;
-                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
+                succ1.IsChecked = true;
             }
         }
 
         private void succ2_Click(object sender, RoutedEventArgs e)
         {
-            if (succ1.IsChecked == false)
+            if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 0)
             {
                 succ1.IsChecked = true;
+                succ2.IsChecked = false;
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
             }
-            else if(succ1.IsChecked == true && succ2.IsChecked == false)
+            else if((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
             {
-                succ2.IsChecked = true;
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+            }
+            else if(((App.Current as App).Character.ActiveStats.Success_SavingThrows == 2))
+            {
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
             }
             else
             {
-                succ2.IsChecked = false;
-                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
+                succ2.IsChecked = true;
             }
         }
 
         private void succ3_Click(object sender, RoutedEventArgs e)
         {
-            if (succ1.IsChecked == false)
+            if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 0)
             {
                 succ1.IsChecked = true;
                 succ3.IsChecked = false;
-
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
             }
-            else if (succ2.IsChecked == false)
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
             {
                 succ2.IsChecked = true;
                 succ3.IsChecked = false;
-
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
             }
-            else if (succ3.IsChecked == true)
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 2)
             {
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
-
+            }
+            else if((App.Current as App).Character.ActiveStats.Success_SavingThrows == 3)
+            {
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
             }
             else
             {
-                succ3.IsChecked = false;
-                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
+                succ3.IsChecked = true;
             }
         }
 
         private void fail1_Click(object sender, RoutedEventArgs e)
         {
-
+            if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 0)
+            {
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows++;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 1)
+            {
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows--;
+            }
+            else
+            {
+                fail1.IsChecked = true;
+            }
         }
 
         private void fail2_Click(object sender, RoutedEventArgs e)
         {
-
+            if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 0)
+            {
+                fail1.IsChecked = true;
+                fail2.IsChecked = false;
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows++;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 1)
+            {
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows++;
+            }
+            else if (((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 2))
+            {
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows--;
+            }
+            else
+            {
+                fail2.IsChecked = true;
+            }
         }
 
         private void fail3_Click(object sender, RoutedEventArgs e)
         {
-
+            if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 0)
+            {
+                fail1.IsChecked = true;
+                fail3.IsChecked = false;
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows++;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 1)
+            {
+                fail2.IsChecked = true;
+                fail3.IsChecked = false;
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows++;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 2)
+            {
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows++;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 3)
+            {
+                (App.Current as App).Character.ActiveStats.Failure_SavingThrows--;
+            }
+            else
+            {
+                fail3.IsChecked = true;
+            }
         }
     }
 }
