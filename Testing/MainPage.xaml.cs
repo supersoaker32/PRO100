@@ -669,6 +669,8 @@ namespace Testing
 
                 case "Dwarf":
                     rm.ConMod = 2;
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Lawful Neutral";
                     (App.Current as App).Character.ActiveStats.Speed = 25;
                     (App.Current as App).Character.FeatureList.Add(new Feature("Darkvision", "Can see 60ft in dim light. Can see in darkness as if it were dim light. Cannot discern color, only shades of grey."));
                     (App.Current as App).Character.FeatureList.Add(new Feature("Dwarven Resilience", "Advantage on saving throws against poision and have resistance to poising damage."));
@@ -681,16 +683,32 @@ namespace Testing
                     (App.Current as App).Character.SnPData.Proficiencies.Add("Warhammer");
 
                     string[] toolProfs = { "Smith's Tools", "Brewer's Supplies", "Mason's Tools" };
-
                     (App.Current as App).Character.SnPData.Proficiencies.Add(toolProfs[rng.Next(0,3)]);
 
                     break;
                 case "Elf":
                     rm.DexMod = 2;
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Chaotic Good";
+                    (App.Current as App).Character.ActiveStats.Speed = 30;
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Darkvision", "Can see 60ft in dim light. Can see in darkness as if it were dim light. Cannot discern color, only shades of grey."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Fey Ancestry", "Advantage on saving throws against being charmed. Cannot be put to sleep by magical means."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Trance", "You do not need sleep, but instead must meditate in a semiconscious state for 4 hours to feel rested."));
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Elvish");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Proficient in the skill: Perception");
 
                     break;
                 case "Halfling":
                     rm.DexMod = 2;
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Lawful Good";
+                    (App.Current as App).Character.ActiveStats.Speed = 25;
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Lucky", "When you roll a 1, you can reroll the die, but you must take the new number."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Brave", "Advantage on saving throws against being frightened."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Halfling Numbleness", "You may move through the space of a creature that is of a size larger than yours."));
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Halfling");
 
                     break;
                 case "Human":
@@ -700,15 +718,79 @@ namespace Testing
                     rm.IntMod = 1;
                     rm.WisMod = 1;
                     rm.ChaMod = 1;
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Neutral";
+                    (App.Current as App).Character.ActiveStats.Speed = 30;
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak {Language of Choice}");
 
                     break;
                 case "Dragonborn":
                     rm.StrMod = 2;
                     rm.ChaMod = 1;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Neutral";
+                    (App.Current as App).Character.ActiveStats.Speed = 30;
+
+                    List<string> dragonTypes = new List<string>() { "Black ", "Blue ", "Brass ", "Bronze ", "Copper ", "Gold ", "Green ", "Red ", "Silver ", "White "};
+                    string type = dragonTypes.ElementAt(rng.Next(0, dragonTypes.Count));
+                    (App.Current as App).Character.CharactersInfo.Race = type + race;
+
+                    switch (type.Trim())
+                    {
+                        case "Black":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Acid Breath", "5x30ft line of acid damage: DC(8 + constitution + proficiency) dexterity saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Acid Damage"));
+                            break;
+                        case "Blue":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Lightning Breath", "5x30ft line of lightning damage: DC(8 + constitution + proficiency) dexterity saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Lightning Damage"));
+                            break;
+                        case "Brass":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Fire Breath", "5x30ft line of fire damage: DC(8 + constitution + proficiency) dexterity saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Fire Damage"));
+                            break;
+                        case "Bronze":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Lightning Breath", "5x30ft line of lightning damage: DC(8 + constitution + proficiency) dexterity saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Lightning Damage"));
+                            break;
+                        case "Copper":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Acid Breath", "5x30ft line of acid damage: DC(8 + constitution + proficiency) dexterity saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Acid Damage"));
+                            break;
+                        case "Gold":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Fire Breath", "15ft cone of fire damage: DC(8 + constitution + proficiency) constitution saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Fire Damage"));
+                            break;
+                        case "Green":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Poison Breath", "15ft cone of poison damage: DC(8 + constitution + proficiency) constitution saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Poison Damage"));
+                            break;
+                        case "Red":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Fire Breath", "15ft cone of fire damage: DC(8 + constitution + proficiency) constitution saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Fire Damage"));
+                            break;
+                        case "Silver":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Cold Breath", "15ft cone of cold damage: DC(8 + constitution + proficiency) constitution saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Cold Damage"));
+                            break;
+                        case "White":
+                            (App.Current as App).Character.Spellbook.Add(new Spell("Cold Breath", "15ft cone of cold damage: DC(8 + constitution + proficiency) constitution saving throw. 2D6 damage on failed save, half on successful. Useable 1/Long Rest. Goes up 1D6 at levels: 6, 11, and 16."));
+                            (App.Current as App).Character.FeatureList.Add(new Feature("Draconic Resistance", "Resistant to: Cold Damage"));
+                            break;
+                    }
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Draconic");
 
                     break;
                 case "Gnome":
                     rm.IntMod = 2;
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Neutral Good";
+                    (App.Current as App).Character.ActiveStats.Speed = 25;
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Darkvision", "Can see 60ft in dim light. Can see in darkness as if it were dim light. Cannot discern color, only shades of grey."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Gnome Cunning", "Advantage on all: Intelligence, Wisdom, and Charisma checks against magic."));
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Gnomish");
 
                     break;
                 case "Half-Elf":
@@ -892,16 +974,62 @@ namespace Testing
                             } while (statModUsed);
                             break;
                     }
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Chaotic Neutral";
+                    (App.Current as App).Character.ActiveStats.Speed = 30;
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Darkvision", "Can see 60ft in dim light. Can see in darkness as if it were dim light. Cannot discern color, only shades of grey."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Fey Ancestry", "Advantage on saving throws against being charmed. Cannot be put to sleep by magical means."));
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Elvish");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak {Language of Choice}");
+
+                    List<string> skills = new List<string>() { "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealh", "Survival" };
+                    bool alreadyChosen = false;
+                    string skill1 = skills.ElementAt(rng.Next(0, skills.Count));
+                    string skill2 = "";
+                    do
+                    {
+                        skill2 = skills.ElementAt(rng.Next(0, skills.Count));
+                        if (skill1 == skill2)
+                        {
+                            alreadyChosen = true;
+                        }
+                        else
+                        {
+                            alreadyChosen = false;
+                        }
+                    } while (alreadyChosen);
+
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Proficient in the skill: " + skill1);
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Proficient in the skill: " + skill2);
 
                     break;
                 case "Half-Orc":
                     rm.StrMod = 2;
                     rm.ConMod = 1;
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Chaotic Evil";
+                    (App.Current as App).Character.ActiveStats.Speed = 30;
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Darkvision", "Can see 60ft in dim light. Can see in darkness as if it were dim light. Cannot discern color, only shades of grey."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Relentless Endurance", "When you are reduced to 0 health, it is instead reduced to 1 health. Can only use this feature 1/Long Rest."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Savage Attacks", "When you score a critical hit you can add 1 of the weapons damage dice one time to the critical damage."));
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Orc");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Proficient in the skill: Intimidation");
 
                     break;
                 case "Tiefling":
                     rm.IntMod = 1;
                     rm.ChaMod = 2;
+                    (App.Current as App).Character.CharactersInfo.Race = race;
+                    (App.Current as App).Character.CharactersInfo.Allignment = "Chaotic Neutral";
+                    (App.Current as App).Character.ActiveStats.Speed = 30;
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Darkvision", "Can see 60ft in dim light. Can see in darkness as if it were dim light. Cannot discern color, only shades of grey."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Hellish Resistance", "Resistance to: Fire Damage"));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Infernal Legacy", "You know the cantrip: Thaumaturgy. At level 3 you learn: Hellish Rebuke; and can use it 1/Long Rest as a 2nd level spell. At level 5 you learn: Darkness; and can use it 1/Long Rest. Charisma is the spellcasting ability for these."));
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Infernal");
+                    (App.Current as App).Character.Spellbook.Add(new Spell("Thaumaturgy", "Range: 30ft. Duration: Up to 1 minute. Casting Time: 1 Action. You can: Create harmless sensory effects."));
 
                     break;
             }
