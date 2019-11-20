@@ -610,5 +610,258 @@ namespace Testing
         {
             confirmationPopup.IsOpen = false;
         }
+
+        private void Random_Click(object sender, RoutedEventArgs e)
+        {
+            bool statModUsed = false;
+            Random rng = new Random();
+            List<string> races = new List<string>() { "Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling" };
+            RaceMods rm = new RaceMods();
+
+
+            string race = races.ElementAt(rng.Next(0, races.Count));
+
+            switch (race)
+            {
+
+                case "Dwarf":
+                    rm.ConMod = 2;
+                    (App.Current as App).Character.ActiveStats.Speed = 25;
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Darkvision", "Can see 60ft in dim light. Can see in darkness as if it were dim light. Cannot discern color, only shades of grey."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Dwarven Resilience", "Advantage on saving throws against poision and have resistance to poising damage."));
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Stonecunning", "Gain double proficiency on 'History Checks' relating to stonework."));
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Common");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Read/Write and Speak Dwarvish");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Battleaxe");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Handaxe");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Throwing Hammer");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Warhammer");
+
+                    string[] toolProfs = { "Smith's Tools", "Brewer's Supplies", "Mason's Tools" };
+
+                    (App.Current as App).Character.SnPData.Proficiencies.Add(toolProfs[rng.Next(0,3)]);
+
+                    break;
+                case "Elf":
+                    rm.DexMod = 2;
+
+                    break;
+                case "Halfling":
+                    rm.DexMod = 2;
+
+                    break;
+                case "Human":
+                    rm.StrMod = 1;
+                    rm.DexMod = 1;
+                    rm.ConMod = 1;
+                    rm.IntMod = 1;
+                    rm.WisMod = 1;
+                    rm.ChaMod = 1;
+
+                    break;
+                case "Dragonborn":
+                    rm.StrMod = 2;
+                    rm.ChaMod = 1;
+
+                    break;
+                case "Gnome":
+                    rm.IntMod = 2;
+
+                    break;
+                case "Half-Elf":
+                    rm.ChaMod = 2;
+                    int rand1 = rng.Next(0, 5);
+                    switch (rand1)
+                    {
+                        case 0:
+                            rm.StrMod = 1;
+
+                            do
+                            {
+                                int rand2 = rng.Next(0, 5);
+                                if (rand2 == rand1)
+                                {
+                                    statModUsed = true;
+                                }
+                                else
+                                {
+                                    switch (rand2)
+                                    {
+                                        case 0:
+                                            rm.StrMod = 1;
+                                            break;
+                                        case 1:
+                                            rm.DexMod = 1;
+                                            break;
+                                        case 2:
+                                            rm.ConMod = 1;
+                                            break;
+                                        case 3:
+                                            rm.IntMod = 1;
+                                            break;
+                                        case 4:
+                                            rm.WisMod = 1;
+                                            break;
+                                    }
+                                    statModUsed = false;
+                                }
+
+                            } while (statModUsed);
+                            break;
+                        case 1:
+                            rm.DexMod = 1;
+
+                            do
+                            {
+                                int rand2 = rng.Next(0, 5);
+                                if (rand2 == rand1)
+                                {
+                                    statModUsed = true;
+                                }
+                                else
+                                {
+                                    switch (rand2)
+                                    {
+                                        case 0:
+                                            rm.StrMod = 1;
+                                            break;
+                                        case 1:
+                                            rm.DexMod = 1;
+                                            break;
+                                        case 2:
+                                            rm.ConMod = 1;
+                                            break;
+                                        case 3:
+                                            rm.IntMod = 1;
+                                            break;
+                                        case 4:
+                                            rm.WisMod = 1;
+                                            break;
+                                    }
+                                    statModUsed = false;
+                                }
+
+                            } while (statModUsed);
+                            break;
+                        case 2:
+                            rm.ConMod = 1;
+
+                            do
+                            {
+                                int rand2 = rng.Next(0, 5);
+                                if (rand2 == rand1)
+                                {
+                                    statModUsed = true;
+                                }
+                                else
+                                {
+                                    switch (rand2)
+                                    {
+                                        case 0:
+                                            rm.StrMod = 1;
+                                            break;
+                                        case 1:
+                                            rm.DexMod = 1;
+                                            break;
+                                        case 2:
+                                            rm.ConMod = 1;
+                                            break;
+                                        case 3:
+                                            rm.IntMod = 1;
+                                            break;
+                                        case 4:
+                                            rm.WisMod = 1;
+                                            break;
+                                    }
+                                    statModUsed = false;
+                                }
+
+                            } while (statModUsed);
+                            break;
+                        case 3:
+                            rm.IntMod = 1;
+
+                            do
+                            {
+                                int rand2 = rng.Next(0, 5);
+                                if (rand2 == rand1)
+                                {
+                                    statModUsed = true;
+                                }
+                                else
+                                {
+                                    switch (rand2)
+                                    {
+                                        case 0:
+                                            rm.StrMod = 1;
+                                            break;
+                                        case 1:
+                                            rm.DexMod = 1;
+                                            break;
+                                        case 2:
+                                            rm.ConMod = 1;
+                                            break;
+                                        case 3:
+                                            rm.IntMod = 1;
+                                            break;
+                                        case 4:
+                                            rm.WisMod = 1;
+                                            break;
+                                    }
+                                    statModUsed = false;
+                                }
+
+                            } while (statModUsed);
+                            break;
+                        case 4:
+                            rm.WisMod = 1;
+
+                            do
+                            {
+                                int rand2 = rng.Next(0, 5);
+                                if (rand2 == rand1)
+                                {
+                                    statModUsed = true;
+                                }
+                                else
+                                {
+                                    switch (rand2)
+                                    {
+                                        case 0:
+                                            rm.StrMod = 1;
+                                            break;
+                                        case 1:
+                                            rm.DexMod = 1;
+                                            break;
+                                        case 2:
+                                            rm.ConMod = 1;
+                                            break;
+                                        case 3:
+                                            rm.IntMod = 1;
+                                            break;
+                                        case 4:
+                                            rm.WisMod = 1;
+                                            break;
+                                    }
+                                    statModUsed = false;
+                                }
+
+                            } while (statModUsed);
+                            break;
+                    }
+
+                    break;
+                case "Half-Orc":
+                    rm.StrMod = 2;
+                    rm.ConMod = 1;
+
+                    break;
+                case "Tiefling":
+                    rm.IntMod = 1;
+                    rm.ChaMod = 2;
+
+                    break;
+            }
+        }
     }
 }
