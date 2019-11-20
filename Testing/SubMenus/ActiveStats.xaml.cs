@@ -25,9 +25,240 @@ namespace Testing.SubMenus
         public ActiveStats()
         {
             this.InitializeComponent();
+
+            armorClassBlock.Text = (App.Current as App).Character.ActiveStats.ArmorClass.ToString();
+            speedBlock.Text = (App.Current as App).Character.ActiveStats.Speed.ToString();
+            initiativeBlock.Text = (App.Current as App).Character.ActiveStats.Initiative.ToString();
+
+            maxHPBlock.Text = (App.Current as App).Character.ActiveStats.MaxHP.ToString();
+            currentHPBox.Text = (App.Current as App).Character.ActiveStats.CurrentHP.ToString();
+            tempHPBlock.Text = (App.Current as App).Character.ActiveStats.TempHP.ToString();
+
+            if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 3)
+            {
+                succ1.IsChecked = true;
+                succ2.IsChecked = true;
+                succ3.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 2)
+            {
+                succ1.IsChecked = true;
+                succ2.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
+            {
+                succ1.IsChecked = true;
+            }
+
+
+            if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 3)
+            {
+                fail1.IsChecked = true;
+                fail2.IsChecked = true;
+                fail3.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 2)
+            {
+                fail1.IsChecked = true;
+                fail2.IsChecked = true;
+            }
+            else if ((App.Current as App).Character.ActiveStats.Failure_SavingThrows == 1)
+            {
+                fail1.IsChecked = true;
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void maxHPButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (maxHPBox.Text.Trim().Length > 0 && int.TryParse(maxHPBox.Text, out result))
+            {
+                if (result >= 0)
+                {
+                    maxHPBlock.Text = result.ToString();
+                    maxHPBox.Text = "";
+                    (App.Current as App).Character.ActiveStats.MaxHP = result;
+
+                }
+                else
+                {
+                    maxHPBlock.Text = "0";
+                    (App.Current as App).Character.ActiveStats.MaxHP = 0;
+                    maxHPBox.Text = "";
+                }
+            }
+            else
+            {
+                maxHPBox.Text = "";
+            }
+        }
+
+        private void tempHPButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (tempHPBox.Text.Trim().Length > 0 && int.TryParse(tempHPBox.Text, out result))
+            {
+                if (result >= 0)
+                {
+                    tempHPBlock.Text = result.ToString();
+                    tempHPBox.Text = "";
+                    (App.Current as App).Character.ActiveStats.TempHP = result;
+                }
+                else
+                {
+                    tempHPBox.Text = "";
+                    tempHPBlock.Text = "0";
+                    (App.Current as App).Character.ActiveStats.TempHP = 0;
+                }
+            }
+            else
+            {
+                tempHPBox.Text = "";
+            }
+        }
+
+        private void armorClassButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (armorClassBox.Text.Trim().Length > 0 && int.TryParse(armorClassBox.Text, out result))
+            {
+                if (result >= 0)
+                {
+                    armorClassBlock.Text = result.ToString();
+                    armorClassBox.Text = "";
+                    (App.Current as App).Character.ActiveStats.ArmorClass = result;
+                }
+                else
+                {
+                    armorClassBox.Text = "";
+                    armorClassBlock.Text = "0";
+                    (App.Current as App).Character.ActiveStats.ArmorClass = 0;
+                }
+            }
+            else
+            {
+                armorClassBox.Text = "";
+            }
+        }
+
+        private void initiativeButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (initiativeBox.Text.Trim().Length > 0 && int.TryParse(initiativeBox.Text, out result))
+            {
+                initiativeBlock.Text = result.ToString();
+                initiativeBox.Text = "";
+                (App.Current as App).Character.ActiveStats.Initiative = result;
+            }
+            else
+            {
+                initiativeBox.Text = "";
+                initiativeBlock.Text = "0";
+                (App.Current as App).Character.ActiveStats.Initiative = 0;
+            }
+        }
+
+        private void speedButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (speedBox.Text.Trim().Length > 0 && int.TryParse(speedBox.Text, out result))
+            {
+                if (result >= 0)
+                {
+                    speedBlock.Text = result.ToString();
+                    speedBox.Text = "";
+                    (App.Current as App).Character.ActiveStats.Speed = result;
+                }
+                else
+                {
+                    speedBox.Text = "";
+                    speedBlock.Text = "0";
+                    (App.Current as App).Character.ActiveStats.Speed = 0;
+                }
+            }
+            else
+            {
+                speedBox.Text = "";
+            }
+        }
+
+        private void succ1_Click(object sender, RoutedEventArgs e)
+        {
+            if (succ1.IsChecked == false)
+            {
+                succ1.IsChecked = true;
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+            }
+            else
+            {
+                succ1.IsChecked = false;
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
+            }
+        }
+
+        private void succ2_Click(object sender, RoutedEventArgs e)
+        {
+            if (succ1.IsChecked == false)
+            {
+                succ1.IsChecked = true;
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+            }
+            else if(succ1.IsChecked == true && succ2.IsChecked == false)
+            {
+                succ2.IsChecked = true;
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+            }
+            else
+            {
+                succ2.IsChecked = false;
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
+            }
+        }
+
+        private void succ3_Click(object sender, RoutedEventArgs e)
+        {
+            if (succ1.IsChecked == false)
+            {
+                succ1.IsChecked = true;
+                succ3.IsChecked = false;
+
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+            }
+            else if (succ2.IsChecked == false)
+            {
+                succ2.IsChecked = true;
+                succ3.IsChecked = false;
+
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+            }
+            else if (succ3.IsChecked == true)
+            {
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
+
+            }
+            else
+            {
+                succ3.IsChecked = false;
+                (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
+            }
+        }
+
+        private void fail1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void fail2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void fail3_Click(object sender, RoutedEventArgs e)
         {
 
         }
