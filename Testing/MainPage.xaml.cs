@@ -676,6 +676,8 @@ namespace Testing
 
         private void Random_Click(object sender, RoutedEventArgs e)
         {
+            (App.Current as App).Character = new Character();
+
             bool statModUsed = false;
             Random rng = new Random();
             List<string> races = new List<string>() { "Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling" };
@@ -1053,6 +1055,44 @@ namespace Testing
 
                     break;
             }
+
+            for(int i = 0; i < (App.Current as App).Character.CharactersInfo.Stats.Length; i++)
+            {
+                int rand1 = rng.Next(1, 7);
+                int rand2 = rng.Next(1, 7);
+                int rand3 = rng.Next(1, 7);
+
+                int statSum = rand1 + rand2 + rand3;
+                switch (i)
+                {
+                    case 0:
+                        statSum += rm.StrMod;
+                        break;
+                    case 1:
+                        statSum += rm.DexMod;
+                        break;
+                    case 2:
+                        statSum += rm.ConMod;
+                        break;
+                    case 3:
+                        statSum += rm.IntMod;
+                        break;
+                    case 4:
+                        statSum += rm.WisMod;
+                        break;
+                    case 5:
+                        statSum += rm.ChaMod;
+                        break;
+                }
+
+                (App.Current as App).Character.CharactersInfo.Stats[i] = statSum;
+                int statMod = ((statSum - 10) / 2);
+                (App.Current as App).Character.CharactersInfo.StatMods[i] = statMod;
+
+            }
+
+
+            displayCharacter();
         }
     }
 }
