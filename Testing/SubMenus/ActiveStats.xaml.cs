@@ -31,7 +31,7 @@ namespace Testing.SubMenus
             initiativeBlock.Text = (App.Current as App).Character.ActiveStats.Initiative.ToString();
 
             maxHPBlock.Text = (App.Current as App).Character.ActiveStats.MaxHP.ToString();
-            currentHPBox.Text = (App.Current as App).Character.ActiveStats.CurrentHP.ToString();
+            currentHPBlock.Text = (App.Current as App).Character.ActiveStats.CurrentHP.ToString();
             tempHPBlock.Text = (App.Current as App).Character.ActiveStats.TempHP.ToString();
 
             if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 3)
@@ -316,6 +316,31 @@ namespace Testing.SubMenus
             else
             {
                 fail3.IsChecked = true;
+            }
+        }
+
+        private void currentHPButton_Click(object sender, RoutedEventArgs e)
+        {
+            int result;
+            if (currentHPBox.Text.Trim().Length > 0 && int.TryParse(currentHPBox.Text, out result))
+            {
+                if (result >= 0)
+                {
+                    currentHPBlock.Text = result.ToString();
+                    currentHPBox.Text = "";
+                    (App.Current as App).Character.ActiveStats.CurrentHP = result;
+
+                }
+                else
+                {
+                    currentHPBlock.Text = "0";
+                    (App.Current as App).Character.ActiveStats.CurrentHP = 0;
+                    currentHPBox.Text = "";
+                }
+            }
+            else
+            {
+                currentHPBox.Text = "";
             }
         }
     }
