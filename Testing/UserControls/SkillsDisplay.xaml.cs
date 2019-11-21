@@ -30,5 +30,11 @@ namespace Testing.UserControls
             set { mod.Text = value; }
         }
 
+        public bool? IsChecked
+        {
+            get { return checkBox.IsChecked; }
+            set { checkBox.IsChecked = value; }
+        }
+
     }
 }
