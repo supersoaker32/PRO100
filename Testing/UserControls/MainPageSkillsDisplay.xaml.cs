@@ -23,5 +23,10 @@ namespace Testing.UserControls
         {
             this.InitializeComponent();
         }
+        public string Text
+        {
+            get { return mod.Text; }
+            set { mod.Text = value; }
+        }
     }
 }

@@ -422,23 +422,23 @@
                 <TextBlock Text="Skills" FontSize ="30" HorizontalAlignment="Center"/>
                 <ScrollViewer Grid.Row="1">
                     <StackPanel x:Name="skillMods">
-                        <uc:SkillsDisplay x:Name="acrobatics"/>
-                        <uc:SkillsDisplay x:Name="animalHandling"/>
-                        <uc:SkillsDisplay x:Name="arcana"/>
-                        <uc:SkillsDisplay x:Name="athletics"/>
-                        <uc:SkillsDisplay x:Name="deception"/>
-                        <uc:SkillsDisplay x:Name="history"/>
-                        <uc:SkillsDisplay x:Name="insight"/>
-                        <uc:SkillsDisplay x:Name="intimidation"/>
-                        <uc:SkillsDisplay x:Name="investigation"/>
-                        <uc:SkillsDisplay x:Name="medicine"/>
-                        <uc:SkillsDisplay x:Name="nature"/>
-                        <uc:SkillsDisplay x:Name="perception"/>
-                        <uc:SkillsDisplay x:Name="performance"/>
-                        <uc:SkillsDisplay x:Name="persuassion"/>
-                        <uc:SkillsDisplay x:Name="religion"/>
-                        <uc:SkillsDisplay x:Name="sleightOfHand"/>
-                        <uc:SkillsDisplay x:Name="stealth"/>
+                        <uc:MainPageSkillsDisplay x:Name="acrobatics"/>
+                        <uc:MainPageSkillsDisplay x:Name="animalHandling"/>
+                        <uc:MainPageSkillsDisplay x:Name="arcana"/>
+                        <uc:MainPageSkillsDisplay x:Name="athletics"/>
+                        <uc:MainPageSkillsDisplay x:Name="deception"/>
+                        <uc:MainPageSkillsDisplay x:Name="history"/>
+                        <uc:MainPageSkillsDisplay x:Name="insight"/>
+                        <uc:MainPageSkillsDisplay x:Name="intimidation"/>
+                        <uc:MainPageSkillsDisplay x:Name="investigation"/>
+                        <uc:MainPageSkillsDisplay x:Name="medicine"/>
+                        <uc:MainPageSkillsDisplay x:Name="nature"/>
+                        <uc:MainPageSkillsDisplay x:Name="perception"/>
+                        <uc:MainPageSkillsDisplay x:Name="performance"/>
+                        <uc:MainPageSkillsDisplay x:Name="persuassion"/>
+                        <uc:MainPageSkillsDisplay x:Name="religion"/>
+                        <uc:MainPageSkillsDisplay x:Name="sleightOfHand"/>
+                        <uc:MainPageSkillsDisplay x:Name="stealth"/>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
