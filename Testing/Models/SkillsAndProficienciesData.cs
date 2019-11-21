@@ -10,12 +10,6 @@ namespace Testing.Models
 {
     public class SkillsAndProficienciesData
     {
-        public SkillsAndProficienciesData(List<string> proficiencies = null, Skill[] skillModifiers = null)
-        {
-            Proficiencies = (proficiencies != null) ? proficiencies : new List<string>();
-            SkillModifiers = (skillModifiers != null) ? skillModifiers : InitializeSkills();
-        }
-
         public Skill[] InitializeSkills()
         {
             Skill[] skills = new Skill[17];
@@ -49,6 +43,12 @@ namespace Testing.Models
             skills[4] = new Skill("Wisdom");
             skills[5] = new Skill("Charisma");
             return skills;
+        }
+        public SkillsAndProficienciesData(List<string> proficiencies = null, Skill[] skills = null, Skill[] savingThrows = null)
+        {
+            Proficiencies = (proficiencies != null) ? proficiencies : new List<string>();
+            SkillModifiers = (skills != null) ? skills : InitializeSkills();
+            SavingThrows = (savingThrows != null) ? savingThrows : InitializeSaves();
         }
 
         public SkillsAndProficienciesData()
@@ -91,6 +91,5 @@ namespace Testing.Models
             get { return savingThrows; }
             set { savingThrows = value; }
         }
-
     }
 }

@@ -34,7 +34,43 @@
                   Margin="5,5,5,5" 
                   CornerRadius="20"
             >
+                <TextBlock x:Name="initiativeText" Text="Intiative" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="156*"/>
+                        <ColumnDefinition Width="383*"/>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="77*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="63*"/>
+                        <RowDefinition Height="131*"/>
+                        <RowDefinition Height="74*"/>
+                    </Grid.RowDefinitions>
 
+                    <TextBlock x:Name="initiativeBlock"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="0"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="initiativeBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             TextAlignment="Center"/>
+
+                    <Button x:Name="initiativeButton"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="initiativeButton_Click"/>
+                </Grid>
             </Grid>
 
             <Grid x:Name="speed"
@@ -43,7 +79,45 @@
                   BorderThickness="8" 
                   Margin="5,5,5,5" 
                   CornerRadius="20" Grid.Row="1"
-            />
+            >
+                <TextBlock x:Name="speedText" Text="Speed" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="156*"/>
+                        <ColumnDefinition Width="383*"/>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="77*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="63*"/>
+                        <RowDefinition Height="131*"/>
+                        <RowDefinition Height="74*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="speedBlock"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="0"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="speedBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             TextAlignment="Center"/>
+
+                    <Button x:Name="speedButton"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="speedButton_Click"/>
+                </Grid>
+            </Grid>
 
             <Grid x:Name="deathSaves"
                   BorderBrush="#102E66"
@@ -52,7 +126,75 @@
                   Margin="5,5,5,5" 
                   CornerRadius="20" 
                   Grid.Row="2"
-            />
+            >
+                <TextBlock x:Name="savesText" Text="Death Saves" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="80*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Successes" 
+                               FontSize="30"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Grid.Row="0"
+                               Margin="15"/>
+
+                    <CheckBox x:Name="succ1" Grid.Column="1"
+                              Grid.Row="0"
+                              VerticalAlignment="Bottom"
+                              HorizontalAlignment="Stretch"
+                              Margin="15"
+                              Click="succ1_Click"/>
+                    <CheckBox x:Name="succ2" Grid.Column="2"
+                              Grid.Row="0"
+                              VerticalAlignment="Bottom"
+                              HorizontalAlignment="Stretch"
+                              Margin="15"
+                              Click="succ2_Click"/>
+                    <CheckBox x:Name="succ3" Grid.Column="3"
+                              Grid.Row="0"
+                              VerticalAlignment="Bottom"
+                              HorizontalAlignment="Stretch"
+                              Margin="15"
+                              Click="succ3_Click"/>
+
+                    <TextBlock Text="Failures" 
+                               FontSize="30"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Grid.Row="2"
+                               Margin="15"/>
+                    
+                    <CheckBox x:Name="fail1" Grid.Column="1"
+                              Grid.Row="2"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Stretch"
+                              Margin="15"
+                              Click="fail1_Click"/>
+                    <CheckBox x:Name="fail2" Grid.Column="2"
+                              Grid.Row="2"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Stretch"
+                              Margin="15"
+                              Click="fail2_Click"/>
+                    <CheckBox x:Name="fail3" Grid.Column="3"
+                              Grid.Row="2"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Stretch"
+                              Margin="15"
+                              Click="fail3_Click"/>
+
+                </Grid>
+            </Grid>
         </Grid>
 
         <Grid x:Name="stats">
@@ -73,7 +215,44 @@
                   Margin="5,5,5,5" 
                   CornerRadius="20"
             >
-                <TextBlock x:Name="armorClassText" Text="Armor Class" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,277"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="282*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="armorClassText" Text="Armor Class" Foreground="Black" FontSize="27" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Margin="49,0,0,0"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="75*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="29*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="armorClassBlock"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Center"
+                               Text="0"
+                               VerticalAlignment="Center"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="armorClassBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="1"
+                             TextAlignment="Center"/>
+
+                    <Button x:Name="armorClassButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="armorClassButton_Click"/>
+                </Grid>
             </Grid>
 
             <Grid x:Name="maxHP"
@@ -84,7 +263,44 @@
                   CornerRadius="20"
                   Grid.Column="1"
             >
-                <TextBlock x:Name="maxHPText" Text="Max HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,282"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="282*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="maxHPText" Text="Max HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Grid.Row="0" Width="150" Grid.RowSpan="2"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="75*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="29*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="maxHPBlock"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="0"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="maxHPBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="1"
+                             TextAlignment="Center"/>
+
+                    <Button x:Name="maxHPButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="maxHPButton_Click"/>
+                </Grid>
             </Grid>
 
             <Grid x:Name="tempHP"
@@ -95,7 +311,46 @@
                   CornerRadius="20"
                   Grid.Column="2"
             >
-                <TextBlock x:Name="tempHPText" Text="Temp HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,8,0,284"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="282*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="tempHPText" Text="Temp HP" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Grid.Row="0" Width="150" Grid.RowSpan="2"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="75*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="29*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="tempHPBlock"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="0"
+                               FontSize="70"/>
+
+                    <TextBox x:Name="tempHPBox"
+                             AcceptsReturn="False"
+                             FontSize="40"
+                             Grid.Row="1"
+                             TextAlignment="Center"/>
+
+
+                    <Button x:Name="tempHPButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="Ok"
+                            FontSize="30" Click="tempHPButton_Click"/>
+
+                </Grid>
             </Grid>
 
             <Grid x:Name="currentHP"
@@ -108,6 +363,7 @@
                   Grid.ColumnSpan="3"
             >
                 <TextBlock x:Name="currentHPText" Text="Current HP" TextAlignment="Center" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Margin="0,16,0,414" Width="384"/>
+                <TextBox x:Name="currentHPBox" Margin="266,112,266,284" FontSize="50" TextAlignment="Center"/>
             </Grid>
         </Grid>
 
@@ -120,6 +376,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Margin="20 25"
+                    Click="BackButton_Click"
             />
         </StackPanel>
 

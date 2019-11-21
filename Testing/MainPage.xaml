@@ -53,23 +53,43 @@
                                              Modifiers="Control"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Save as..."
+                                Click="SaveAs_Click">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE792;"/>
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="S"
+                                             Modifiers="Control,Shift"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Load"
+                                Icon="OpenFile"
                                 Click="Load_Click">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="O"
                                              Modifiers="Control"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Clear"
+                                Icon="Delete"
                                 Click="Clear_Clicked">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="C"
                                              Modifiers="Control"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Random"
+                                Click="Random_Click">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="R"
+                                             Modifiers="Control"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
             </MenuBarItem>
         </MenuBar>
-        
+
         <Grid Grid.Row="1" Grid.Column="0" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="CharInfo_Tapped">
             <Viewbox HorizontalAlignment="Left" Height="65" Margin="30 10 20 10" VerticalAlignment="Center">
                 <BitmapIcon x:Name="charIcon" UriSource="ms-appx:///Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
@@ -112,7 +132,7 @@
             </Border>
             <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
                 <TextBlock x:Name="charRace"
-                           FontSize="20"/>
+                           FontSize="16"/>
             </Border>
             <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1" Grid.Column="1">
                 <TextBlock x:Name="charAlign"
@@ -143,8 +163,204 @@
 
         </Grid>
 
-        <Grid x:Name="activeStats" Grid.Row="2" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="ActiveStats_Tapped">
-            <TextBlock Text="Active Stats" FontSize ="48" HorizontalAlignment="Center"/>
+        <Grid x:Name="activeStats" Grid.Row="2" Grid.Column="1"  Tapped="ActiveStats_Tapped">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="40*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="miniAC" 
+                  Background="PapayaWhip" 
+                  BorderBrush="#102E66" 
+                  BorderThickness="8" 
+                  Grid.Column="0"
+                  Margin="3,3,3,3" 
+                  CornerRadius="20">
+                <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Armor Class"/>
+                <TextBlock x:Name="miniACBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+            </Grid>
+
+            <Grid x:Name="miniInit" 
+                  Background="PapayaWhip" 
+                  BorderBrush="#102E66" 
+                  BorderThickness="8" 
+                  Grid.Column="1"
+                  Margin="3,3,3,3" 
+                  CornerRadius="20">
+                <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Initiative"/>
+                <TextBlock x:Name="miniInitBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+            </Grid>
+
+            <Grid x:Name="miniSpd" 
+                  Background="PapayaWhip" 
+                  BorderBrush="#102E66" 
+                  BorderThickness="8" 
+                  Grid.Column="2"
+                  Margin="3,3,3,3" 
+                  CornerRadius="20">
+                <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Speed"/>
+                <TextBlock x:Name="miniSpeedBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+            </Grid>
+
+            <Grid x:Name="miniHealths"
+                  Grid.ColumnSpan="3"
+                  Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="miniMaxHP"
+                      Background="PapayaWhip" 
+                      BorderBrush="#102E66" 
+                      BorderThickness="8"
+                      Margin="3,3,3,3" 
+                      CornerRadius="20">
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Max Health"/>
+                    <TextBlock x:Name="miniMaxHPBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+                </Grid>
+
+                <Grid x:Name="miniCurrentHP"
+                      Grid.Column="1"
+                      Background="PapayaWhip" 
+                      BorderBrush="#102E66" 
+                      BorderThickness="8"
+                      Margin="3,3,3,3" 
+                      CornerRadius="20">
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Current Health"/>
+                    <TextBlock x:Name="miniCurrentHPBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="miniStats"
+                  Grid.Row="2"
+                  Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="miniTempHP"
+                  Grid.Column="0"
+                  Grid.Row="1"
+                  Background="PapayaWhip" 
+                  BorderBrush="#102E66" 
+                  BorderThickness="8"
+                  Margin="3" 
+                  CornerRadius="20">
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="Temp Health"/>
+                    <TextBlock x:Name="miniTempHPBlock"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+                </Grid>
+
+                <Grid x:Name="miniSavingThrow"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  Background="PapayaWhip" 
+                  BorderBrush="#102E66" 
+                  BorderThickness="8"
+                  Margin="3" 
+                  CornerRadius="20">
+                    <TextBlock FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                               Padding="0"
+                               Margin="0 0 0 8"
+                           Text="Saving Throws"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="60*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="17*"/>
+                            <RowDefinition Height="41*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Text="Successes"
+                                       Margin="10 0 0 0"/>
+                            <TextBlock Text="Failures"
+                                       Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1"
+                              Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox x:Name="success1"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"/>
+                            <CheckBox x:Name="success2"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Column="1"/>
+                            <CheckBox x:Name="success3"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Column="2"/>
+                            
+                            <CheckBox x:Name="fail1"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Row="1"/>
+                            <CheckBox x:Name="fail2"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Row="1"
+                                      Grid.Column="1"/>
+                            <CheckBox x:Name="fail3"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Stretch"
+                                      Grid.Row="1"
+                                      Grid.Column="2"/>
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
         </Grid>
 
         <Grid x:Name="spellsAbilities" Grid.Row="3" Grid.Column="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3" CornerRadius="20" Tapped="Spellbook_Tapped">
@@ -188,12 +404,12 @@
                 <TextBlock Text="Saving Throws" FontSize ="34" HorizontalAlignment="Center"/>
                 <ScrollViewer Grid.Row="1">
                     <StackPanel x:Name="savingThrowMods">
-                        <uc:SkillsDisplay x:Name="strengthSaveMod"/>
-                        <uc:SkillsDisplay x:Name="dexteritySaveMod"/>
-                        <uc:SkillsDisplay x:Name="constitutionSaveMod"/>
-                        <uc:SkillsDisplay x:Name="intelligenceSaveMod"/>
-                        <uc:SkillsDisplay x:Name="wisdomSaveMod"/>
-                        <uc:SkillsDisplay x:Name="charismaSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="strengthSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="dexteritySaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="constitutionSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="intelligenceSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="wisdomSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="charismaSaveMod"/>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
@@ -206,23 +422,23 @@
                 <TextBlock Text="Skills" FontSize ="30" HorizontalAlignment="Center"/>
                 <ScrollViewer Grid.Row="1">
                     <StackPanel x:Name="skillMods">
-                        <uc:SkillsDisplay x:Name="acrobatics"/>
-                        <uc:SkillsDisplay x:Name="animalHandling"/>
-                        <uc:SkillsDisplay x:Name="arcana"/>
-                        <uc:SkillsDisplay x:Name="athletics"/>
-                        <uc:SkillsDisplay x:Name="deception"/>
-                        <uc:SkillsDisplay x:Name="history"/>
-                        <uc:SkillsDisplay x:Name="insight"/>
-                        <uc:SkillsDisplay x:Name="intimidation"/>
-                        <uc:SkillsDisplay x:Name="investigation"/>
-                        <uc:SkillsDisplay x:Name="medicine"/>
-                        <uc:SkillsDisplay x:Name="nature"/>
-                        <uc:SkillsDisplay x:Name="perception"/>
-                        <uc:SkillsDisplay x:Name="performance"/>
-                        <uc:SkillsDisplay x:Name="persuassion"/>
-                        <uc:SkillsDisplay x:Name="religion"/>
-                        <uc:SkillsDisplay x:Name="sleightOfHand"/>
-                        <uc:SkillsDisplay x:Name="stealth"/>
+                        <uc:MainPageSkillsDisplay x:Name="acrobatics"/>
+                        <uc:MainPageSkillsDisplay x:Name="animalHandling"/>
+                        <uc:MainPageSkillsDisplay x:Name="arcana"/>
+                        <uc:MainPageSkillsDisplay x:Name="athletics"/>
+                        <uc:MainPageSkillsDisplay x:Name="deception"/>
+                        <uc:MainPageSkillsDisplay x:Name="history"/>
+                        <uc:MainPageSkillsDisplay x:Name="insight"/>
+                        <uc:MainPageSkillsDisplay x:Name="intimidation"/>
+                        <uc:MainPageSkillsDisplay x:Name="investigation"/>
+                        <uc:MainPageSkillsDisplay x:Name="medicine"/>
+                        <uc:MainPageSkillsDisplay x:Name="nature"/>
+                        <uc:MainPageSkillsDisplay x:Name="perception"/>
+                        <uc:MainPageSkillsDisplay x:Name="performance"/>
+                        <uc:MainPageSkillsDisplay x:Name="persuassion"/>
+                        <uc:MainPageSkillsDisplay x:Name="religion"/>
+                        <uc:MainPageSkillsDisplay x:Name="sleightOfHand"/>
+                        <uc:MainPageSkillsDisplay x:Name="stealth"/>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
