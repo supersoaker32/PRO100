@@ -12,7 +12,7 @@ namespace Testing.Models
     {
         public Skill[] InitializeSkills()
         {
-            Skill[] skills = new Skill[17];
+            Skill[] skills = new Skill[18];
             skills[0] = new Skill("Acrobatics");
             skills[1] = new Skill("AnimalHandling");
             skills[2] = new Skill("Arcana");
@@ -30,6 +30,7 @@ namespace Testing.Models
             skills[14] = new Skill("Religion");
             skills[15] = new Skill("Sleight Of Hand");
             skills[16] = new Skill("Stealth");
+            skills[17] = new Skill("Survival");
             return skills;
         }
 

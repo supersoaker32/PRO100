@@ -18,7 +18,15 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <CheckBox Margin="5 0" Content="{Binding}" FontSize="18"/>
-        <TextBlock x:Name="mod" Margin ="2" Text="0" FontSize="18" Grid.Column="1"/>
+        <CheckBox x:Name="proficiency" 
+                  Margin="5 0" 
+                  Content="{Binding Path=Name, Mode=OneTime}" 
+                  FontSize="18" 
+                  IsChecked="{Binding Path=Proficient, Mode=TwoWay}"/>
+        <TextBox x:Name="mod" 
+                 Margin ="2" 
+                 PlaceholderText="Modifier" 
+                 FontSize="18" 
+                 Grid.Column="1"/>
     </Grid>
 </UserControl>

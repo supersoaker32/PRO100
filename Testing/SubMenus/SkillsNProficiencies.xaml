@@ -54,6 +54,7 @@
                 <uc:SkillsDisplay x:Name="religion"/>
                 <uc:SkillsDisplay x:Name="sleightOfHand"/>
                 <uc:SkillsDisplay x:Name="stealth"/>
+                <uc:SkillsDisplay x:Name="survival"/>
             </StackPanel>
         </ScrollViewer>
         <Button x:Name="back" 

@@ -439,6 +439,7 @@
                         <uc:MainPageSkillsDisplay x:Name="religion"/>
                         <uc:MainPageSkillsDisplay x:Name="sleightOfHand"/>
                         <uc:MainPageSkillsDisplay x:Name="stealth"/>
+                        <uc:MainPageSkillsDisplay x:Name="survival"/>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
