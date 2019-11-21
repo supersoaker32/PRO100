@@ -524,7 +524,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2,0,2,2">
                                     <TextBlock x:Name="strModBlock"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -597,7 +597,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2,0,2,2">
                                     <TextBlock x:Name="dexModBlock"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -671,7 +671,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2,0,2,2">
                                     <TextBlock x:Name="conModBlock"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -744,7 +744,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2,0,2,2">
                                     <TextBlock x:Name="intModBlock"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -817,7 +817,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2,0,2,2">
                                     <TextBlock x:Name="wisModBlock"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -891,7 +891,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2">
+                                <Border Grid.Column="1" BorderBrush="#102E66" BorderThickness="2,0,2,2">
                                     <TextBlock x:Name="chaModBlock"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
