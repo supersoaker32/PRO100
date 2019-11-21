@@ -46,7 +46,6 @@ namespace Testing
             {
                 (App.Current as App).Character.SnPData = new SkillsAndProficienciesData();
             }
-            
         }
 
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
@@ -173,15 +172,21 @@ namespace Testing
             charGoal.Text = (App.Current as App).Character.CharactersInfo.GoalEXP.ToString();
 
             int i = 0;
-            foreach(SkillsDisplay skill in skillMods.Children)
+            foreach(MainPageSkillsDisplay skill in skillMods.Children)
             {
-                skill.Text = (App.Current as App).Character.SnPData.SkillModifiers[i++].ToString();
+                skill.DataContext = (App.Current as App).Character.SnPData.SkillModifiers[i];
+                skill.Text = (App.Current as App).Character.SnPData.SkillModifiers[i].Modifier.ToString();
+                skill.CheckBox = (App.Current as App).Character.SnPData.SkillModifiers[i].Proficient;
+                i++;
                 //skill.CheckBox = (App.Current as App).Character.SnPData.
             }
             i = 0;
-            foreach(SkillsDisplay savingThrow in savingThrowMods.Children)
+            foreach(MainPageSkillsDisplay savingThrow in savingThrowMods.Children)
             {
-                savingThrow.Text = (App.Current as App).Character.SnPData.SavingThrows[i++].ToString();
+                savingThrow.DataContext = (App.Current as App).Character.SnPData.SavingThrows[i];
+                savingThrow.Text = (App.Current as App).Character.SnPData.SavingThrows[i].Modifier.ToString();
+                savingThrow.CheckBox = (App.Current as App).Character.SnPData.SavingThrows[i].Proficient;
+                i++;
             }
 
             proficiencies.Children.Clear();

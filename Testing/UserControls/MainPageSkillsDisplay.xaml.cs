@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -19,6 +21,7 @@ namespace Testing.UserControls
 {
     public sealed partial class MainPageSkillsDisplay : UserControl
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public MainPageSkillsDisplay()
         {
             this.InitializeComponent();
@@ -27,6 +30,26 @@ namespace Testing.UserControls
         {
             get { return mod.Text; }
             set { mod.Text = value; }
+        }
+
+        public bool? CheckBox
+        {
+            get { return proficiency.IsChecked; }
+            set
+            {
+                proficiency.IsChecked = value;
+                FieldChanged();
+            }
+        }
+
+        protected void FieldChanged([CallerMemberName] string field = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+        }
+
+        private void mod_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
         }
     }
 }
