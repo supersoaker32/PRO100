@@ -681,6 +681,7 @@ namespace Testing
             bool statModUsed = false;
             Random rng = new Random();
             List<string> races = new List<string>() { "Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling" };
+            List<string> classes = new List<string>() { "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard" };
             RaceMods rm = new RaceMods();
 
 
@@ -1091,6 +1092,65 @@ namespace Testing
 
             }
 
+            string charClass = classes.ElementAt(rng.Next(0, classes.Count));
+            switch (charClass)
+            {
+                case "Barbarian":
+                    (App.Current as App).Character.CharactersInfo.CharacterClass = charClass;
+                    (App.Current as App).Character.ActiveStats.MaxHP = 12 + (App.Current as App).Character.CharactersInfo.StatMods[2];
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Light Armor");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Medium Armor");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Shields");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Simple Weapons");
+                    (App.Current as App).Character.SnPData.Proficiencies.Add("Martial Weapons");
+                    //PROFICIENT IN STRENGTH AND CONST
+                    //SKILLS CHOOSE 2 FROM (ANIMAL HANDLING | ATHLETICS | INTIMIDATION | NATURE | PERCEPTION | SURVIVAL)
+
+                    (App.Current as App).Character.Inventory.Items.Add(new Item("Choose between: A Greataxe OR Any Martial Melee Weapon"));
+                    (App.Current as App).Character.Inventory.Items.Add(new Item("Choose between: 2 Handaxes OR Any Simple Weapon"));
+                    (App.Current as App).Character.Inventory.Items.Add(new Item("Explorers Pack"));
+                    (App.Current as App).Character.Inventory.Items.Add(new Item("4 Javelins"));
+
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Rage", "In battle you can rage as a bonus action. During rage if you " +
+                        "are not wearing heavy armor you gain the following benefits: You have advantage on Strength Checks and Strength Saving throws. " +
+                        "When you hit an enemy you gain 2 bonus rage damage (Increases by 1 at level 9 and 16). You gain resistance to bludgeoning, piercing, and slashing damage. " +
+                        "You cannot cast spells while in rage. It lasts for 1 minute. You can rage 2 times per long rest (Increases at level 3, 6, 12 and 17; then unlimited at level 20)"));
+
+                    break;
+                case "Bard":
+
+                    break;
+                case "Cleric":
+
+                    break;
+                case "Druid":
+
+                    break;
+                case "Fighter":
+
+                    break;
+                case "Monk":
+
+                    break;
+                case "Paladin":
+
+                    break;
+                case "Ranger":
+
+                    break;
+                case "Rogue":
+
+                    break;
+                case "Sorcerer":
+
+                    break;
+                case "Warlock":
+
+                    break;
+                case "Wizard":
+
+                    break;
+            }
 
             displayCharacter();
         }

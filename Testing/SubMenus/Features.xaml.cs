@@ -97,6 +97,7 @@ namespace Testing.SubMenus
                 Binding binding = new Binding();
                 binding.Path = new PropertyPath("FeatureName");
                 binding.Mode = BindingMode.OneWay;
+                row1TextBlock.TextWrapping = TextWrapping.Wrap;
                 row1TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
                 row1TextBlock.Text = feature.FeatureName;
@@ -115,6 +116,7 @@ namespace Testing.SubMenus
                 binding = new Binding();
                 binding.Path = new PropertyPath("FeatureName");
                 binding.Mode = BindingMode.OneWay;
+                row2TextBlock.TextWrapping = TextWrapping.Wrap;
                 row2TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
                 row2TextBlock.Text = feature.FeatureDescription;
