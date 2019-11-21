@@ -345,19 +345,29 @@ namespace Testing
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            SaveCharacter();
+            SaveCharacter(false);
         }
 
-        private async void SaveCharacter()
+        private void SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            SaveCharacter(true);
+        }
+
+        private async void SaveCharacter(bool saveAs)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Character));
-            Windows.Storage.Pickers.FileSavePicker picker = new Windows.Storage.Pickers.FileSavePicker();
-            picker.FileTypeChoices.Add("Character File", new List<string> { ".char" });
-            var file = await picker.PickSaveFileAsync();
-            if (file != null)
+            if ((App.Current as App).File == null || saveAs)
             {
-                Stream stream = await file.OpenStreamForWriteAsync();
+                Windows.Storage.Pickers.FileSavePicker picker = new Windows.Storage.Pickers.FileSavePicker();
+                picker.FileTypeChoices.Add("Character File", new List<string> { ".char" });
+                (App.Current as App).File = await picker.PickSaveFileAsync();
+            }
+
+            if ((App.Current as App).File != null)
+            {
+                Stream stream = await (App.Current as App).File.OpenStreamForWriteAsync();
                 serializer.Serialize(stream, (App.Current as App).Character);
+                stream.Close();
             }
             else
             {
@@ -376,11 +386,12 @@ namespace Testing
             XmlSerializer serializer = new XmlSerializer(typeof(Character));
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.FileTypeFilter.Add(".char");
-            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            var file = await picker.PickSingleFileAsync();
             if (file != null)
             {
                 Stream stream = await file.OpenStreamForReadAsync();
                 (App.Current as App).Character = (serializer.Deserialize(stream) as Character);
+                stream.Close();
                 displayCharacter();
             }
             else
@@ -422,6 +433,7 @@ namespace Testing
             sleightOfHand.Text = (App.Current as App).Character.SnPData.SkillModifiers[15].ToString();
             stealth.Text = (App.Current as App).Character.SnPData.SkillModifiers[16].ToString();
 
+            proficiencies.Children.Clear();
             foreach (string proficiency in (App.Current as App).Character.SnPData.Proficiencies)
             {
                 TextBlock item = new TextBlock();
@@ -456,6 +468,7 @@ namespace Testing
             charWisMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[4].ToString();
             charCharMod.Text = (App.Current as App).Character.CharactersInfo.StatMods[5].ToString();
 
+            Spells.Children.Clear();
             foreach (Spell spell in (App.Current as App).Character.Spellbook)
             {
                 Grid grid = new Grid();
@@ -488,6 +501,7 @@ namespace Testing
                 Spells.Children.Add(grid);
             }
 
+            Features.Children.Clear();
             foreach (Feature feature in (App.Current as App).Character.FeatureList)
             {
                 Grid grid = new Grid();
@@ -522,6 +536,7 @@ namespace Testing
 
             moneyVal.Text = (App.Current as App).Character.Inventory.Money.Sum().ToString();
 
+            inventory.Children.Clear();
             foreach (Item itemObject in (App.Current as App).Character.Inventory.Items)
             {
                 //Create new shape and brush
@@ -604,6 +619,9 @@ namespace Testing
             Features.Children.Clear();
             moneyVal.Text = (0).ToString();
             inventory.Children.Clear();
+
+            (App.Current as App).File = null;
+            (App.Current as App).Character = new Character();
         }
 
         private void NoClicked(object sender, RoutedEventArgs e)
