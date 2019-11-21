@@ -150,6 +150,9 @@
     <Compile Include="SubMenus\Spellbook.xaml.cs">
       <DependentUpon>Spellbook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainPageSkillsDisplay.xaml.cs">
+      <DependentUpon>MainPageSkillsDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SkillsDisplay.xaml.cs">
       <DependentUpon>SkillsDisplay.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SubMenus\Spellbook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MainPageSkillsDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

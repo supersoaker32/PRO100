@@ -404,12 +404,12 @@
                 <TextBlock Text="Saving Throws" FontSize ="34" HorizontalAlignment="Center"/>
                 <ScrollViewer Grid.Row="1">
                     <StackPanel x:Name="savingThrowMods">
-                        <uc:SkillsDisplay x:Name="strengthSaveMod"/>
-                        <uc:SkillsDisplay x:Name="dexteritySaveMod"/>
-                        <uc:SkillsDisplay x:Name="constitutionSaveMod"/>
-                        <uc:SkillsDisplay x:Name="intelligenceSaveMod"/>
-                        <uc:SkillsDisplay x:Name="wisdomSaveMod"/>
-                        <uc:SkillsDisplay x:Name="charismaSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="strengthSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="dexteritySaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="constitutionSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="intelligenceSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="wisdomSaveMod"/>
+                        <uc:MainPageSkillsDisplay x:Name="charismaSaveMod"/>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
