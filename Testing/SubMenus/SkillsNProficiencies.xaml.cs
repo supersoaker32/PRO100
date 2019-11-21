@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Testing.UserControls;
+using Testing.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,46 +28,26 @@ namespace Testing.SubMenus
         public SkillsNProficiencies()
         {
             this.InitializeComponent();
-            acrobatics.DataContext = "Acrobatics";
-            animalHandling.DataContext = "AnimalHandling";
-            arcana.DataContext = "Arcana";
-            athletics.DataContext = "Athletics";
-            deception.DataContext = "Deception";
-            history.DataContext = "History";
-            insight.DataContext = "Insight";
-            intimidation.DataContext = "Intimidation";
-            investigation.DataContext = "Investigation";
-            medicine.DataContext = "Medicine";
-            nature.DataContext = "Nature";
-            perception.DataContext = "Perception";
-            performance.DataContext = "Performance";
-            persuassion.DataContext = "Persuassion";
-            religion.DataContext = "Religion";
-            sleightOfHand.DataContext = "Sleight Of Hand";
-            stealth.DataContext = "Stealth";
-
-            strengthSaveMod.DataContext = "Strength";
-            dexteritySaveMod.DataContext = "Dexterity";
-            constitutionSaveMod.DataContext = "Constitution";
-            intelligenceSaveMod.DataContext = "Intelligence";
-            wisdomSaveMod.DataContext = "Wisdom";
-            charismaSaveMod.DataContext = "Charisma";
         }
 
         private void back_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
+            Skill[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
             int i = 0;
             foreach(var mod in modPanel.Children)
             {
-                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+                int tmpVal;
+                int.TryParse((mod as SkillsDisplay).Text, out tmpVal);
+                modData[i++].Modifier = tmpVal;
             }
 
             modData = (App.Current as App).Character.SnPData.SavingThrows;
             i = 0;
             foreach (var mod in savingThrows.Children)
             {
-                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+                int tmpVal;
+                int.TryParse((mod as SkillsDisplay).Text, out tmpVal);
+                modData[i++].Modifier = tmpVal;
             }
 
             this.Frame.Navigate(typeof(MainPage));
@@ -120,29 +101,41 @@ namespace Testing.SubMenus
                     grid.BorderThickness = new Thickness(3);
                     grid.CornerRadius = new CornerRadius(8);
                     item.Text = itemObject;
+                    item.TextWrapping = TextWrapping.Wrap;
                     grid.Children.Add(item);
+                    grid.RightTapped += Grid_RightTapped;
                     proficiency.Children.Add(grid);
                 }
             }
             if((App.Current as App).Character.SnPData.SkillModifiers != null)
             {
-                int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
+                Skill[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
                 int i = 0;
                 foreach (var mod in modPanel.Children)
                 {
-                    (mod as SkillsDisplay).Text = modData[i++].ToString();
+                    (mod as SkillsDisplay).DataContext = modData[i];
+                    (mod as SkillsDisplay).Text = modData[i].Modifier.ToString();
+                    (mod as SkillsDisplay).CheckBox = modData[i++].Proficient;
                 }
             }
             if ((App.Current as App).Character.SnPData.SavingThrows != null)
             {
-                int[] modData = (App.Current as App).Character.SnPData.SavingThrows;
+                Skill[] modData = (App.Current as App).Character.SnPData.SavingThrows;
                 int i = 0;
                 foreach (var mod in savingThrows.Children)
                 {
-                    (mod as SkillsDisplay).Text = modData[i++].ToString();
+                    (mod as SkillsDisplay).DataContext = modData[i];
+                    (mod as SkillsDisplay).Text = modData[i].Modifier.ToString();
+                    (mod as SkillsDisplay).CheckBox = modData[i++].Proficient;
                 }
             }
 
+        }
+
+        private void Grid_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            (App.Current as App).Character.SnPData.Proficiencies.Remove(((sender as Grid).Children.ElementAt(0) as TextBlock).Text);
+            proficiency.Children.Remove((UIElement)sender);
         }
     }
 }

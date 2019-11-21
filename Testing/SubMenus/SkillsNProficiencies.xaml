@@ -15,7 +15,7 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <Grid x:Name="savingThrows" Margin="15 5">
@@ -61,27 +61,31 @@
                 FontSize="48"
                 Tapped="back_Tapped" 
                 HorizontalAlignment="Right" 
-                VerticalAlignment="Bottom" 
-                Margin="20"
+                VerticalAlignment="Center" 
+                Margin="20 10"
                 BorderBrush="#102E66"
-                BorderThickness="8"
+                BorderThickness="6"
                 CornerRadius="22"
                 Grid.Column="1"/>
-        <StackPanel Grid.Column="1"
-                    Grid.Row="1"
-                    BorderBrush="#102E66" 
-                    BorderThickness="8" 
-                    Margin="3"  
-                    CornerRadius="22">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBox x:Name="proficiencyInput" 
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              BorderBrush="#102E66" 
+              BorderThickness="8" 
+              Margin="3"  
+              CornerRadius="22"
+              Height="825">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="120.8"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="proficiencyInput" 
                          PlaceholderText="Proficiency Name"
                          Background="White"/>
-                <Button x:Name="addProficiency"
+            <Button x:Name="addProficiency"
                         Grid.Column ="1"
                         FontSize="40"
                         Background="BlanchedAlmond"
@@ -91,14 +95,15 @@
                         BorderThickness="4"
                         CornerRadius="10"
                         Tapped="addProficiency_Tapped"/>
-            </Grid>
 
             <ScrollViewer x:Name="proficiencyScroll"
                           Background="PapayaWhip" 
-                          Grid.Column="1">
-                <StackPanel x:Name="proficiency"/>
+                          Grid.Row="1"
+                          Grid.ColumnSpan="2"
+                          Height="600"
+                          VerticalAlignment="Top">
+                <StackPanel x:Name="proficiency" CornerRadius="22"/>
             </ScrollViewer>
-        </StackPanel>
-
+        </Grid>
     </Grid>
 </Page>

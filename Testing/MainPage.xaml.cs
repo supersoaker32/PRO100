@@ -46,32 +46,7 @@ namespace Testing
             {
                 (App.Current as App).Character.SnPData = new SkillsAndProficienciesData();
             }
-            #region DisplaySkillAndSavingThrowNames
-            acrobatics.DataContext = "Acrobatics";
-            animalHandling.DataContext = "AnimalHandling";
-            arcana.DataContext = "Arcana";
-            athletics.DataContext = "Athletics";
-            deception.DataContext = "Deception";
-            history.DataContext = "History";
-            insight.DataContext = "Insight";
-            intimidation.DataContext = "Intimidation";
-            investigation.DataContext = "Investigation";
-            medicine.DataContext = "Medicine";
-            nature.DataContext = "Nature";
-            perception.DataContext = "Perception";
-            performance.DataContext = "Performance";
-            persuassion.DataContext = "Persuassion";
-            religion.DataContext = "Religion";
-            sleightOfHand.DataContext = "Sleight Of Hand";
-            stealth.DataContext = "Stealth";
-
-            strengthSaveMod.DataContext = "Strength";
-            dexteritySaveMod.DataContext = "Dexterity";
-            constitutionSaveMod.DataContext = "Constitution";
-            intelligenceSaveMod.DataContext = "Intelligence";
-            wisdomSaveMod.DataContext = "Wisdom";
-            charismaSaveMod.DataContext = "Charisma";
-            #endregion
+            
         }
 
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
@@ -81,17 +56,21 @@ namespace Testing
 
         private void SkillsNProficiencies_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            int[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
+            Skill[] modData = (App.Current as App).Character.SnPData.SkillModifiers;
             int i = 0;
             foreach (var mod in skillMods.Children)
             {
-                int.TryParse((mod as MainPageSkillsDisplay).Text, out modData[i++]);
+                int tmpVal;
+                int.TryParse((mod as MainPageSkillsDisplay).Text, out tmpVal);
+                modData[i++].Modifier = tmpVal;
             }
             modData = (App.Current as App).Character.SnPData.SavingThrows;
             i = 0;
             foreach (var mod in savingThrowMods.Children)
             {
-                int.TryParse((mod as MainPageSkillsDisplay).Text, out modData[i++]);
+                int tmpVal;
+                int.TryParse((mod as MainPageSkillsDisplay).Text, out tmpVal);
+                modData[i++].Modifier = tmpVal;
             }
             this.Frame.Navigate(typeof(SkillsNProficiencies));
         }
@@ -193,23 +172,17 @@ namespace Testing
             charCurrent.Text = (App.Current as App).Character.CharactersInfo.CurrentEXP.ToString();
             charGoal.Text = (App.Current as App).Character.CharactersInfo.GoalEXP.ToString();
 
-            acrobatics.Text = (App.Current as App).Character.SnPData.SkillModifiers[0].ToString();
-            animalHandling.Text = (App.Current as App).Character.SnPData.SkillModifiers[1].ToString();
-            arcana.Text = (App.Current as App).Character.SnPData.SkillModifiers[2].ToString();
-            athletics.Text = (App.Current as App).Character.SnPData.SkillModifiers[3].ToString();
-            deception.Text = (App.Current as App).Character.SnPData.SkillModifiers[4].ToString();
-            history.Text = (App.Current as App).Character.SnPData.SkillModifiers[5].ToString();
-            insight.Text = (App.Current as App).Character.SnPData.SkillModifiers[6].ToString();
-            intimidation.Text = (App.Current as App).Character.SnPData.SkillModifiers[7].ToString();
-            investigation.Text = (App.Current as App).Character.SnPData.SkillModifiers[8].ToString();
-            medicine.Text = (App.Current as App).Character.SnPData.SkillModifiers[9].ToString();
-            nature.Text = (App.Current as App).Character.SnPData.SkillModifiers[10].ToString();
-            perception.Text = (App.Current as App).Character.SnPData.SkillModifiers[11].ToString();
-            performance.Text = (App.Current as App).Character.SnPData.SkillModifiers[12].ToString();
-            persuassion.Text = (App.Current as App).Character.SnPData.SkillModifiers[13].ToString();
-            religion.Text = (App.Current as App).Character.SnPData.SkillModifiers[14].ToString();
-            sleightOfHand.Text = (App.Current as App).Character.SnPData.SkillModifiers[15].ToString();
-            stealth.Text = (App.Current as App).Character.SnPData.SkillModifiers[16].ToString();
+            int i = 0;
+            foreach(SkillsDisplay skill in skillMods.Children)
+            {
+                skill.Text = (App.Current as App).Character.SnPData.SkillModifiers[i++].ToString();
+                //skill.CheckBox = (App.Current as App).Character.SnPData.
+            }
+            i = 0;
+            foreach(SkillsDisplay savingThrow in savingThrowMods.Children)
+            {
+                savingThrow.Text = (App.Current as App).Character.SnPData.SavingThrows[i++].ToString();
+            }
 
             proficiencies.Children.Clear();
             foreach (string proficiency in (App.Current as App).Character.SnPData.Proficiencies)
