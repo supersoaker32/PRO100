@@ -16,7 +16,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <CheckBox Margin="5 0" Content="{Binding}" FontSize="18"/>
+        <CheckBox x:Name="checkBox" Margin="5 0" Content="{Binding}" FontSize="18"/>
         <TextBox x:Name="mod" Margin ="2" PlaceholderText="Modifier" FontSize="18" Grid.Column="1"/>
     </Grid>
 </UserControl>
