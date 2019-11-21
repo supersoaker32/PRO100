@@ -85,13 +85,13 @@ namespace Testing
             int i = 0;
             foreach (var mod in skillMods.Children)
             {
-                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+                int.TryParse((mod as MainPageSkillsDisplay).Text, out modData[i++]);
             }
             modData = (App.Current as App).Character.SnPData.SavingThrows;
             i = 0;
             foreach (var mod in savingThrowMods.Children)
             {
-                int.TryParse((mod as SkillsDisplay).Text, out modData[i++]);
+                int.TryParse((mod as MainPageSkillsDisplay).Text, out modData[i++]);
             }
             this.Frame.Navigate(typeof(SkillsNProficiencies));
         }
