@@ -29,13 +29,14 @@ namespace Testing
         /// </summary>
         /// 
         public Character Character { get; set; }
-
+        public Windows.Storage.StorageFile File { get; set; }
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             Character = new Character();
         }
+
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

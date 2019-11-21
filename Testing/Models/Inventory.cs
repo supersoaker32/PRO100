@@ -28,8 +28,6 @@ namespace Testing.Models
             get { return money; }
             set { money = value; }
         }
-
-
         public List<Item> Items
         {
             get { return items; }

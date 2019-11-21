@@ -18,6 +18,7 @@ namespace Testing.Models
             SnPData = (snPData != null) ? snPData : new SkillsAndProficienciesData();
         }
 
+
         public Character()
         {
             CharactersInfo = new CharInfo();
