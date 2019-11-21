@@ -46,32 +46,7 @@ namespace Testing
             {
                 (App.Current as App).Character.SnPData = new SkillsAndProficienciesData();
             }
-            #region DisplaySkillAndSavingThrowNames
-            acrobatics.DataContext = "Acrobatics";
-            animalHandling.DataContext = "AnimalHandling";
-            arcana.DataContext = "Arcana";
-            athletics.DataContext = "Athletics";
-            deception.DataContext = "Deception";
-            history.DataContext = "History";
-            insight.DataContext = "Insight";
-            intimidation.DataContext = "Intimidation";
-            investigation.DataContext = "Investigation";
-            medicine.DataContext = "Medicine";
-            nature.DataContext = "Nature";
-            perception.DataContext = "Perception";
-            performance.DataContext = "Performance";
-            persuassion.DataContext = "Persuassion";
-            religion.DataContext = "Religion";
-            sleightOfHand.DataContext = "Sleight Of Hand";
-            stealth.DataContext = "Stealth";
-
-            strengthSaveMod.DataContext = "Strength";
-            dexteritySaveMod.DataContext = "Dexterity";
-            constitutionSaveMod.DataContext = "Constitution";
-            intelligenceSaveMod.DataContext = "Intelligence";
-            wisdomSaveMod.DataContext = "Wisdom";
-            charismaSaveMod.DataContext = "Charisma";
-            #endregion
+            
         }
 
         private void CharInfo_Tapped(object sender, TappedRoutedEventArgs e)
@@ -248,6 +223,7 @@ namespace Testing
                     grid.BorderThickness = new Thickness(3);
                     grid.CornerRadius = new CornerRadius(8);
                     item.Text = proficiency;
+                    item.TextWrapping = TextWrapping.Wrap;
                     grid.Children.Add(item);
                     proficiencies.Children.Add(grid);
                 }
@@ -258,7 +234,9 @@ namespace Testing
                 int i = 0;
                 foreach (var mod in skillMods.Children)
                 {
-                    (mod as SkillsDisplay).Text = modData[i++].ToString();
+                    (mod as SkillsDisplay).DataContext = modData[i];
+                    (mod as SkillsDisplay).Text = modData[i].Modifier.ToString();
+                    (mod as SkillsDisplay).CheckBox = modData[i++].Proficient;
                 }
             }
             if ((App.Current as App).Character.SnPData.SavingThrows != null)
@@ -267,7 +245,9 @@ namespace Testing
                 int i = 0;
                 foreach (var mod in savingThrowMods.Children)
                 {
-                    (mod as SkillsDisplay).Text = modData[i++].ToString();
+                    (mod as SkillsDisplay).DataContext = modData[i];
+                    (mod as SkillsDisplay).Text = modData[i].Modifier.ToString();
+                    (mod as SkillsDisplay).CheckBox = modData[i++].Proficient;
                 }
             }
             #endregion

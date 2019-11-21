@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -17,8 +19,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Testing.UserControls
 {
-    public sealed partial class SkillsDisplay : UserControl
+    public sealed partial class SkillsDisplay : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public SkillsDisplay()
         {
             this.InitializeComponent();
@@ -33,8 +36,21 @@ namespace Testing.UserControls
         public bool? CheckBox
         {
             get { return proficiency.IsChecked; }
-            set { proficiency.IsChecked = value; }
+            set 
+            {
+                proficiency.IsChecked = value;
+                FieldChanged();
+            }
         }
 
+        protected void FieldChanged([CallerMemberName] string field = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+        }
+
+        private void mod_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }
