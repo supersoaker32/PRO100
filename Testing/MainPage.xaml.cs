@@ -815,8 +815,47 @@ namespace Testing
                     (App.Current as App).Character.SnPData.Proficiencies.Add("Shields");
                     (App.Current as App).Character.SnPData.Proficiencies.Add("Simple Weapons");
                     (App.Current as App).Character.SnPData.Proficiencies.Add("Martial Weapons");
-                    //PROFICIENT IN STRENGTH AND CONST
-                    //SKILLS CHOOSE 2 FROM (ANIMAL HANDLING | ATHLETICS | INTIMIDATION | NATURE | PERCEPTION | SURVIVAL)
+
+                    (App.Current as App).Character.SnPData.SkillModifiers[0].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[0];
+                    (App.Current as App).Character.SnPData.SavingThrows[0].Proficient = true;
+                    (App.Current as App).Character.SnPData.SkillModifiers[1].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[1];
+                    (App.Current as App).Character.SnPData.SkillModifiers[2].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[2];
+                    (App.Current as App).Character.SnPData.SavingThrows[2].Proficient = true;
+                    (App.Current as App).Character.SnPData.SkillModifiers[3].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[3];
+                    (App.Current as App).Character.SnPData.SkillModifiers[4].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[4];
+                    (App.Current as App).Character.SnPData.SkillModifiers[5].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[5];
+
+                    int[] ints = new int[6] { 1, 3, 7, 10, 11, 17};
+                    bool exists = false;
+                    int rand = 0;
+                    do
+                    {
+                        rand = ints[rng.Next(0, 6)];
+                        if((App.Current as App).Character.SnPData.SkillModifiers[rand].Proficient == true)
+                        {
+                            exists = true;
+                        }
+                        else
+                        {
+                            (App.Current as App).Character.SnPData.SkillModifiers[rand].Proficient = true;
+                            exists = false;
+                        }
+
+                    } while (exists);
+                    do
+                    {
+                        rand = rng.Next(0, 6);
+                        if ((App.Current as App).Character.SnPData.SkillModifiers[rand].Proficient == true)
+                        {
+                            exists = true;
+                        }
+                        else
+                        {
+                            (App.Current as App).Character.SnPData.SkillModifiers[rand].Proficient = true;
+                            exists = false;
+                        }
+
+                    } while (exists);
 
                     (App.Current as App).Character.Inventory.Items.Add(new Item("Choose between: A Greataxe OR Any Martial Melee Weapon"));
                     (App.Current as App).Character.Inventory.Items.Add(new Item("Choose between: 2 Handaxes OR Any Simple Weapon"));
@@ -828,8 +867,12 @@ namespace Testing
                         "When you hit an enemy you gain 2 bonus rage damage (Increases by 1 at level 9 and 16). You gain resistance to bludgeoning, piercing, and slashing damage. " +
                         "You cannot cast spells while in rage. It lasts for 1 minute. You can rage 2 times per long rest (Increases at level 3, 6, 12 and 17; then unlimited at level 20)"));
 
+                    (App.Current as App).Character.FeatureList.Add(new Feature("Unarmored Defense", "Your armor class is: 10 + Dexterity Modifier + Constitution Modifier. You may use a shield and still gain this benefit."));
+                    (App.Current as App).Character.ActiveStats.ArmorClass = 10 + (App.Current as App).Character.CharactersInfo.StatMods[1] + (App.Current as App).Character.CharactersInfo.StatMods[2];
+
                     break;
                 case "Bard":
+                    //TODO
 
                     break;
                 case "Cleric":
