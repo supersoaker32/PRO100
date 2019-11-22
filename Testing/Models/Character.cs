@@ -8,7 +8,7 @@ namespace Testing.Models
 {
     public class Character
     {
-        public Character(CharInfo charactersInfo = null,  ActStats activeStats = null,List<Spell> spellbook = null, List<Feature> featureList = null, InventoryData inventory = null, SkillsAndProficienciesData snPData = null)
+        public Character(CharInfo charactersInfo = null,  ActStats activeStats = null,List<Spell> spellbook = null, List<Feature> featureList = null, InventoryData inventory = null, SkillsAndProficienciesData snPData = null, int[] spellSlots = null, int spellMod = 0, int spellSave = 0)
         {
             CharactersInfo = (charactersInfo != null) ? charactersInfo : new CharInfo();
             ActiveStats = (activeStats != null) ? activeStats : new ActStats();
@@ -16,6 +16,9 @@ namespace Testing.Models
             FeatureList = (featureList != null) ? featureList : new List<Feature>();
             Inventory = (inventory != null) ? inventory : new InventoryData();
             SnPData = (snPData != null) ? snPData : new SkillsAndProficienciesData();
+            SpellSlots = (spellSlots != null) ? spellSlots : new int[9];
+            SpellMod = (spellMod != 0) ? spellMod : 0;
+            SpellSave = (spellSave != 0) ? spellSave : 0;
         }
 
 
@@ -27,6 +30,9 @@ namespace Testing.Models
             FeatureList = new List<Feature>();
             Inventory = new InventoryData();
             SnPData = new SkillsAndProficienciesData();
+            SpellSlots = new int[9];
+            SpellMod = 0;
+            SpellSave = 0;
         }
 
         private CharInfo charactersInfo;
@@ -72,6 +78,32 @@ namespace Testing.Models
             get { return snpData; }
             set { snpData = value; }
         }
+
+        private int[] spellSlots;
+
+        public int[] SpellSlots
+        {
+            get { return spellSlots; }
+            set { spellSlots = value; }
+        }
+
+        private int spellSave;
+
+        public int SpellSave
+        {
+            get { return spellSave; }
+            set { spellSave = value; }
+        }
+
+        private int spellMod;
+
+        public int SpellMod
+        {
+            get { return spellMod; }
+            set { spellMod = value; }
+        }
+
+
 
         public override string ToString()
         {
