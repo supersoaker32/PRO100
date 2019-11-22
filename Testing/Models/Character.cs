@@ -17,8 +17,8 @@ namespace Testing.Models
             Inventory = (inventory != null) ? inventory : new InventoryData();
             SnPData = (snPData != null) ? snPData : new SkillsAndProficienciesData();
             SpellSlots = (spellSlots != null) ? spellSlots : new int[9];
-            SpellMod = (spellMod != 0) ? spellMod : 0;
-            SpellSave = (spellSave != 0) ? spellSave : 0;
+            SpellMod = spellMod;
+            SpellSave = spellSave;
         }
 
 
