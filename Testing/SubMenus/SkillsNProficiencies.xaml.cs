@@ -62,7 +62,8 @@ namespace Testing.SubMenus
             //Set color
             color.Color = Colors.Black;
             item.Foreground = color;
-            item.FontSize = 55;
+            item.FontSize = 25;
+            item.TextWrapping = TextWrapping.Wrap;
             if (proficiencyInput.Text.Trim() != "")
             {
                 Grid grid = new Grid();
@@ -93,7 +94,8 @@ namespace Testing.SubMenus
                     //Set color
                     color.Color = Colors.Black;
                     item.Foreground = color;
-                    item.FontSize = 55;
+                    item.FontSize = 25;
+                    item.TextWrapping = TextWrapping.Wrap;
                     Grid grid = new Grid();
                     SolidColorBrush brush = new SolidColorBrush();
                     brush.Color = Colors.DarkGray;

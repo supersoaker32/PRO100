@@ -98,6 +98,7 @@ namespace Testing.SubMenus
                 binding.Path = new PropertyPath("FeatureName");
                 binding.Mode = BindingMode.OneWay;
                 row1TextBlock.TextWrapping = TextWrapping.Wrap;
+                row1TextBlock.FontSize = 25;
                 row1TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
                 row1TextBlock.Text = feature.FeatureName;
@@ -116,6 +117,7 @@ namespace Testing.SubMenus
                 binding = new Binding();
                 binding.Path = new PropertyPath("FeatureName");
                 binding.Mode = BindingMode.OneWay;
+                row2TextBlock.FontSize = 25;
                 row2TextBlock.TextWrapping = TextWrapping.Wrap;
                 row2TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
@@ -199,6 +201,7 @@ namespace Testing.SubMenus
             binding.Mode = BindingMode.OneWay;
             row1TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
+            row1TextBlock.FontSize = 25;
             row1TextBlock.TextWrapping = TextWrapping.Wrap;
 
             row1TextBlock.Margin = new Thickness(5);
@@ -221,6 +224,7 @@ namespace Testing.SubMenus
             binding.Mode = BindingMode.OneWay;
             row2TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
+            row2TextBlock.FontSize = 25;
             row2TextBlock.TextWrapping = TextWrapping.Wrap;
 
             row2TextBlock.Margin = new Thickness(5);
@@ -328,6 +332,7 @@ namespace Testing.SubMenus
                     binding.Mode = BindingMode.OneWay;
                     row1TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
+                    row1TextBlock.FontSize = 25;
                     row1TextBlock.TextWrapping = TextWrapping.Wrap;
 
                     row1TextBlock.Margin = new Thickness(5);
@@ -350,6 +355,7 @@ namespace Testing.SubMenus
                     binding.Mode = BindingMode.OneWay;
                     row2TextBlock.SetBinding(TextBlock.TextProperty, binding);
 
+                    row2TextBlock.FontSize = 25;
                     row2TextBlock.TextWrapping = TextWrapping.Wrap;
 
                     row2TextBlock.Margin = new Thickness(5);
