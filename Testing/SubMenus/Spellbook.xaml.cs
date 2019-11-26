@@ -305,13 +305,16 @@ namespace Testing.SubMenus
                     {
                         if ((sendersChild as TextBox) != null)
                         {
-                            if ((sendersChild as TextBox).Name == "spellName")
-                            {
-                                newSpell.SpellName = (sendersChild as TextBox).Text;
-                            }
-                            else if ((sendersChild as TextBox).Name == "spellDescription")
+                            if ((sendersChild as TextBox).Name == "spellDescription")
                             {
                                 newSpell.SpellDescription = (sendersChild as TextBox).Text;
+                            }
+                        }
+                        if ((sendersChild as ComboBox) != null)
+                        {
+                            if ((sendersChild as ComboBox).Name == "spellDictionary")
+                            {
+                                newSpell.SpellName = (sendersChild as ComboBox).Text;
                             }
                         }
                     }
