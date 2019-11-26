@@ -123,6 +123,8 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ActStats.cs" />
+    <Compile Include="Models\APISpell.cs" />
+    <Compile Include="Models\APISpellDictionary.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\CharInfo.cs" />
     <Compile Include="Models\Inventory.cs" />
@@ -218,6 +220,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
