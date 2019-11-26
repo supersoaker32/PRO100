@@ -29,12 +29,15 @@ namespace Testing
         /// </summary>
         /// 
         public Character Character { get; set; }
+        public APISpellDictionary Dictionary { get; set; }
+
         public Windows.Storage.StorageFile File { get; set; }
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             Character = new Character();
+            Dictionary = new APISpellDictionary();
         }
 
 

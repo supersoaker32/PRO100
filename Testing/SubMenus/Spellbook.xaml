@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid Background="#330A03">
         <Grid.RowDefinitions>
             <RowDefinition Height="8.5*"/>
@@ -30,7 +29,11 @@
             <Border BorderBrush="Black" BorderThickness="2">
                 <TextBlock Text="Spell Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
             </Border>
-            <TextBox x:Name="spellName" Grid.Column="1"/>
+            <ComboBox x:Name="spellDictionary" 
+                      Grid.Column="1" 
+                      IsEditable="true" 
+                      Width="800"
+                      SelectionChanged="spellDictionary_SelectionChanged"/>
 
             <Border BorderBrush="Black" BorderThickness="2" Grid.Row="1">
                 <TextBlock Text="Spell Description" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
