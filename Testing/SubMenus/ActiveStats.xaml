@@ -173,7 +173,7 @@
                                VerticalAlignment="Center"
                                Grid.Row="2"
                                Margin="15"/>
-                    
+
                     <CheckBox x:Name="fail1" Grid.Column="1"
                               Grid.Row="2"
                               VerticalAlignment="Center"
@@ -378,7 +378,7 @@
                         <RowDefinition Height="94*"/>
                         <RowDefinition Height="61*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <TextBlock x:Name="currentHPText" Text="Current HP" TextAlignment="Center" Foreground="Black" FontSize="38" HorizontalAlignment="Center" Width="384" Grid.ColumnSpan="4"/>
 
                     <TextBlock x:Name="currentHPBlock" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text="0" FontSize="70" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
@@ -395,6 +395,29 @@
                       Margin="5,5,5,5" 
                       CornerRadius="20">
 
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="273*"/>
+                            <ColumnDefinition Width="178*"/>
+                            <ColumnDefinition Width="273*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="52*"/>
+                            <RowDefinition Height="89*"/>
+                            <RowDefinition Height="90*"/>
+                        </Grid.RowDefinitions>
+
+                        <ListBox x:Name="diceList"
+                                 Grid.RowSpan="2">
+                            <TextBlock x:Name="d4" Text="D4"/>
+                            <TextBlock x:Name="d6" Text="D6"/>
+                            <TextBlock x:Name="d8" Text="D8"/>
+                            <TextBlock x:Name="d10" Text="D10"/>
+                            <TextBlock x:Name="d12" Text="D12"/>
+                            <TextBlock x:Name="d20" Text="D20"/>
+                            <TextBlock x:Name="d100" Text="D100"/>
+                        </ListBox>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
