@@ -291,6 +291,9 @@ namespace Testing.SubMenus
 
                 Spells.Children.Add(newGrid);
                 (App.Current as App).Character.Spellbook.Add(newSpell);
+                spellDictionary.Text = "";
+                spellDictionary.SelectedIndex = -1;
+                spellDescription.Text = "";
             }
             if (replace)
             {
@@ -326,7 +329,9 @@ namespace Testing.SubMenus
                 addSpellButton.Visibility = Visibility.Visible;
                 replaceSpellButton.Visibility = Visibility.Collapsed;
 
-
+                spellDictionary.Text = "";
+                spellDictionary.SelectedIndex = -1;
+                spellDescription.Text = "";
                 (App.Current as App).Character.Spellbook.Insert((App.Current as App).Character.Spellbook.IndexOf(replacedSpell), newSpell);
                 (App.Current as App).Character.Spellbook.RemoveAt((App.Current as App).Character.Spellbook.IndexOf(replacedSpell));
             }

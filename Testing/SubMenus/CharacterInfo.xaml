@@ -955,7 +955,8 @@
 
                     <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
                         <TextBlock x:Name="personalityBlock"
-                                   FontSize="24"/>
+                                   TextWrapping="Wrap"
+                                   FontSize="18"/>
                     </Border>
 
                     <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
@@ -995,7 +996,8 @@
 
                   <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
                     <TextBlock x:Name="idealBlock"
-                               FontSize="24"/>
+                               TextWrapping="Wrap"
+                               FontSize="18"/>
                   </Border>
 
                   <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
@@ -1035,7 +1037,8 @@
 
                   <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
                     <TextBlock x:Name="bondBlock"
-                               FontSize="24"/>
+                               TextWrapping="Wrap"
+                               FontSize="18"/>
                   </Border>
 
                   <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
@@ -1075,7 +1078,8 @@
 
                   <Border BorderBrush="#102E66" BorderThickness="2" Grid.Row="1">
                     <TextBlock x:Name="flawBlock"
-                               FontSize="24"/>
+                               TextWrapping="Wrap"
+                               FontSize="18"/>
                   </Border>
 
                   <Grid BorderBrush="#102E66" BorderThickness="2" Grid.Row="2">
