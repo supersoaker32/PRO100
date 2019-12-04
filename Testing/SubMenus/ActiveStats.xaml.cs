@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,6 +25,7 @@ namespace Testing.SubMenus
     /// </summary>
     public sealed partial class ActiveStats : Page
     {
+        int rolledDice = 0;
         public ActiveStats()
         {
             this.InitializeComponent();
@@ -193,7 +197,7 @@ namespace Testing.SubMenus
             {
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
             }
-            else if((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
             {
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
             }
@@ -211,11 +215,11 @@ namespace Testing.SubMenus
                 succ2.IsChecked = false;
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
             }
-            else if((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 1)
             {
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
             }
-            else if(((App.Current as App).Character.ActiveStats.Success_SavingThrows == 2))
+            else if (((App.Current as App).Character.ActiveStats.Success_SavingThrows == 2))
             {
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
             }
@@ -243,7 +247,7 @@ namespace Testing.SubMenus
             {
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows++;
             }
-            else if((App.Current as App).Character.ActiveStats.Success_SavingThrows == 3)
+            else if ((App.Current as App).Character.ActiveStats.Success_SavingThrows == 3)
             {
                 (App.Current as App).Character.ActiveStats.Success_SavingThrows--;
             }
@@ -341,6 +345,95 @@ namespace Testing.SubMenus
             else
             {
                 currentHPBox.Text = "";
+            }
+        }
+
+        private async void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            SetRolledDice();
+            if (rolledDice != 0)
+            {
+                Random rng = new Random();
+                List<int> rolledNumbers = new List<int>();
+
+                for (int i = 0; i < rolledDice; i++)
+                {
+                    rolledNumbers.Add(rng.Next(1, int.Parse((sender as Image).Name.Split('_')[1]) + 1));
+                }
+                string eachRoll = "";
+                rolledNumbers.ForEach(item => eachRoll += item.ToString() + " + ");
+                eachRoll = eachRoll.Remove(eachRoll.Length - 3);
+                MessageDialog message = new MessageDialog(eachRoll, rolledNumbers.Sum().ToString());
+                await message.ShowAsync();
+            }
+            else
+            {
+                MessageDialog message = new MessageDialog("There are no dice to roll.");
+                await message.ShowAsync();
+            }
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetRolledDice();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (rolledDice == 100)
+            {
+
+            }
+            else
+            {
+                numofRolledDice.Text = (rolledDice + 1).ToString();
+                rolledDice += 1;
+            }
+        }
+
+        private void SubtractButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (rolledDice == 0)
+            {
+
+            }
+            else
+            {
+                numofRolledDice.Text = (rolledDice - 1).ToString();
+                rolledDice -= 1;
+            }
+        }
+
+        private void numofRolledDice_LostFocus(object sender, RoutedEventArgs e)
+        {
+            SetRolledDice();
+        }
+
+        private void SetRolledDice()
+        {
+            int numOfDiceToRoll;
+            if (int.TryParse(numofRolledDice.Text, out numOfDiceToRoll))
+            {
+                if (numOfDiceToRoll < 0)
+                {
+                    rolledDice = 0;
+                    numofRolledDice.Text = "0";
+                }
+                else if (numOfDiceToRoll > 100)
+                {
+                    rolledDice = 100;
+                    numofRolledDice.Text = "100";
+                }
+                else
+                {
+                    rolledDice = numOfDiceToRoll;
+                    numofRolledDice.Text = numOfDiceToRoll.ToString();
+                }
+            }
+            else
+            {
+                rolledDice = 0;
+                numofRolledDice.Text = "0";
             }
         }
     }
