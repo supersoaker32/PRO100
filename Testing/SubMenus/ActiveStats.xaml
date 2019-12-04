@@ -408,32 +408,27 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="ms-appx:///Assets/D4.png" Grid.Column="0" Tapped="Image_Tapped"/>
-                        <Image Source="ms-appx:///Assets/D6.png" Grid.Column="1" Tapped="Image_Tapped"/>
-                        <Image Source="ms-appx:///Assets/D8.png" Grid.Column="2" Tapped="Image_Tapped"/>
-                        <Image Source="ms-appx:///Assets/D10.png" Grid.Column="3" Tapped="Image_Tapped"/>
-                        <Image Source="ms-appx:///Assets/D12.png" Grid.Column="4" Tapped="Image_Tapped"/>
-                        <Image Source="ms-appx:///Assets/D20.png" Grid.Column="5" Tapped="Image_Tapped"/>
-                        <Image Source="ms-appx:///Assets/D100WD10.png" Grid.Column="6" Tapped="Image_Tapped"/>
+                        <Image x:Name="D_4" Source="ms-appx:///Assets/D4.png" Grid.Column="0" Tapped="Image_Tapped"/>
+                        <Image x:Name="D_6" Source="ms-appx:///Assets/D6.png" Grid.Column="1" Tapped="Image_Tapped"/>
+                        <Image x:Name="D_8" Source="ms-appx:///Assets/D8.png" Grid.Column="2" Tapped="Image_Tapped"/>
+                        <Image x:Name="D_10" Source="ms-appx:///Assets/D10.png" Grid.Column="3" Tapped="Image_Tapped"/>
+                        <Image x:Name="D_12" Source="ms-appx:///Assets/D12.png" Grid.Column="4" Tapped="Image_Tapped"/>
+                        <Image x:Name="D_20" Source="ms-appx:///Assets/D20.png" Grid.Column="5" Tapped="Image_Tapped"/>
+                        <Image x:Name="D_100" Source="ms-appx:///Assets/D100WD10.png" Grid.Column="6" Tapped="Image_Tapped"/>
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Height="50" Width="50">
-                                <TextBlock Text="-" TextAlignment="Center" FontSize="30" Margin="-25,-24,-26,-28"/>
-                            </Button>
-                            <Canvas Width="100" Height="50">
-                                <TextBox x:Name="numofRolledDice" Text="0" Width="100" Height="50" TextAlignment="Left"/>
-                                <Button x:Name="OkButton" Content="Ok" Width="43" Canvas.Left="57" Height="49" Click="OkButton_Click"/>
-                            </Canvas>
-                            <Button Height="50" Width="50">
-                                <TextBlock Text="+" TextAlignment="Center" FontSize="30" Margin="-25,-24,-25,-28"/>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+                        <Button x:Name="SubtractButton" Height="50" Width="50" Click="SubtractButton_Click">
+                            <TextBlock Text="-" TextAlignment="Center" FontSize="30" Margin="-25,-24,-26,0" Height="52" VerticalAlignment="Top"/>
+                        </Button>
+                        <Canvas Width="100" Height="50">
+                            <TextBox x:Name="numofRolledDice" Text="0" Width="100" Height="50" TextAlignment="Left" AcceptsReturn="False" LostFocus="numofRolledDice_LostFocus"/>
+                            <Button x:Name="OkButton" Content="Ok" Width="43" Canvas.Left="57" Height="49" Click="OkButton_Click"/>
+                        </Canvas>
+                        <Button x:Name="ddButton" Height="50" Width="50" Click="AddButton_Click">
+                            <TextBlock Text="+" TextAlignment="Center" FontSize="30" Margin="-25,-24,-25,-28"/>
+                        </Button>
+                    </StackPanel>
+
                 </Grid>
             </Grid>
         </Grid>
