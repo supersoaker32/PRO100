@@ -452,7 +452,6 @@ namespace Testing
             switch (result)
             {
                 case ContentDialogResult.None:
-
                     break;
                 case ContentDialogResult.Primary:
                 case ContentDialogResult.Secondary:

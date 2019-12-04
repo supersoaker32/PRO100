@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,6 +23,7 @@ namespace Testing.SubMenus
     /// </summary>
     public sealed partial class ActiveStats : Page
     {
+        int rolledDice = 0;
         public ActiveStats()
         {
             this.InitializeComponent();
@@ -341,6 +343,27 @@ namespace Testing.SubMenus
             else
             {
                 currentHPBox.Text = "";
+            }
+        }
+
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            int numOfDiceToRoll;
+            int.TryParse(numofRolledDice.Text, out numOfDiceToRoll);
+            if (numOfDiceToRoll < 0)
+            {
+                rolledDice = 0;
+                numofRolledDice.Text = "0";
+            }
+            else
+            {
+                rolledDice = numOfDiceToRoll;
+                numofRolledDice.Text = numOfDiceToRoll.ToString();
             }
         }
     }
