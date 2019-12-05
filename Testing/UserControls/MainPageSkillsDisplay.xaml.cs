@@ -25,6 +25,10 @@ namespace Testing.UserControls
         public MainPageSkillsDisplay()
         {
             this.InitializeComponent();
+            if(CheckBox == "true")
+            {
+                
+            }
         }
         public string Text
         {
@@ -32,12 +36,12 @@ namespace Testing.UserControls
             set { mod.Text = value; }
         }
 
-        public bool? CheckBox
+        public string CheckBox
         {
-            get { return proficiency.IsChecked; }
+            get { return proficiency.Text; }
             set
             {
-                proficiency.IsChecked = value;
+                proficiency.Text = value;
                 FieldChanged();
             }
         }
@@ -45,6 +49,17 @@ namespace Testing.UserControls
         protected void FieldChanged([CallerMemberName] string field = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+            if (field == "CheckBox")
+            {
+                if (CheckBox == "False")
+                {
+                    proficiency.Text = "";
+                }
+                else
+                {
+                    proficiency.Text = "☑";
+                }
+            }
         }
 
         private void mod_Tapped(object sender, TappedRoutedEventArgs e)

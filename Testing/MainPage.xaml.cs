@@ -181,7 +181,7 @@ namespace Testing
             {
                 skill.DataContext = (App.Current as App).Character.SnPData.SkillModifiers[i];
                 skill.Text = (App.Current as App).Character.SnPData.SkillModifiers[i].Modifier.ToString();
-                skill.CheckBox = (App.Current as App).Character.SnPData.SkillModifiers[i].Proficient;
+                skill.CheckBox = (App.Current as App).Character.SnPData.SkillModifiers[i].Proficient.ToString();
                 i++;
                 //skill.CheckBox = (App.Current as App).Character.SnPData.
             }
@@ -190,7 +190,7 @@ namespace Testing
             {
                 savingThrow.DataContext = (App.Current as App).Character.SnPData.SavingThrows[i];
                 savingThrow.Text = (App.Current as App).Character.SnPData.SavingThrows[i].Modifier.ToString();
-                savingThrow.CheckBox = (App.Current as App).Character.SnPData.SavingThrows[i].Proficient;
+                savingThrow.CheckBox = (App.Current as App).Character.SnPData.SavingThrows[i].Proficient.ToString();
                 i++;
             }
 
@@ -1333,6 +1333,7 @@ namespace Testing
 
                 bool exists = false;
                 int rand = 0;
+                int counter = 0;
                 for (int i = 0; i < skillCount; i++)
                 {
                     do
