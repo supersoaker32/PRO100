@@ -601,6 +601,32 @@ namespace Testing.SubMenus
 
         private void CIBack_Click(object sender, RoutedEventArgs e)
         {
+            (App.Current as App).Character.SnPData.SavingThrows[0].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[0];
+            (App.Current as App).Character.SnPData.SavingThrows[1].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[1];
+            (App.Current as App).Character.SnPData.SavingThrows[2].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[2];
+            (App.Current as App).Character.SnPData.SavingThrows[3].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[3];
+            (App.Current as App).Character.SnPData.SavingThrows[4].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[4];
+            (App.Current as App).Character.SnPData.SavingThrows[5].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[5];
+
+            (App.Current as App).Character.SnPData.SkillModifiers[0].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[1];
+            (App.Current as App).Character.SnPData.SkillModifiers[1].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[4];
+            (App.Current as App).Character.SnPData.SkillModifiers[2].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[3];
+            (App.Current as App).Character.SnPData.SkillModifiers[3].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[0];
+            (App.Current as App).Character.SnPData.SkillModifiers[4].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[5];
+            (App.Current as App).Character.SnPData.SkillModifiers[5].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[3];
+            (App.Current as App).Character.SnPData.SkillModifiers[6].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[4];
+            (App.Current as App).Character.SnPData.SkillModifiers[7].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[5];
+            (App.Current as App).Character.SnPData.SkillModifiers[8].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[3];
+            (App.Current as App).Character.SnPData.SkillModifiers[9].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[4];
+            (App.Current as App).Character.SnPData.SkillModifiers[10].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[3];
+            (App.Current as App).Character.SnPData.SkillModifiers[11].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[4];
+            (App.Current as App).Character.SnPData.SkillModifiers[12].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[5];
+            (App.Current as App).Character.SnPData.SkillModifiers[13].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[5];
+            (App.Current as App).Character.SnPData.SkillModifiers[14].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[3];
+            (App.Current as App).Character.SnPData.SkillModifiers[15].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[1];
+            (App.Current as App).Character.SnPData.SkillModifiers[16].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[1];
+            (App.Current as App).Character.SnPData.SkillModifiers[17].Modifier = (App.Current as App).Character.CharactersInfo.StatMods[4];
+
             this.Frame.Navigate(typeof(MainPage));
         }
     }

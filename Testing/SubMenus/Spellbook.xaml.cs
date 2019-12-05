@@ -161,6 +161,7 @@ namespace Testing.SubMenus
             }
 
             spellDictionary.ItemsSource = (App.Current as App).Dictionary.SpellNames;
+            spellDictionary.Focus(FocusState.Pointer);
         }
 
         private void addSpellButton_Click(object sender, RoutedEventArgs e)
@@ -331,10 +332,13 @@ namespace Testing.SubMenus
                 spellDictionary.Text = "";
                 spellDictionary.SelectedIndex = -1;
                 spellDescription.Text = "";
-
                 (App.Current as App).Character.Spellbook.Insert((App.Current as App).Character.Spellbook.IndexOf(replacedSpell), newSpell);
                 (App.Current as App).Character.Spellbook.RemoveAt((App.Current as App).Character.Spellbook.IndexOf(replacedSpell));
             }
+                spellDictionary.Text = "";
+                spellDictionary.SelectedIndex = -1;
+                spellDescription.Text = "";
+                spellDictionary.Focus(FocusState.Pointer);
         }
 
         private void spellDictionary_SelectionChanged(object sender, SelectionChangedEventArgs e)
