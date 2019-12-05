@@ -92,6 +92,19 @@ namespace Testing.SubMenus
                 textBlock1Border.BorderThickness = new Thickness(3);
                 textBlock1Border.HorizontalAlignment = HorizontalAlignment.Stretch;
 
+                bonusBlock.Text = (App.Current as App).Character.SpellSave.ToString();
+                saveBlock.Text = (App.Current as App).Character.SpellMod.ToString();
+
+                firstSlots.Text = (App.Current as App).Character.SpellSlots[0].ToString();
+                secondSlots.Text = (App.Current as App).Character.SpellSlots[1].ToString();
+                thirdSlots.Text = (App.Current as App).Character.SpellSlots[2].ToString();
+                fourthSlots.Text = (App.Current as App).Character.SpellSlots[3].ToString();
+                fifthSlots.Text = (App.Current as App).Character.SpellSlots[4].ToString();
+                sixthSlots.Text = (App.Current as App).Character.SpellSlots[5].ToString();
+                seventhSlots.Text = (App.Current as App).Character.SpellSlots[6].ToString();
+                eighthSlots.Text = (App.Current as App).Character.SpellSlots[7].ToString();
+                ninthSlots.Text = (App.Current as App).Character.SpellSlots[8].ToString();
+
                 TextBlock row1TextBlock = new TextBlock();
                 row1TextBlock.Name = "spellsName";
                 Binding binding = new Binding();
@@ -352,6 +365,105 @@ namespace Testing.SubMenus
                 }
             }
             spellDescription.Text = (App.Current as App).Dictionary.SpellDescriptions.ElementAt(index);
+        }
+
+        private void bonusOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(bonusBox.Text, out stat);
+            bonusBox.Text = "";
+
+            bonusBlock.Text = stat.ToString();
+        }
+
+        private void saveOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(saveBox.Text, out stat);
+            saveBox.Text = "";
+
+            saveBlock.Text = stat.ToString();
+        }
+
+        private void firstOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(firstBox.Text, out stat);
+            firstBox.Text = "";
+
+            firstSlots.Text = stat.ToString();
+        }
+
+        private void secondOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(secondBox.Text, out stat);
+            secondBox.Text = "";
+
+            secondSlots.Text = stat.ToString();
+        }
+
+        private void thirdOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(thirdBox.Text, out stat);
+            thirdBox.Text = "";
+
+            thirdSlots.Text = stat.ToString();
+        }
+
+        private void fourthOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(fourthBox.Text, out stat);
+            fourthBox.Text = "";
+
+            fourthSlots.Text = stat.ToString();
+        }
+
+        private void fifthOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(fifthBox.Text, out stat);
+            fifthBox.Text = "";
+
+            fifthSlots.Text = stat.ToString();
+        }
+
+        private void sixthOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(sixthBox.Text, out stat);
+            sixthBox.Text = "";
+
+            sixthSlots.Text = stat.ToString();
+        }
+
+        private void seventhOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(seventhBox.Text, out stat);
+            seventhBox.Text = "";
+
+            seventhSlots.Text = stat.ToString();
+        }
+
+        private void eighthOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(eighthBox.Text, out stat);
+            eighthBox.Text = "";
+
+            eighthSlots.Text = stat.ToString();
+        }
+
+        private void ninthOK_Click(object sender, RoutedEventArgs e)
+        {
+            int stat = 0;
+            Int32.TryParse(ninthBox.Text, out stat);
+            ninthBox.Text = "";
+
+            ninthSlots.Text = stat.ToString();
         }
     }
 }

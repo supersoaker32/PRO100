@@ -1311,26 +1311,25 @@ namespace Testing
 
             //PROFS/HEALTH/CLASSNAME
             {
-
-                (App.Current as App).Character.CharactersInfo.CharacterClass = className;
-                (App.Current as App).Character.ActiveStats.MaxHP = hitDie + (App.Current as App).Character.CharactersInfo.StatMods[2];
-                (App.Current as App).Character.ActiveStats.CurrentHP = hitDie + (App.Current as App).Character.CharactersInfo.StatMods[2];
-                if (armorProfs != null) foreach (string s in armorProfs)
-                    {
-                        (App.Current as App).Character.SnPData.Proficiencies.Add(s);
-                    }
-                if (weaponProfs != null) foreach (string s in weaponProfs)
-                    {
-                        (App.Current as App).Character.SnPData.Proficiencies.Add(s);
-                    }
-                if (toolProfs != null) foreach (string s in toolProfs)
-                    {
-                        (App.Current as App).Character.SnPData.Proficiencies.Add(s);
-                    }
-                if (savingProfs != null) foreach (int i in savingProfs)
-                    {
-                        (App.Current as App).Character.SnPData.SavingThrows[i].Proficient = true;
-                    }
+            (App.Current as App).Character.CharactersInfo.CharacterClass = className;
+            (App.Current as App).Character.ActiveStats.MaxHP = hitDie + (App.Current as App).Character.CharactersInfo.StatMods[2];
+            (App.Current as App).Character.ActiveStats.CurrentHP = hitDie + (App.Current as App).Character.CharactersInfo.StatMods[2];
+            if (armorProfs != null) foreach(string s in armorProfs)
+            {
+                (App.Current as App).Character.SnPData.Proficiencies.Add(s);
+            }
+            if (weaponProfs != null) foreach (string s in weaponProfs)
+            {
+                (App.Current as App).Character.SnPData.Proficiencies.Add(s);
+            }
+            if (toolProfs != null) foreach (string s in toolProfs)
+            {
+                (App.Current as App).Character.SnPData.Proficiencies.Add(s);
+            }
+            if (savingProfs != null) foreach (int i in savingProfs)
+            {
+                (App.Current as App).Character.SnPData.SavingThrows[i].Proficient = true;
+            }
 
                 bool exists = false;
                 int rand = 0;
@@ -1348,6 +1347,19 @@ namespace Testing
                             (App.Current as App).Character.SnPData.SkillModifiers[rand].Proficient = true;
                             exists = false;
                         }
+                    for(int iter = 0; i < skillProfs.Count(); i++)
+                    {
+                        if((App.Current as App).Character.SnPData.SkillModifiers[skillProfs.ElementAt(iter)].Proficient == true)
+                        {
+                            counter++;
+                        }
+                    }
+                    if(counter == skillProfs.Count())
+                    {
+                            exists = false;
+                    }
+
+               
                     }
                     while (exists);
                 }
