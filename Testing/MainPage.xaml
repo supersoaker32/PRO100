@@ -22,27 +22,6 @@
             <ColumnDefinition Width="33*"/>
             <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
-        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="failurePopup">
-            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
-                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
-                BorderThickness="2" Width="500" Height="200">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="saveloadText" Text="Failure to Save Character" FontSize="24.667" HorizontalAlignment="Center"/>
-                    <Button Content="Close" Click="ClosePopupClicked" HorizontalAlignment="Center"/>
-                </StackPanel>
-            </Border>
-        </Popup>
-        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="confirmationPopup">
-            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
-                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
-                BorderThickness="2" Width="500" Height="200">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="confirmationText" Text="Are you sure you would like to clear the current character?" FontSize="24.667" HorizontalAlignment="Center" TextWrapping="Wrap"/>
-                    <Button Content="Yes" Click="YesClicked" HorizontalAlignment="Center" Margin="20 0 20 0"/>
-                    <Button Content="No" Click="NoClicked" HorizontalAlignment="Center" Margin="20 0 20 0"/>
-                </StackPanel>
-            </Border>
-        </Popup>
         <MenuBar Height="30" Grid.Row="0" Grid.ColumnSpan="3" Background="PapayaWhip" VerticalAlignment="Top">
             <MenuBarItem Height="20" Title="File">
                 <MenuFlyoutItem Text="Save"
