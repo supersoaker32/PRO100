@@ -1293,6 +1293,7 @@ namespace Testing
 
             bool exists = false;
             int rand = 0;
+            int counter = 0;
             for (int i = 0; i < skillCount; i++)
             {
                 do
@@ -1306,6 +1307,17 @@ namespace Testing
                     {
                         (App.Current as App).Character.SnPData.SkillModifiers[rand].Proficient = true;
                         exists = false;
+                    }
+                    for(int iter = 0; i < skillProfs.Count(); i++)
+                    {
+                        if((App.Current as App).Character.SnPData.SkillModifiers[skillProfs.ElementAt(iter)].Proficient == true)
+                        {
+                            counter++;
+                        }
+                    }
+                    if(counter == skillProfs.Count())
+                    {
+                            exists = false;
                     }
                 }
                 while (exists);

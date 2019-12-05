@@ -9,13 +9,560 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid Background="#330A03">
         <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="8.5*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
+
+        <Grid Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="18*"/>
+                <ColumnDefinition Width="18*"/>
+                <ColumnDefinition Width="64*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--SPELL BONUS-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="5,0,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       Text="Spell Bonus:"/>
+
+                <TextBlock x:Name="bonusBlock"
+                       Margin="0,0,85,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Set Spell Bonus: "
+                               FontSize="20"
+                               TextWrapping="Wrap"/>
+
+                    <TextBox x:Name="bonusBox"
+                             FontSize="24"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                    <Button x:Name="bonusOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="24" Width="54" Click="bonusOK_Click"/>
+                </Grid>
+            </Grid>
+
+            <!--SPELL SAVE-->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="5,0,0,0"
+                       Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       Text="Spell Save DC:"/>
+
+                <TextBlock x:Name="saveBlock"
+                       Grid.Column="1"
+                       Margin="0,0,85,0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Set Spell Save DC: "
+                               FontSize="20"
+                               TextWrapping="Wrap"/>
+
+                    <TextBox x:Name="saveBox"
+                             FontSize="24"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                    <Button x:Name="saveOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="24" Click="saveOK_Click"/>
+                </Grid>
+            </Grid>
+
+
+            <Grid Grid.Column="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!--FIRST SLOT-->
+                <Grid Grid.Column="0"
+                      Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Text="1st Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="firstSlots"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 1st Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="firstBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="firstOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Top"
+                            Content="OK"
+                            FontSize="12" HorizontalAlignment="Stretch" Margin="0,0,-2,0" Height="42" Click="firstOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--SECOND SLOT-->
+                <Grid Grid.Column="1"
+                      Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           FontSize="20"
+                           Text="2nd Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="secondSlots"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 2nd Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="secondBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="secondOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Click="secondOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--THIRD SLOT-->
+                <Grid Grid.Column="2"
+                      Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="2"
+                           FontSize="20"
+                           Text="3rd Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="thirdSlots"
+                           Grid.Row="0"
+                           Grid.Column="2"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 3rd Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="thirdBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="thirdOK"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Grid.ColumnSpan="2" Margin="75,0,0,0" Width="38" Click="thirdOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--FOURTH SLOT-->
+                <Grid Grid.Column="3"
+                      Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="3"
+                           FontSize="20"
+                           Text="4th Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="fourthSlots"
+                           Grid.Row="0"
+                           Grid.Column="3"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 4th Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="fourthBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="fourthOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Click="fourthOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--FIFTH SLOT-->
+                <Grid Grid.Column="4"
+                      Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="4"
+                           FontSize="20"
+                           Text="5th Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="fifthSlots"
+                           Grid.Row="0"
+                           Grid.Column="4"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 5th Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="fifthBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="fifthOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Click="fifthOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--SIXTH SLOT-->
+                <Grid Grid.Column="0"
+                      Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock 
+                           Grid.Column="0"
+                           FontSize="20"
+                           Text="6th Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="sixthSlots"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 6th Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="sixthBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="sixthOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Click="sixthOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--SEVENTH SLOT-->
+                <Grid Grid.Column="1"
+                      Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           FontSize="20"
+                           Text="7th Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="seventhSlots"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 7th Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="seventhBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="seventhOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Click="seventhOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--EIGHTH SLOT-->
+                <Grid Grid.Column="2"
+                      Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="2"
+                           FontSize="20"
+                           Text="8th Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="eighthSlots"
+                           Grid.Row="1"
+                           Grid.Column="2"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 8th Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="eighthBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="eighthOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Click="eighthOK_Click"/>
+                    </Grid>
+                </Grid>
+
+                <!--NINTH SLOT-->
+                <Grid Grid.Column="3"
+                      Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Grid.Row="0"
+                           Grid.Column="3"
+                           FontSize="20"
+                           Text="9th Level: "
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="ninthSlots"
+                           Grid.Row="1"
+                           Grid.Column="3"
+                           FontSize="20"
+                           Margin="0,0,15,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Set 9th Slots: "
+                               FontSize="12"
+                               TextWrapping="Wrap"/>
+
+                        <TextBox x:Name="ninthBox"
+                             FontSize="12"
+                             Grid.Column="1"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"/>
+
+                        <Button x:Name="ninthOK"
+                            Grid.Column="2"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Content="OK"
+                            FontSize="12" Click="ninthOK_Click"/>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+        <ScrollViewer Grid.Row="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
             <StackPanel x:Name="Spells" Background="Transparent"/>
         </ScrollViewer>
-        <Grid Grid.Row="1" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
+        <Grid Grid.Row="2" Background="PapayaWhip" BorderBrush="#102E66" BorderThickness="8" Margin="3"  CornerRadius="22">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
