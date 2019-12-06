@@ -8,6 +8,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core.Preview;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -77,9 +79,26 @@ namespace Testing
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
+                SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += App_CloseRequested;
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+        }
+
+        private async void App_CloseRequested(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        {
+            var deferral = e.GetDeferral();
+            var dialog = new MessageDialog("Are you sure you want to exit?", "Exit");
+            var confirmCommand = new UICommand("Yes");
+            var cancelCommand = new UICommand("No");
+            dialog.Commands.Add(confirmCommand);
+            dialog.Commands.Add(cancelCommand);
+            if (await dialog.ShowAsync() == cancelCommand)
+            {
+                //cancel close by handling the event
+                e.Handled = true;
+            }
+            deferral.Complete();
         }
 
         /// <summary>
