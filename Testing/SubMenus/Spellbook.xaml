@@ -376,7 +376,7 @@
                            VerticalAlignment="Center"/>
 
                     <TextBlock x:Name="sixthSlots"
-                           Grid.Row="1"
+                           Grid.Row="0"
                            Grid.Column="0"
                            FontSize="20"
                            Margin="0,0,15,0"
@@ -424,7 +424,7 @@
                            VerticalAlignment="Center"/>
 
                     <TextBlock x:Name="seventhSlots"
-                           Grid.Row="1"
+                           Grid.Row="0"
                            Grid.Column="1"
                            FontSize="20"
                            Margin="0,0,15,0"
@@ -473,7 +473,7 @@
                            VerticalAlignment="Center"/>
 
                     <TextBlock x:Name="eighthSlots"
-                           Grid.Row="1"
+                           Grid.Row="0"
                            Grid.Column="2"
                            FontSize="20"
                            Margin="0,0,15,0"
@@ -523,7 +523,7 @@
                            VerticalAlignment="Center"/>
 
                     <TextBlock x:Name="ninthSlots"
-                           Grid.Row="1"
+                           Grid.Row="0"
                            Grid.Column="3"
                            FontSize="20"
                            Margin="0,0,15,0"
@@ -588,10 +588,10 @@
             <TextBox x:Name="spellDescription" Grid.Column="1" Grid.Row="1"/>
 
             <Button x:Name="addSpellButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="addSpellButton_Click">
-                <TextBlock Text="Add Spell" FontSize="30" TextWrapping="Wrap"/>
+                <TextBlock Text="Add" FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Right" Width="64"/>
             </Button>
             <Button x:Name="replaceSpellButton" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="replaceSpellButton_Click">
-                <TextBlock Text="Replace Spell" FontSize="30" TextWrapping="Wrap"/>
+                <TextBlock Text="Replace" FontSize="30" TextWrapping="Wrap"/>
             </Button>
             <Button x:Name="backButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3" Click="backButton_Click">
                 <TextBlock Text="Back" FontSize="30" TextWrapping="Wrap"/>
